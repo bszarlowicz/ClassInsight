@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dayOfWeek: MyString
+  hour: 2024-02-18 21:22:00
+
+two:
+  dayOfWeek: MyString
+  hour: 2024-02-18 21:22:00
