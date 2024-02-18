@@ -14,3 +14,34 @@
  *= require_self
  */
  @import "bootstrap";
+ @import 'login.scss';
+
+ @font-face {
+    font-family: 'Maitree';
+    src: font-url('Maitree-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'Poppins';
+    src: font-url('Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: font-url('Poppins-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+:root {
+    --green-0-color: #c3debe;
+    --green-1-color: #a2d8a6;
+    --green-2-color: #70cf95;
+    --green-3-color: #47b278;
+    --green-4-color: #008c59;
+    --beige-login-color: #eae5e1;
+    --beige-login-outline-color: #c0bdba;
+  }
