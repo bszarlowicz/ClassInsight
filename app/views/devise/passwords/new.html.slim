@@ -1,0 +1,16 @@
+.login-background-img
+  .row
+    .col-md-12.text-center.d-flex.justify-content-center
+      .login-container
+        h2 Zapomniałeś hasła?
+
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = render "devise/shared/error_messages", resource: resource
+
+          .field
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-custom-field", placeholder: "Email"
+
+          .actions
+            = f.submit "Resetuj hasło", class: "input-custom-button password-reset-button"
+
+        = render "devise/shared/links"
