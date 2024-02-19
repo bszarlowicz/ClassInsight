@@ -1,0 +1,21 @@
+.login-background-img
+  .row
+    .col-md-12.text-center.d-flex.justify-content-center
+      .login-container
+        h2 Zarejestruj się
+
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+
+          .field
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-custom-field", placeholder: "Email"
+          .field
+            = f.password_field :password, autocomplete: "new-password", class: "input-custom-field", placeholder: "Hasło (#{@minimum_password_length} znaków minimalnie)"
+
+          .field
+            = f.password_field :password_confirmation, autocomplete: "new-password", class: "input-custom-field", placeholder: "Potwierdzenie hasła"
+
+          .actions
+            = f.submit "Zarejestruj się", class: "input-custom-button"
+
+        = render "devise/shared/links"
