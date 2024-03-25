@@ -11,7 +11,7 @@ html
 
   body
     -if notice
-      .alert.alert-success = notice
+      .alert.alert-success.m-0 = notice
     -elsif alert
-      .alert.alert-danger = alert
+      .alert.alert-danger.m-0 = alert
     == yield
