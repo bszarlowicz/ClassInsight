@@ -6,9 +6,9 @@
 
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .field
-            = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-custom-field", placeholder: "Email"
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "login-field", placeholder: "Email"
           .field
-            = f.password_field :password, autocomplete: "current-password", class: "input-custom-field", placeholder: "Hasło"
+            = f.password_field :password, autocomplete: "current-password", class: "login-field", placeholder: "Hasło"
 
           - if devise_mapping.rememberable?
             .field
@@ -16,7 +16,7 @@
               = f.label "Zapamiętaj mnie"
 
           .actions
-            = f.submit "Zaloguj", class: "input-custom-button"
+            = f.submit "Zaloguj", class: "login-button"
 
         = render "devise/shared/links"
 
