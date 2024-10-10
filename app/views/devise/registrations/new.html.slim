@@ -2,7 +2,7 @@
   .row
     .col-md-12.text-center.d-flex.justify-content-center
       .login-container
-        h2 Zarejestruj się
+        h2 = t(:registration)
 
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           = render "devise/shared/error_messages", resource: resource
@@ -16,6 +16,6 @@
             = f.password_field :password_confirmation, autocomplete: "new-password", class: "login-field", placeholder: "Potwierdzenie hasła"
 
           .actions
-            = f.submit "Zarejestruj się", class: "login-button"
+            = f.submit t(:register), class: "login-button"
 
         = render "devise/shared/links"
