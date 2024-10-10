@@ -8,9 +8,9 @@
           = render "devise/shared/error_messages", resource: resource
 
           .field
-            = f.email_field :email, autofocus: true, autocomplete: "email", class: "login-field", placeholder: "Email"
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "login-field", placeholder: t(:email)
 
           .actions
-            = f.submit "Resetuj hasło", class: "login-button password-reset-button"
+            = f.submit t(:reset_password), class: "login-button password-reset-button"
 
         = render "devise/shared/links"

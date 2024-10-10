@@ -58,6 +58,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+  gem 'letter_opener', '~> 1.8', '>= 1.8.1'
 end
 
 group :test do
@@ -67,6 +70,19 @@ group :test do
 end
 
 gem 'slim-rails'
-gem "sassc-rails"
 gem 'bootstrap', '~> 5.1.3'
+gem 'simple_form', '~> 5.3'
+gem 'jquery-rails', '~> 4.6'
+gem 'select2-rails', '~> 4.0', '>= 4.0.13'
+gem 'chosen-rails', '~> 1.10'
+gem 'font_awesome5_rails', '~> 1.5'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
+gem 'cancancan', '~> 3.5'
+gem 'ransack', '~> 4.0'
+gem 'active_storage_validations', '~> 1.0', '>= 1.0.3'
+gem 'exception_notification', '~> 4.5'
+gem "sassc-rails"
 gem "devise"
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+gem "breadcrumbs_on_rails"
+gem 'phonelib'
