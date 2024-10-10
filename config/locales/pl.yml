@@ -32,12 +32,10 @@ pl:
   registration: Rejestracja
   register: Zarejestruj
   log_in: Zaloguj
-  email: Email
-  password: Hasło
-  eassword_confirmation: Potwierdzenie hasła
   remember_me: Zapamiętaj mnie
   forget_password: Zapomniałeś swojego hasła?
   reset_password: Zresetuj hasło
+  didnt_receive_unlock_instructions: Nie otrzymałeś wiadomości potwierdzającej?
   
   activities:
     reservation_created: Dokonał rezerwacji
@@ -45,9 +43,8 @@ pl:
 
   roles:
     admin: Administrator
-    standard: "Konto Podstawowe"
-    owner: "Właściciel"
-    assistant: Asystent
+    teacher: Nauczyciel
+    student: Uczeń
 
   date:
     abbr_day_names:

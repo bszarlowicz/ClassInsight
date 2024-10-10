@@ -4,18 +4,6 @@
       .login-container
         h2 = t(:registration)
 
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          = render "devise/shared/error_messages", resource: resource
-
-          .field
-            = f.email_field :email, autofocus: true, autocomplete: "email", class: "login-field", placeholder: "Email"
-          .field
-            = f.password_field :password, autocomplete: "new-password", class: "login-field", placeholder: "Hasło (#{@minimum_password_length} znaków minimalnie)"
-
-          .field
-            = f.password_field :password_confirmation, autocomplete: "new-password", class: "login-field", placeholder: "Potwierdzenie hasła"
-
-          .actions
-            = f.submit t(:register), class: "login-button"
+        = render "form"
 
         = render "devise/shared/links"
