@@ -1,3 +1,5 @@
+@import "base/colors.css.scss";
+
 .login-background-img{
     background: image-url('login-background-img.jpg');
     background-size: cover;
@@ -16,29 +18,28 @@
     border: 1px solid black;
     padding: 36px;
     margin-top: 25vh;
-    font-family: 'Poppins', sans-serif;
 }
 
-.input-custom-field{
-    border: 1px solid var(--beige-login-outline-color);
+.login-field{
+    border: 1px solid $beige-login-outline-color;
     border-radius: 15px;
-    background-color: var( --beige-login-color);
+    background-color: $beige-login-color;
     padding: 12px;
     margin: 10px 0;
     width: 80%;
 }
 
-.input-custom-button{
+.login-button{
     background-color: #FDF7E4;
     border-radius: 13px;
     padding: 12px;
     margin: 5px 0;
-    border: 1px solid var(--beige-login-outline-color);
+    border: 1px solid $beige-login-outline-color;
 }
 
-.input-custom-button:hover{
+.login-button:hover{
     background-color: #DED0B6;
-    border: 1px solid  var( --beige-login-color);
+    border: 1px solid  $beige-login-color;
 }
 
 .link-login{
@@ -49,10 +50,4 @@
 
 .password-reset-button{
     font-size: 13px;
-}
-
-@media only screen and (max-width: 760px) {
-    .login-container{
-        width: 90vw;
-    }
 }

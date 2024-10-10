@@ -8,14 +8,14 @@
           = render "devise/shared/error_messages", resource: resource
 
           .field
-            = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-custom-field", placeholder: "Email"
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "login-field", placeholder: "Email"
           .field
-            = f.password_field :password, autocomplete: "new-password", class: "input-custom-field", placeholder: "Hasło (#{@minimum_password_length} znaków minimalnie)"
+            = f.password_field :password, autocomplete: "new-password", class: "login-field", placeholder: "Hasło (#{@minimum_password_length} znaków minimalnie)"
 
           .field
-            = f.password_field :password_confirmation, autocomplete: "new-password", class: "input-custom-field", placeholder: "Potwierdzenie hasła"
+            = f.password_field :password_confirmation, autocomplete: "new-password", class: "login-field", placeholder: "Potwierdzenie hasła"
 
           .actions
-            = f.submit "Zarejestruj się", class: "input-custom-button"
+            = f.submit "Zarejestruj się", class: "login-button"
 
         = render "devise/shared/links"
