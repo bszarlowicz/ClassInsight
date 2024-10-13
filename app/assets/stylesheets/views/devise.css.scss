@@ -1,53 +1,153 @@
 @import "base/colors.css.scss";
 
 .login-background-img{
-    background: image-url('login-background-img.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: $orange-1-color;
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px);
+}
+
+.login-panel{
+    width: 90vw;
+    height: 85vh;
+    border-radius: 12px;
+    display: flex;
+    overflow-y: scroll;
+}
+
+.login-info-section, .login-form-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-info-section{
+    width: 60%;
+    background-color: $orange-2-color;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.login-form-section{
+    width: 40%;
+    background-color: $orange-0-color;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 .login-container{
-    backdrop-filter: blur(15px);
-    background: rgba(255, 255, 255, 0.2);
-    width: 30vw;
-    border-radius: 15px;
-    border: 1px solid black;
-    padding: 36px;
-    margin-top: 25vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+
+    form{
+        width: 100%;
+        padding: 0 50px;
+
+        input[type="checkbox" i]{
+            background-color: #ff3700;
+            border-color: #ff1900;
+        }
+    }
+}
+
+.login-container-register{
+    padding-bottom: 0px;
+}
+
+.mentora-icon{
+    padding-bottom: 5px;
+    width: 250px;
+}
+
+.mentora-icon-register{
+    padding: 0;
 }
 
 .login-field{
-    border: 1px solid $beige-login-outline-color;
-    border-radius: 15px;
-    background-color: $beige-login-color;
+    border: 1px solid white;
+    border-radius: 6px;
+    background-color: white;
     padding: 12px;
     margin: 10px 0;
-    width: 80%;
+    width: 100%;
 }
+
+.actions{
+    display: flex;
+    justify-content: center;
+}
+
 
 .login-button{
-    background-color: #FDF7E4;
-    border-radius: 13px;
+    background-color: $orange-3-color;
+    color: white;
+    border-radius: 6px;
     padding: 12px;
-    margin: 5px 0;
-    border: 1px solid $beige-login-outline-color;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    &:hover{
+        background-color: $orange-4-color;
+    }
+    
 }
 
-.login-button:hover{
-    background-color: #DED0B6;
-    border: 1px solid  $beige-login-color;
+.login-link-container{
+    font-size: 13px;
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    padding: 10px 0;
 }
 
-.link-login{
+.login-link-container-register{
+    padding: 0;
+}
+
+.login-form-link{
+    text-decoration: none;
+    color: $orange-3-color;
+    font-weight: 600;
+    &:hover{
+        color: $orange-4-color;
+    }
+}
+
+.password-reminder-container{
+    padding: 0 50px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.login-form-link-black{
+    font-size: 12px;
     text-decoration: none;
     color: black;
-    font-size: 12px;
+    font-weight: 600;
+    &:hover{
+        color: $orange-4-color;
+    }
+}
+
+.password-register-container{
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    width: 100% !important;
 }
 
 .password-reset-button{
     font-size: 13px;
 }
+
+
