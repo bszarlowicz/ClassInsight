@@ -3,8 +3,9 @@
 
     = f.input :name, autofocus: true, label: false, input_html: { class: "login-field", placeholder: User.human_attribute_name(:name) }
     = f.input :email, autofocus: true, label: false, input_html: { class: "login-field", placeholder: User.human_attribute_name(:email) }
-    = f.input :password, autofocus: true, label: false, input_html: { class: "login-field", placeholder: "Hasło (#{@minimum_password_length} znaków minimalnie)" }
-    = f.input :password_confirmation, autofocus: true, label: false, input_html: { class: "login-field", placeholder: User.human_attribute_name(:password_confirmation) }
+    .password-register-container
+        = f.input :password, autofocus: true, label: false, input_html: { class: "login-field", placeholder: "Hasło (#{@minimum_password_length} znaków minimalnie)" }
+        = f.input :password_confirmation, autofocus: true, label: false, input_html: { class: "login-field", placeholder: User.human_attribute_name(:password_confirmation) }
     = f.input :phone, autofocus: true, label: false, input_html: { class: "login-field", placeholder: User.human_attribute_name(:phone) }
 
     = f.submit t(:register), class: "login-button"

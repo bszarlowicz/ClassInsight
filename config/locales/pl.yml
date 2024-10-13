@@ -31,11 +31,13 @@ pl:
   login: Logowanie
   registration: Rejestracja
   register: Zarejestruj
-  log_in: Zaloguj
+  log_in: Zaloguj się
   remember_me: Zapamiętaj mnie
   forget_password: Zapomniałeś swojego hasła?
   reset_password: Zresetuj hasło
   didnt_receive_unlock_instructions: Nie otrzymałeś wiadomości potwierdzającej?
+  create_account: Załóż konto
+  here: tutaj!
   
   activities:
     reservation_created: Dokonał rezerwacji

@@ -1,10 +1,14 @@
 .login-background-img
-  .row
-    .col-12.text-center.d-flex.justify-content-center
+  .login-panel
+    .login-info-section
+    .login-form-section
       .login-container
-        h2 = t(:login)
+        = image_tag asset_url("mentora.svg"), class: "mentora-icon"
+        .login-link-container
+          = t(:create_account)
+          = link_to t(:here), new_registration_path(resource_name), class: "login-form-link"
 
         = render "form"
-
-        = render "devise/shared/links"
+        .password-reminder-container
+         = link_to t(:forget_password), new_password_path(resource_name), class: "login-form-link-black"
 

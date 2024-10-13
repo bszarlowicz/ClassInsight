@@ -3,9 +3,9 @@
     = f.input :email, autofocus: true, label: false, input_html: { class: "login-field", placeholder: User.human_attribute_name(:email) }
     = f.input :password, autofocus: true, label: false, input_html: { class: "login-field", placeholder: User.human_attribute_name(:password) }
 
-    - if devise_mapping.rememberable?
-        = f.check_box :remember_me, class: "mx-2"
-        = f.label t(:remember_me)
+    / - if devise_mapping.rememberable?
+    /     = f.check_box :remember_me, class: "mx-2"
+    /     = f.label t(:remember_me)
 
     .actions
         = f.submit t(:log_in), class: "login-button"

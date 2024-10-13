@@ -1,9 +1,11 @@
 .login-background-img
-  .row
-    .col-md-12.text-center.d-flex.justify-content-center
-      .login-container
-        h2 = t(:registration)
+  .login-panel
+    .login-info-section
+    .login-form-section
+      .login-container.login-container-register
+        = image_tag asset_url("mentora.svg"), class: "mentora-icon  mentora-icon-register"
+        .login-link-container.login-link-container-register
+          = t(:log_in)
+          = link_to t(:here), new_session_path(resource_name), class: "login-form-link"
 
         = render "form"
-
-        = render "devise/shared/links"
