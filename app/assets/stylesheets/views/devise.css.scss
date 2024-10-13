@@ -52,10 +52,10 @@
         width: 100%;
         padding: 0 50px;
 
-        input[type="checkbox" i]{
-            background-color: #ff3700;
-            border-color: #ff1900;
-        }
+        input:focus {
+            border-color: $orange-4-color;
+            outline: none !important;
+          }
     }
 }
 
@@ -76,7 +76,7 @@
     border: 1px solid white;
     border-radius: 6px;
     background-color: white;
-    padding: 12px;
+    padding: 10px;
     margin: 10px 0;
     width: 100%;
 }
@@ -91,7 +91,7 @@
     background-color: $orange-3-color;
     color: white;
     border-radius: 6px;
-    padding: 12px;
+    padding: 10px;
     margin: 10px 0;
     border: none;
     width: 100%;
@@ -110,7 +110,7 @@
 }
 
 .login-link-container-register{
-    padding: 0;
+    padding: 10px;
 }
 
 .login-form-link{
@@ -140,14 +140,12 @@
 }
 
 .password-register-container{
-    display: flex;
+    display: inline-flex;
     gap: 5px;
-    justify-content: space-between;
-    width: 100% !important;
+    width: 100%;
 }
 
-.password-reset-button{
-    font-size: 13px;
+.password-register-container > * {
+    flex-grow: 1;
 }
-
 

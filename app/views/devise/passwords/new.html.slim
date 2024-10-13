@@ -1,16 +1,11 @@
 .login-background-img
-  .row
-    .col-md-12.text-center.d-flex.justify-content-center
+  .login-panel
+    .login-info-section
+    .login-form-section
       .login-container
-        h2 Zapomniałeś hasła?
-
-        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-          = render "devise/shared/error_messages", resource: resource
-
-          .field
-            = f.email_field :email, autofocus: true, autocomplete: "email", class: "login-field", placeholder: t(:email)
-
-          .actions
-            = f.submit t(:reset_password), class: "login-button password-reset-button"
-
-        = render "devise/shared/links"
+        = image_tag asset_url("mentora.svg"), class: "mentora-icon"
+        .login-link-container
+          = t(:enter_email)
+        = render "form"
+        .login-link-container
+          = link_to t(:back), new_session_path(resource_name), class: "login-form-link-black"
