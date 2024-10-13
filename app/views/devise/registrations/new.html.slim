@@ -5,6 +5,8 @@
       .login-container.login-container-register
         = image_tag asset_url("mentora.svg"), class: "mentora-icon  mentora-icon-register"
         .login-link-container.login-link-container-register
+          = t(:have_account_already)
+          | &nbsp;
           = t(:log_in)
           = link_to t(:here), new_session_path(resource_name), class: "login-form-link"
 

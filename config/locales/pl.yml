@@ -30,7 +30,7 @@ pl:
   bool_no: Nie
   login: Logowanie
   registration: Rejestracja
-  register: Zarejestruj
+  register: Zarejestruj się
   log_in: Zaloguj się
   remember_me: Zapamiętaj mnie
   forget_password: Zapomniałeś swojego hasła?
@@ -38,6 +38,9 @@ pl:
   didnt_receive_unlock_instructions: Nie otrzymałeś wiadomości potwierdzającej?
   create_account: Załóż konto
   here: tutaj!
+  have_account_already: Masz już konto?
+  back: Powróć
+  enter_email: Wprowadź swój email
   
   activities:
     reservation_created: Dokonał rezerwacji
