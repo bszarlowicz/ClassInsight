@@ -58,6 +58,7 @@ pl:
       expired: "wygasło, proszę poproś o nowe"
       not_found: "nie znaleziono"
       not_locked: "nie zostało zablokowane"
+      
       not_saved:
         one: "1 błąd uniemożliwił zapisanie tego %{resource}:"
         other: "%{count} błędów uniemożliwiło zapisanie tego %{resource}:"

@@ -7,9 +7,14 @@ pl:
           attributes:
             email:
               taken: "Ten email jest już zajęty"
+              blank: "Email nie może być pusty"
+              invalid: "Email jest nieprawidłowy"
+            name:
+              blank: "Imię i nazwisko nie może być puste"
             password:
               blank: "Podaj hasło"
-              too_weak: "jest za słabe"
+              too_short: Hasło jest za krótkie (przynajmniej 8 znaków)
+              invalid_format: "Hasło musi zawierać przynajmniej 1 cyfrę, 1 dużą literę i 1 znak specjalny"
             password_confirmation:
               confirmation: "Podane hasła nie są identyczne"
     models:
@@ -22,8 +27,8 @@ pl:
         email: "Email"
         password: "Hasło"
         password_confirmation: "Potwierdź hasło"
-        name: Imię i nazwisko
-        phone: Telefon
+        name: "Imię i nazwisko"
+        phone: "Telefon"
  
 
   bool_yes: Tak
@@ -41,6 +46,7 @@ pl:
   have_account_already: Masz już konto?
   back: Powróć
   enter_email: Wprowadź swój email
+  correct_following_errors: Popraw błędy formularza
   
   activities:
     reservation_created: Dokonał rezerwacji
@@ -136,6 +142,7 @@ pl:
       taken: zostało już zajęte
       too_long: jest za długie (maksymalnie %{count} znaków)
       too_short: jest za krótkie (przynajmniej %{count} znaków)
+      invalid_password_format: "musi zawierać przynajmniej 1 cyfrę, 1 dużą literę i 1 znak specjalny"
       wrong_length: ma nieprawidłową długość (powinna wynosić %{count} znaków)
     template:
       body: ! 'Błędy dotyczą następujących pól:'

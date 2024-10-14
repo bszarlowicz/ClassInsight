@@ -1,1 +1,19 @@
 @import "base/colors.css.scss";
+
+.errors-notify-text{
+    font-size: 12px;
+    color: red;
+    margin-bottom: 0;
+}
+
+.error{
+    font-size: 12px;
+    color: red;
+}
+
+.field_with_errors{
+    input{
+        margin-bottom: 0px;
+        border: 1px solid red;
+    }
+}

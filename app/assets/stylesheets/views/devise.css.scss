@@ -16,7 +16,6 @@
     height: 85vh;
     border-radius: 12px;
     display: flex;
-    overflow-y: scroll;
 }
 
 .login-info-section, .login-form-section{
@@ -38,6 +37,9 @@
     background-color: $orange-0-color;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
+    overflow-y: scroll;
+    padding-top: 80px;
+    padding-bottom: 40px;
 }
 
 .login-container{
@@ -147,5 +149,12 @@
 
 .password-register-container > * {
     flex-grow: 1;
+    width: 50%;
+}
+
+.login-alert{
+    font-size: 12px;
+    color: red;
+    text-align: center;
 }
 

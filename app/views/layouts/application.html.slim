@@ -10,8 +10,9 @@ html
     = javascript_importmap_tags
 
   body
-    -if notice
-      .alert.alert-success.m-0 = notice
-    -elsif alert
-      .alert.alert-danger.m-0 = alert
+    - unless controller_name == 'sessions'
+      -if notice
+        .alert.alert-success.m-0 = notice
+      -elsif alert 
+        .alert.alert-danger.m-0 = alert
     == yield

@@ -1,5 +1,9 @@
 = simple_form_for(resource, as: @resource_name, url: session_path(resource_name)) do |f|
     = render "devise/shared/error_messages", resource: resource
+
+    -if alert
+        .login-alert.m-0 = alert
+        
     = f.input :email, autofocus: true, label: false, input_html: { class: "login-field", placeholder: User.human_attribute_name(:email) }
     = f.input :password, autofocus: true, label: false, input_html: { class: "login-field", placeholder: User.human_attribute_name(:password) }
 
