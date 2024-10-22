@@ -47,6 +47,13 @@ pl:
   back: Powróć
   enter_email: Wprowadź swój email
   correct_following_errors: Popraw błędy formularza
+  manage_your_lessons_in_one_place: Zarządzaj lekcjami w jednym miejscu!
+  effortless_planning: Planowanie bez wysiłku.
+  learning_tailored_to_your_schedule: Nauka dostosowana do Twojego harmonogramu.
+  individual_approach_to_education: Indywidualne podejście do edukacji.
+  mentoring_at_the_next_level: Mentoring na najwyższym poziomie.
+  your_knowledge_their_future: Twoja wiedza, ich przyszłość.
+
   
   activities:
     reservation_created: Dokonał rezerwacji

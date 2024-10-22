@@ -1,6 +1,7 @@
 .login-background-img
   .login-panel
     .login-info-section
+      = render 'devise/shared/landing_carousel'
     .login-form-section
       .login-container
         = image_tag asset_url("mentora.svg"), class: "mentora-icon"
@@ -11,4 +12,3 @@
         = render "form"
         .password-reminder-container
          = link_to t(:forget_password), new_password_path(resource_name), class: "login-form-link-black"
-

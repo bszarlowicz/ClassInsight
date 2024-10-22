@@ -16,6 +16,7 @@
     height: 85vh;
     border-radius: 12px;
     display: flex;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .login-info-section, .login-form-section{
@@ -23,6 +24,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 100%;
 }
 
 .login-info-section{
@@ -30,6 +32,7 @@
     background-color: $orange-2-color;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
+    overflow-y: hidden;
 }
 
 .login-form-section{
@@ -40,6 +43,21 @@
     overflow-y: scroll;
     padding-top: 80px;
     padding-bottom: 40px;
+}
+
+.info-icon-container{
+    background-color: $orange-1-color;
+    border-radius: 61% 39% 62% 38% / 42% 33% 67% 58%;
+    width: 450px;
+    height: 400px;
+}
+
+.info-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 400px;
 }
 
 .login-container{
@@ -158,3 +176,13 @@
     text-align: center;
 }
 
+
+.carousel-text-main, .carousel-text-addition{
+  text-align: center;
+  color: $orange-0-color;
+}
+
+.carousel-text-main{
+  font-size: 23px;
+  margin-bottom: 2px;
+}

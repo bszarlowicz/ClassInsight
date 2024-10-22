@@ -1,0 +1,18 @@
+.info-icon-container data-controller="carousel"
+  #carouselAuto.carousel.slide
+    .carousel-inner
+      .carousel-item.active
+        = image_tag asset_url("landing_image_1.svg"), class: "info-icon"
+        .carousel-text
+          p.carousel-text-main = t(:mentoring_at_the_next_level)
+          p.carousel-text-addition = t(:your_knowledge_their_future)
+      .carousel-item
+        = image_tag asset_url("landing_image_3.svg"), class: "info-icon"
+        .carousel-text
+          p.carousel-text-main = t(:manage_your_lessons_in_one_place)
+          p.carousel-text-addition = t(:effortless_planning)
+      .carousel-item
+        = image_tag asset_url("landing_image_2.svg"), class: "info-icon"
+        .carousel-text
+          p.carousel-text-main = t(:individual_approach_to_education)
+          p.carousel-text-addition = t(:learning_tailored_to_your_schedule)
