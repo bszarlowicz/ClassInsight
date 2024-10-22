@@ -3,7 +3,6 @@ import * as bootstrap from 'bootstrap';
 
 export default class extends Controller {
   connect() {
-    console.log('chuj')
     this.startCarousel();
   }
 
