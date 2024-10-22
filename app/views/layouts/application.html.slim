@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title ClassInsight
+    title Mentora
     meta name='viewport' content='width=device-width, initial-scale=1'
     = csrf_meta_tags
     = csp_meta_tag
@@ -11,8 +11,5 @@ html
 
   body
     - unless controller_name == 'sessions'
-      -if notice
-        .alert.alert-success.m-0 = notice
-      -elsif alert 
-        .alert.alert-danger.m-0 = alert
-    == yield
+      = render 'flash'
+    = yield

@@ -53,6 +53,8 @@ pl:
   individual_approach_to_education: Indywidualne podejście do edukacji.
   mentoring_at_the_next_level: Mentoring na najwyższym poziomie.
   your_knowledge_their_future: Twoja wiedza, ich przyszłość.
+  close: "Zamknij"
+  incorrect_login_data: Niepoprawne dane logowania
 
   
   activities:
