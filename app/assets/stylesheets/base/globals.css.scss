@@ -1,5 +1,11 @@
+@import "base/colors.css.scss";
+
 *{
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background-color: $main-site-background-color;
 }
 
 .hidden{

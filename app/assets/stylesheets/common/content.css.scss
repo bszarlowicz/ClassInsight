@@ -1,0 +1,41 @@
+@import "base/colors.css.scss";
+
+.content{
+  padding: 20px 30px;
+  display: flex;
+  min-height: 100vh;
+
+  .content-group{
+    width: 100%;
+    display: flex;
+    background-color: white;
+    border-radius: 34px;
+
+    .left-menu{
+      width: 280px;
+      box-sizing: border-box;
+      background-color: white;
+      border-top-left-radius: 34px;
+      border-bottom-left-radius: 34px;
+
+      .top{
+        padding-top: 40px;
+      }
+
+      .logo{
+        width: 240px;
+        margin-left: 40px;
+      }
+    }
+
+    .right-content{
+      flex: 1;
+      background-color: $main-content-background-color;
+      box-sizing: border-box;
+      margin-top: 20px;
+      margin-right: 20px;
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+    }
+  }
+}
