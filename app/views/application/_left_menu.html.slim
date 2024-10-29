@@ -1,0 +1,13 @@
+.left-menu
+  .left-menu-container
+    .top
+      = image_tag asset_url("mentora_logo_inline.svg"), class: "logo"
+      .main-links
+        - if current_user.is? :admin
+          = render "admin_left_links"
+        - elsif current_user.is? :teacher
+          = render "teacher_left_links"
+        -else
+          = render "student_left_links"
+    .bottom
+      / = render "left_menu_link", icon: "sign-out-alt", text: "Logout", url: logout_path, active: false
