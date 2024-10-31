@@ -75,7 +75,7 @@ gem 'simple_form', '~> 5.3'
 gem 'jquery-rails', '~> 4.6'
 gem 'select2-rails', '~> 4.0', '>= 4.0.13'
 gem 'chosen-rails', '~> 1.10'
-gem 'font_awesome5_rails', '~> 1.5'
+gem "font-awesome-rails"
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'cancancan', '~> 3.5'
 gem 'ransack', '~> 4.0'

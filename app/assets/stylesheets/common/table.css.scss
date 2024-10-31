@@ -1,0 +1,83 @@
+@import "base/colors.css.scss";
+
+.table-section{
+  table{
+    width: 100%;
+
+    th, td.table-item{
+      padding: 10px 12px;
+    }
+
+    thead{
+      border-bottom: 2px solid #eff0f4;
+      font-size: 16px;
+    }
+
+    tbody{
+      font-size: 15px;
+    }
+
+    tr{
+      border-bottom: 1px solid #eff0f4;
+    }
+
+    td.table-items-action{
+      padding: 10px 25px 10px 5px;
+      font-size: 15px;
+      height: 100%;
+      gap: 15px;
+      width: 100%;
+      display: inline-flex;
+      justify-content: flex-end;
+
+      .action-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        background-color: $orange-0-color;
+        text-decoration: none;
+        color: $orange-4-color;
+
+        &:hover{
+          color: $orange-5-color;
+        }
+      }
+
+      .delete-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 27px;
+        height: 27px;
+        border: none;
+        border-radius: 50%;
+        background-color: $red-danger-lite;
+        color: $red-danger-main;
+
+        &:hover{
+          color: $red-danger-dark;
+        }
+      }
+    }
+  }
+
+  .table-action{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .end{
+      display: flex;
+      justify-content: end;
+    }
+  }
+
+  .table-content{
+    background-color: white;
+    border-radius: 14px;
+  }
+}

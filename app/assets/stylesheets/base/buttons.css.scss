@@ -1,1 +1,21 @@
 @import "base/colors.css.scss";
+
+.main-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: $orange-4-color;
+  background-color: $orange-0-color;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid $orange-2-color;
+  width: max-content;
+  font-size: 14px;
+
+  &:hover{
+    background-color: $orange-3-color;
+    color: $orange-0-color;
+  }
+}

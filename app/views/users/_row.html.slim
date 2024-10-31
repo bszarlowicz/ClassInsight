@@ -1,0 +1,14 @@
+tr.table-row
+  td.table-item = el.name
+  td.table-item = el.created_at.strftime("%d.%m.%Y")
+  td.table-item = el.updated_at.strftime("%d.%m.%Y")
+
+  -if current_user.is?("admin")
+    td.table-items-action
+      = button_to el, method: :delete, class: "delete-button" do
+        = fa_icon("trash")
+      = link_to edit_user_path(el), class: "action-button" do
+        = fa_icon("pencil")
+      = link_to el, class: "action-button" do
+       = fa_icon("angle-right")
+            
