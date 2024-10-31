@@ -18,12 +18,32 @@
       border-top-left-radius: 34px;
       border-bottom-left-radius: 34px;
 
+      .left-menu-container{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
       a{
         text-decoration: none !important;
       }
 
       .top{
         padding-top: 40px;
+        flex: 1;
+      }
+
+      .bottom{
+        border-top: 1px solid #eff0f4;
+        padding-top: 30px;
+        padding-bottom: 70px;
+        .avatar-with-name{
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding-left: 25px;
+          font-size: 12px;
+        }
       }
 
       .logo{
@@ -61,4 +81,12 @@
       border-top-right-radius: 14px;
     }
   }
+}
+
+.user-avatar{
+  width: 50px;
+  height: 50px;
+  background-color: #eff0f4;
+  border-radius: 50%;
+  padding: 5px;
 }
