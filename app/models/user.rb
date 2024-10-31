@@ -3,13 +3,18 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
+  before_save :normalize_phone
+  after_create :auto_set_role
+  after_create :set_default_avatar
 
   validates :name, presence: true
   validates :password, length: {minimum: 8}, format: {with: /\A(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,40}\z/, message: :invalid_password_format}, if: :password_validation?
   validates :phone, phone: true, allow_blank: true
-  before_save :normalize_phone
+  validate :acceptable_image
 
-  after_create :auto_set_role
+  has_one_attached :avatar do |attachable|
+    attachable.variant :thumb, resize_to_limit: [70, 70]
+  end
 
   ROLES = {
     "A" => "admin",
@@ -45,7 +50,22 @@ class User < ApplicationRecord
     self.phone = Phonelib.parse(phone).full_e164.presence
   end
 
+  def acceptable_image
+    if avatar.attached?
+      acceptable_types = ["image/jpeg", "image/png", "image/tiff", "image/webp"]
+      unless acceptable_types.include?(avatar.content_type)
+        errors.add(:avatar, message: "musi być w formacie JPEG, PNG, WEBP lub AVIF")
+      end
+    end
+  end
+
   private
+    def set_default_avatar
+      unless avatar.attached?
+        image_path = Rails.root.join("app/assets/images/default_user_avatar.png")
+        avatar.attach(io: File.open(image_path), filename: 'default_user_avatar.png', content_type: 'image/png')
+      end
+    end
 
     def password_validation?
       self.password

@@ -11,4 +11,9 @@
         -else
           = render "student_left_links"
     .bottom
-      / = render "left_menu_link", icon: "sign-out-alt", text: "Logout", url: logout_path, active: false
+      .avatar-with-name
+        = image_tag url_for(current_user.avatar), class: "user-avatar" if current_user.avatar.present?
+        .name
+          = current_user.name
+          = button_to "Wyloguj", destroy_user_session_path, method: :delete, class: "logout-button-transparent"
+          
