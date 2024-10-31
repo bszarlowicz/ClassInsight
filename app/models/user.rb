@@ -51,4 +51,10 @@ class User < ApplicationRecord
       self.password
     end
 
+    def self.ransackable_attributes(auth_object = nil)
+      super & %w(
+        name
+      )
+    end
+
 end

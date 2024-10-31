@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   
     # GET /users or /users.json
     def index
+      @user = current_user
+      @search = User.ransack(params[:q])
+      @users = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
     end
   
     # GET /users/1 or /users/1.json

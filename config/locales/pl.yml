@@ -55,7 +55,7 @@ pl:
   your_knowledge_their_future: Twoja wiedza, ich przyszłość.
   close: "Zamknij"
   incorrect_login_data: Niepoprawne dane logowania
-
+  students: Uczniowie
   
   activities:
     reservation_created: Dokonał rezerwacji

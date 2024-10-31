@@ -17,3 +17,18 @@
         border: 1px solid red;
     }
 }
+
+.index-form-search{
+  background: url('loupe_icon.png') no-repeat 10px center;
+  background-size: 30px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #d5d5d5;
+  width: 100%;
+  position: relative;
+  padding-left: 45px;
+
+  &:focus-visible{
+    outline: none;
+  }
+}

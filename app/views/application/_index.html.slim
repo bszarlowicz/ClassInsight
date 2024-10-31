@@ -1,20 +1,16 @@
-.index
-    .action-section
-        .row.dflex.justify-content-between.action-table-header.align-items-center
-            .col-md-4.action-section-column
-                h2.table-title
-                    = title
-            - if defined?(filters) && filters
-                .col-md-4.action-section-column
-                    = render "filters"
-            .col-md-4.text-end.action-section-column.action-button-section
-                = link_to new_button_text, new_path ,class: "new-category-button wide-button", title: new_button_text if defined?(new_button_text)
-                = link_to "+", new_path ,class: "new-category-button narrow-button", title: new_button_text if defined?(new_button_text)
-            .col-md-12.count-number
-                .table-subtitle
-                    / | Liczba elementów: #{list.total_count}
+.table-section
+  .row.table-action
+    .col-md-4.start
+      h3.table-title
+          = title
+    - if defined?(filters) && filters
+      .col-md-4.middle
+          = render "filters"
+    .col-md-4.end
+      -if defined?(new_button_text)
+        = link_to new_path, class: "main-button", title: new_button_text
+          = new_button_text
+          = fa_icon("plus-circle")
 
-
-
-    .table-cont.table-responsive.custom-scrollbar
-        = render "table", list: list
+  .table-content
+    = render "table", list: list

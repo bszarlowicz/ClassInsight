@@ -1,6 +1,5 @@
-table.table
-    theader
-        = render "table_header" if !list.empty?
-
-    tbody#list
-        = render "table_content", list: list
+table
+  thead
+    = render "table_header" if !list.empty?
+  tbody#list
+    = render "table_content", list: list
