@@ -1,2 +1,17 @@
-div[data-controller="calendar" data-day-names="#{I18n.t('date.abbr_day_names').to_json}"]
-  #calendar
+.calendar data-controller="calendar" data-day-names="#{I18n.t('date.abbr_day_names').to_json}"
+  .schedule-action
+    h3.table-title
+      = t(:calendar)
+    .navigation
+      .round-action-button data-action="click->calendar#prev"
+        = fa_icon("angle-left")
+      .month
+        span data-calendar-target="currentMonth"
+      .round-action-button data-action="click->calendar#next" 
+        = fa_icon("angle-right")
+    .action-buttons
+      = link_to "#", class: "main-button", title: t(:add_lesson)
+        = t(:add_lesson)
+        = fa_icon("plus-circle")
+  .schedule
+    #calendar

@@ -1,5 +1,11 @@
 @import "base/colors.css.scss";
 
+.schedule{
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+
 .tui-full-calendar-layout{
   background-color: $main-content-background-color !important;
 }
@@ -16,10 +22,12 @@
 
 .tui-full-calendar-dayname-container{
   border: none !important;
+  background-color: $main-content-background-color !important;
 }
 
 .tui-full-calendar-timegrid-left{
   .tui-full-calendar-timegrid-timezone{
+    width: 50% !important;
     border-right: none !important;
     background-color: $main-content-background-color !important;
   }
@@ -45,7 +53,7 @@
   color: $orange-5-color !important;
 }
 
-.tui-full-calendar-dayname.tui-full-calendar-today.tui-full-calendar-holiday-sat{
+.tui-full-calendar-dayname.tui-full-calendar-today{
   .tui-full-calendar-dayname-date-area{
     color: $orange-5-color !important;
   }
@@ -57,7 +65,29 @@
   }
 }
 
-.tui-full-calendar-time-date.tui-view-18.tui-full-calendar-today{
+.tui-full-calendar-time-date.tui-full-calendar-today{
   background-color: $orange-0-color !important;
   background-color: rgba(255, 123, 0, 0.05) !important;
+}
+
+.tui-full-calendar-timegrid-hour{
+  span{
+    width: min-content;
+  }
+}
+
+.tui-full-calendar-timegrid-right{
+  margin-left: 35px !important;
+}
+
+.schedule-action{
+  display: flex;
+  justify-content: space-between;
+
+  .navigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
 }

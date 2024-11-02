@@ -29,38 +29,6 @@
       width: 100%;
       display: inline-flex;
       justify-content: flex-end;
-
-      .action-button{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 27px;
-        height: 27px;
-        border-radius: 50%;
-        background-color: $orange-0-color;
-        text-decoration: none;
-        color: $orange-4-color;
-
-        &:hover{
-          color: $orange-5-color;
-        }
-      }
-
-      .delete-button{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 27px;
-        height: 27px;
-        border: none;
-        border-radius: 50%;
-        background-color: $red-danger-lite;
-        color: $red-danger-main;
-
-        &:hover{
-          color: $red-danger-dark;
-        }
-      }
     }
   }
 
