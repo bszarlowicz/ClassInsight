@@ -5,8 +5,10 @@ html
     meta name='viewport' content='width=device-width, initial-scale=1'
     = csrf_meta_tags
     = csp_meta_tag
-
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    link[rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css"]
+    link[rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css"]
+    link[rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css"]
     = javascript_importmap_tags
 
   body

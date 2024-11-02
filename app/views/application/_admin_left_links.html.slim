@@ -1,1 +1,2 @@
 = render "left_menu_link", icon: "users", text: User.model_name.human(count: 2), url: users_path, active: params[:controller] == "users"
+= render "left_menu_link", icon: "calendar", text: t(:calendar), url: user_schedule_path(current_user), active: params[:controller] == "schedules"
