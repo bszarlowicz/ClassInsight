@@ -56,6 +56,7 @@ pl:
   close: "Zamknij"
   incorrect_login_data: Niepoprawne dane logowania
   students: Uczniowie
+  calendar: Kalendarz
   
   activities:
     reservation_created: Dokonał rezerwacji
@@ -68,13 +69,13 @@ pl:
 
   date:
     abbr_day_names:
-    - nie
-    - pon
-    - wto
-    - śro
-    - czw
-    - pią
-    - sob
+    - Nie
+    - Pon
+    - Wto
+    - Śro
+    - Czw
+    - Pią
+    - Sob
     abbr_month_names:
     -
     - sty
