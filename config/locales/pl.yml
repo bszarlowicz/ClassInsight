@@ -57,6 +57,9 @@ pl:
   incorrect_login_data: Niepoprawne dane logowania
   students: Uczniowie
   calendar: Kalendarz
+  add_lesson: Dodaj lekcje
+  previous_week: Poprzedni tydzień
+  next_week: Następny tydzień
   
   activities:
     reservation_created: Dokonał rezerwacji
