@@ -1,0 +1,63 @@
+@import "base/colors.css.scss";
+
+.tui-full-calendar-layout{
+  background-color: $main-content-background-color !important;
+}
+
+.tui-full-calendar-timegrid-schedules{
+  border: 1px solid rgb(229, 229, 229);
+  border-radius: 8px;
+}
+
+.tui-full-calendar-timegrid-h-grid{
+  background-color: white;
+  border-radius: 8px;
+}
+
+.tui-full-calendar-dayname-container{
+  border: none !important;
+}
+
+.tui-full-calendar-timegrid-left{
+  .tui-full-calendar-timegrid-timezone{
+    border-right: none !important;
+    background-color: $main-content-background-color !important;
+  }
+}
+
+.tui-full-calendar-time-date:last-child {
+  border-right: none !important;
+}
+
+.tui-full-calendar-timegrid-hourmarker-line-left{
+  border-top: 1px dashed $orange-5-color !important;
+}
+
+.tui-full-calendar-timegrid-hourmarker-line-today{
+  border-top: 1px solid $orange-5-color !important;
+}
+
+.tui-full-calendar-timegrid-todaymarker{
+  background-color: $orange-5-color !important;
+}
+
+.tui-full-calendar-timegrid-hourmarker-time{
+  color: $orange-5-color !important;
+}
+
+.tui-full-calendar-dayname.tui-full-calendar-today.tui-full-calendar-holiday-sat{
+  .tui-full-calendar-dayname-date-area{
+    color: $orange-5-color !important;
+  }
+}
+
+.tui-full-calendar-dayname.tui-full-calendar-holiday-sun{
+  .tui-full-calendar-dayname-date-area{
+    color: $text-grey-darker !important;
+  }
+}
+
+.tui-full-calendar-time-date.tui-view-18.tui-full-calendar-today{
+  background-color: $orange-0-color !important;
+  background-color: rgba(255, 123, 0, 0.05) !important;
+}
