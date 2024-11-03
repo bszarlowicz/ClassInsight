@@ -61,7 +61,7 @@
 
 .tui-full-calendar-dayname.tui-full-calendar-holiday-sun{
   .tui-full-calendar-dayname-date-area{
-    color: $text-grey-darker !important;
+    color: $sunday-dark-blue !important;
   }
 }
 
@@ -80,14 +80,46 @@
   margin-left: 35px !important;
 }
 
+.tui-full-calendar-dayname-leftmargin{
+  margin-left: 40px !important;
+}
+
+.tui-full-calendar-dayname{
+  .tui-full-calendar-dayname-date-area{
+    .date-number{
+      font-size: 18px !important;
+    }
+
+    .day-name{
+      font-size: 12px !important;
+    }
+  }
+}
+
 .schedule-action{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.schedule-navigation{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+
+  .month{
+    flex-shrink: 0;
+  }
 
   .navigation{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 30px;
   }
 }

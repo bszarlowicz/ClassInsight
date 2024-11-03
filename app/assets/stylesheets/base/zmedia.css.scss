@@ -19,3 +19,22 @@
         border-bottom-left-radius: 12px;
     }
 }
+
+@media only screen and (max-width: 950px) {
+
+  .schedule-navigation{
+    padding-top: 10px;
+    position: unset;
+    justify-content: space-between;
+    .navigation{
+      transform: none;
+      margin-left: auto;
+      position: unset;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+
+}
