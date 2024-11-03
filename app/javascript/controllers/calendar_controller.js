@@ -9,7 +9,6 @@ export default class extends Controller {
   static targets = ["currentMonth"];
   connect() {
     console.log('calendar here!')
-    const daysOfWeek = JSON.parse(this.element.dataset.dayNames);
     this.calendar = new Calendar('#calendar', {
       id: '1',
       defaultView: 'week',
@@ -19,12 +18,18 @@ export default class extends Controller {
       week:{
         hourStart: 7,
         hourEnd: 22,
-        daynames: daysOfWeek,
         narrowWeekend: true,
         startDayOfWeek: 1,
-        
       },
       template: {
+        weekDayname: function(dayNameModel) {
+          const date = new Date(dayNameModel.renderDate);
+          const day = date.getDate().toString().padStart(2, '0');
+          const month = (date.getMonth() + 1).toString().padStart(2, '0');
+          const weekday = date.toLocaleDateString('pl-PL', { weekday: 'short' });
+      
+          return `<span class="date-number">${day}.${month}</span> <span class="day-name">${weekday}</span>`;
+        },
         timegridDisplayPrimaryTime: function(time) {
             var hour = time.hour;
             var minutes = time.minutes < 10 ? '0' + time.minutes : time.minutes;
