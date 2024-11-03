@@ -69,13 +69,13 @@
     padding-bottom: 50px;
 
     form{
-        width: 100%;
-        padding: 0 50px;
+      width: 100%;
+      padding: 0 50px;
 
-        input:focus {
-            border-color: $orange-4-color;
-            outline: none !important;
-          }
+      input:focus {
+        border-color: $orange-4-color;
+        outline: none !important;
+      }
     }
 }
 
