@@ -29,6 +29,9 @@ pl:
         password_confirmation: "Potwierdź hasło"
         name: "Imię i nazwisko"
         phone: "Telefon"
+      lesson:
+        hour: Godzina zajęć
+        year: Rok szkolny
  
 
   bool_yes: Tak
@@ -60,6 +63,8 @@ pl:
   add_lesson: Dodaj lekcje
   previous_week: Poprzedni tydzień
   next_week: Następny tydzień
+  choose_hour: Wybierz godzinę
+  school_year_example: Np. 2024/2025
   
   activities:
     reservation_created: Dokonał rezerwacji

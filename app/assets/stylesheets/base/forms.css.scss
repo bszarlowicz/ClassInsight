@@ -1,5 +1,60 @@
 @import "base/colors.css.scss";
 
+form.main-form{
+  width: 50%;
+
+  .input, .custom-input{
+    background-color: #efece9;
+    margin-bottom: 10px;
+    border-radius: 9px;
+    padding: 3px;
+    padding-top: 0;
+
+    label, .custom-input-label{
+      font-size: 13px;
+      padding-left: 5px;
+      padding-top: 2px;
+      color: $text-grey;
+    }
+  }
+
+  input{
+    border: 1px solid white;
+    border-radius: 6px;
+    background-color: white;
+    padding: 5px;
+    margin: 10px 0;
+    width: 100%;
+    margin: 0;
+    font-size: 15px;
+  }
+
+  input:focus {
+    border-color: $orange-4-color;
+    outline: none !important;
+  }
+
+  input.submit-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: $orange-4-color;
+    background-color: $orange-0-color;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid $orange-2-color;
+    width: max-content;
+    font-size: 14px;
+  
+    &:hover{
+      background-color: $orange-3-color;
+      color: $orange-0-color;
+    }
+  }
+}
+
 .errors-notify-text{
     font-size: 12px;
     color: red;
@@ -12,10 +67,10 @@
 }
 
 .field_with_errors{
-    input{
-        margin-bottom: 0px;
-        border: 1px solid red;
-    }
+  input{
+    margin-bottom: 0px;
+    border: 1px solid red;
+  }
 }
 
 .index-form-search{

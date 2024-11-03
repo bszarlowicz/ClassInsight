@@ -3,7 +3,7 @@
     h3.table-title
       = t(:calendar)
     .action-buttons
-      = link_to "#", class: "main-button", title: t(:add_lesson)
+      = link_to new_user_lesson_path(@user), class: "main-button", title: t(:add_lesson)
         = t(:add_lesson)
         = fa_icon("plus-circle")
   .schedule-navigation

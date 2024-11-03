@@ -4,8 +4,8 @@ h1 Lessons
   - @lessons.each do |lesson|
     == render lesson
     p
-      = link_to "Show this lesson", lesson
+      = link_to "Show this lesson", user_lesson_path(@user, lesson)
 
-= link_to "New lesson", new_lesson_path
+= link_to "New lesson", new_user_lesson_path(@user)
 
 = button_to "Wyloguj", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger"
