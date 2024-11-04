@@ -21,6 +21,9 @@ pl:
       user:
         one: "Użytkownik"
         other: "Użytkownicy"
+      lesson:
+        one: "Lekcja"
+        other: "Lekcje"
 
     attributes:
       user:
@@ -65,6 +68,7 @@ pl:
   next_week: Następny tydzień
   choose_hour: Wybierz godzinę
   school_year_example: Np. 2024/2025
+  add_new_lesson: Dodaj nowe zajęcia
   
   activities:
     reservation_created: Dokonał rezerwacji

@@ -9,6 +9,10 @@ export default class extends Controller {
   static targets = ["currentMonth"];
   connect() {
     console.log('calendar here!')
+    this.displayCalendar();
+  }
+
+  displayCalendar(){
     this.calendar = new Calendar('#calendar', {
       id: '1',
       defaultView: 'week',
@@ -73,5 +77,12 @@ export default class extends Controller {
 
   capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  disconnect() {
+    if (this.calendar) {
+      this.calendar.destroy();
+      this.calendar = null;
+    }
   }
 }

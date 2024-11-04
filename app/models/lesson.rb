@@ -14,4 +14,19 @@ class Lesson < ApplicationRecord
     days_of_week.delete(day)
   end
 
+  def self.quick_search
+    :hour_cont
+  end
+
+  private
+    def self.ransackable_attributes(auth_object = nil)
+      super & %w(
+        hour
+      )
+    end
+
+    def self.ransackable_associations(auth_object = nil)
+      super + ['user']
+    end
+
 end

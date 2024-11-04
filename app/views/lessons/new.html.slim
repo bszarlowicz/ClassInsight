@@ -1,3 +1,5 @@
-h1 New lesson
+.main-page-header
+  h3 = t(:add_new_lesson)
+  .icon = fa_icon("graduation-cap")
 
-== render "form", lesson: @lesson
+= render "form", lesson: @lesson

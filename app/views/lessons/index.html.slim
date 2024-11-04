@@ -1,11 +1,1 @@
-h1 Lessons
-
-#lessons
-  - @lessons.each do |lesson|
-    == render lesson
-    p
-      = link_to "Show this lesson", user_lesson_path(@user, lesson)
-
-= link_to "New lesson", new_user_lesson_path(@user)
-
-= button_to "Wyloguj", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger"
+= render 'index', title: Lesson.model_name.human(count: 2), list: @lessons, new_button_text: "Dodaj", new_path: new_user_lesson_path, filters: !(defined?(disable_filters) && disable_filters)
