@@ -5,7 +5,9 @@ class LessonsController < ApplicationController
 
   # GET /lessons or /lessons.json
   def index
-    @lessons = Lesson.all
+    @search_url = user_lessons_path
+    @search = @user.lessons.ransack(params[:q])
+    @lessons = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
   end
 
   # GET /lessons/1 or /lessons/1.json
