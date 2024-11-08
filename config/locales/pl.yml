@@ -1,15 +1,5 @@
 
 pl:
-  simple_form:
-    required:
-      text: 'wymagane'
-      mark: '*'
-    error_notification:
-      default_message: "Proszę poprawić poniższe błędy"
-    helpers:
-      submit:
-        create: "Utwórz %{model}"
-        update: "Zapisz zmiany w %{model}"
   activerecord:
     errors:
       models:
@@ -45,6 +35,7 @@ pl:
       lesson:
         hour: Godzina zajęć
         year: Rok szkolny
+        days_of_week: Dni tygodnia
  
 
   bool_yes: Tak

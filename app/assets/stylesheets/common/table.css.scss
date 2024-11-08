@@ -8,6 +8,21 @@
       padding: 10px 12px;
     }
 
+    td.table-item{
+      .day-items{
+        display: flex;
+        justify-items: center;
+        gap: 5px;
+        .day-item{
+          width: min-content;
+          background-color: $orange-0-color;
+          color: $orange-3-color;
+          padding: 3px 6px;
+          border-radius: 8px;
+        }
+      }
+    }
+
     thead{
       border-bottom: 2px solid #eff0f4;
       font-size: 16px;

@@ -47,6 +47,10 @@ class Lesson < ApplicationRecord
     "#{self.year}/#{self.year+1}"
   end
 
+  def get_days_of_week
+    self.days_of_week.map { |day| I18n.t('date.day_names')[day] }
+  end
+
   private
     def self.ransackable_attributes(auth_object = nil)
       super & %w(
