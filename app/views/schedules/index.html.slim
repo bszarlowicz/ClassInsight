@@ -15,4 +15,4 @@
       .round-action-button data-action="click->calendar#next" 
         = fa_icon("angle-right")
   .schedule
-    #calendar
+    #calendar data-lessons="#{@lessons.to_json}"

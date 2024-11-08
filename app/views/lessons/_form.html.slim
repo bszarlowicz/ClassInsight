@@ -1,11 +1,16 @@
 = simple_form_for([@user, @lesson], data: {controller: "flatpickr"}, html: { class: "main-form" }) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-  
+  .form-alert.m-1 = f.error_notification
+  .form-alert.m-1 = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
   .custom-input
     .custom-input-label
       = Lesson.human_attribute_name(:hour)
     = f.datetime_field :hour, class: "time-picker", placeholder: t(:choose_hour)
-  = f.input :year, input_html: {placeholder: t(:school_year_example) }
+  = f.input :year, collection: Lesson.school_year_for_select, input_html: {placeholder: t(:school_year_example) }, allow_blank: false
+  .day-selector data-controller="checkbox"
+    - @week_days.each_with_index do |day, index|
+      label.day-button data-checkbox-target="dayButton"
+        = check_box_tag "lesson[days_of_week][]", index, @lesson.days_of_week&.include?(index), class: "day-checkbox", data: { action: "checkbox#toggle" }
+        span = day
 
   = f.button :submit, class: "submit-button"

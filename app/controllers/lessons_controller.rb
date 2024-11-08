@@ -1,6 +1,7 @@
 class LessonsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_lesson, only: %i[ show edit update destroy ]
+  before_action :set_week_days, only: %i[ new edit update ]
   before_action :set_user
 
   # GET /lessons or /lessons.json
@@ -42,7 +43,7 @@ class LessonsController < ApplicationController
   def update
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to user_lesson_path(@user, @lesson), notice: "Lesson was successfully updated." }
+        format.html { redirect_to user_lessons_path(@user), notice: "Lesson was successfully updated." }
         format.json { render :show, status: :ok, location: @lesson }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,12 +67,16 @@ class LessonsController < ApplicationController
       @user = User.find(params[:user_id])
     end
 
+    def set_week_days
+      @week_days = ["PON", "WTO", "ŚRO", "CZW", "PIĄ", "SOB", "NIE"]
+    end
+
     def set_lesson
       @lesson = Lesson.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def lesson_params
-      params.require(:lesson).permit(:daysOfWeek, :hour, :year)
+      params.require(:lesson).permit(:hour, :year, days_of_week: [])
     end
 end
