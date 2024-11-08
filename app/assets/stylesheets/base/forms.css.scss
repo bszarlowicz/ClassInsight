@@ -15,10 +15,14 @@ form.main-form{
       padding-left: 5px;
       padding-top: 2px;
       color: $text-grey;
+
+      abbr[title]{
+        display: none !important;
+      }
     }
   }
 
-  input{
+  input, select{
     border: 1px solid white;
     border-radius: 6px;
     background-color: white;
@@ -29,7 +33,7 @@ form.main-form{
     font-size: 15px;
   }
 
-  input:focus {
+  input:focus, select:focus{
     border-color: $orange-4-color;
     outline: none !important;
   }
@@ -53,6 +57,11 @@ form.main-form{
       color: $orange-0-color;
     }
   }
+
+  .form-alert{
+    font-size: 12px;
+    color: red;
+  }
 }
 
 .errors-notify-text{
@@ -67,9 +76,9 @@ form.main-form{
 }
 
 .field_with_errors{
-  input{
-    margin-bottom: 0px;
-    border: 1px solid red;
+  input, select{
+    margin-bottom: 0px !important;
+    border: 1px solid red !important;
   }
 }
 
@@ -85,5 +94,41 @@ form.main-form{
 
   &:focus-visible{
     outline: none;
+  }
+}
+
+.day-checkbox{
+  display: none;
+}
+
+.day-selector{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  .day-button{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-color: $orange-1-color;
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    border: 1px solid $orange-5-color;
+    cursor: pointer;
+
+    &:hover{
+      background-color: $orange-3-color;
+    }
+
+    span{
+      height: min-content;
+      margin: auto 0;
+      color: white;
+    }
+  }
+
+  .day-button.selected{
+    background-color: $orange-5-color;
   }
 }

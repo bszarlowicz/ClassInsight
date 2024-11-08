@@ -148,6 +148,7 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    ice_cube (0.17.0)
     importmap-rails (2.0.1)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -362,6 +363,7 @@ DEPENDENCIES
   error_highlight (>= 0.4.0)
   exception_notification (~> 4.5)
   font-awesome-rails
+  ice_cube (~> 0.17.0)
   importmap-rails
   jbuilder
   jquery-rails (~> 4.6)

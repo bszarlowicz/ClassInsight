@@ -86,3 +86,4 @@ gem "devise"
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 gem "breadcrumbs_on_rails"
 gem 'phonelib'
+gem 'ice_cube', '~> 0.17.0'

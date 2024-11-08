@@ -1,5 +1,15 @@
 
 pl:
+  simple_form:
+    required:
+      text: 'wymagane'
+      mark: '*'
+    error_notification:
+      default_message: "Proszę poprawić poniższe błędy"
+    helpers:
+      submit:
+        create: "Utwórz %{model}"
+        update: "Zapisz zmiany w %{model}"
   activerecord:
     errors:
       models:
@@ -23,7 +33,7 @@ pl:
         other: "Użytkownicy"
       lesson:
         one: "Lekcja"
-        other: "Lekcje"
+        other: "Zajęcia"
 
     attributes:
       user:
@@ -53,7 +63,7 @@ pl:
   back: Powróć
   enter_email: Wprowadź swój email
   correct_following_errors: Popraw błędy formularza
-  manage_your_lessons_in_one_place: Zarządzaj lekcjami w jednym miejscu!
+  manage_your_lessons_in_one_place: Zarządzaj zajęciami w jednym miejscu!
   effortless_planning: Planowanie bez wysiłku.
   learning_tailored_to_your_schedule: Nauka dostosowana do Twojego harmonogramu.
   individual_approach_to_education: Indywidualne podejście do edukacji.
@@ -63,12 +73,13 @@ pl:
   incorrect_login_data: Niepoprawne dane logowania
   students: Uczniowie
   calendar: Kalendarz
-  add_lesson: Dodaj lekcje
+  add_lesson: Dodaj zajęcia
   previous_week: Poprzedni tydzień
   next_week: Następny tydzień
   choose_hour: Wybierz godzinę
   school_year_example: Np. 2024/2025
   add_new_lesson: Dodaj nowe zajęcia
+  edit_lesson: Edycja zajęć
   
   activities:
     reservation_created: Dokonał rezerwacji
@@ -159,7 +170,7 @@ pl:
       less_than_or_equal_to: musi być mniejsze lub równe %{count}
       not_a_number: nie jest liczbą
       not_an_integer: musi być liczbą całkowitą
-      odd: musi być nieparzyste
+      odd: musi być nieparzystea
       record_invalid: ! 'Negatywne sprawdzenie poprawności: %{errors}'
       taken: zostało już zajęte
       too_long: jest za długie (maksymalnie %{count} znaków)
@@ -249,6 +260,7 @@ pl:
       long: ! '%B %d, %Y %H:%M'
       short: ! '%d %b %H:%M'
     pm: po południu
+
 
 views:
   pagination:

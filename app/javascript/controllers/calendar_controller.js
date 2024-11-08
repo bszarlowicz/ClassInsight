@@ -42,6 +42,10 @@ export default class extends Controller {
       }
     });
     this.updateMonthDisplay();
+
+    const lessons = JSON.parse(document.getElementById('calendar').getAttribute('data-lessons'));
+
+    console.log(lessons)
   }
 
   prev() {
