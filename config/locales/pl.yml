@@ -76,6 +76,7 @@ pl:
   lesson_duration_example: np. 1 godzina
   empty_days_of_week: Musisz wybrać minimalnie jeden dzień tygodnia
   lesson_end_time: Godzian zakończenia
+  user_edit: Edycja użytkownika
   
   activities:
     reservation_created: Dokonał rezerwacji
@@ -85,6 +86,15 @@ pl:
     admin: Administrator
     teacher: Nauczyciel
     student: Uczeń
+  notices:
+    create:
+      success: "%{model} - utworzono pomyślnie."
+    update:
+      success: "%{model} - zaktualizowano pomyślnie."
+    destroy:
+      success: "%{model} - usunięto pomyślnie."
+    reset_password:
+      success: Hasło użytkownika zostało zresetowane i wysłane na adres e-mail.
 
   days:
     monday: "Poniedziałek"

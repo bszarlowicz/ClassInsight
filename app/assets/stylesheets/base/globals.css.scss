@@ -17,7 +17,12 @@ body{
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
+  
+  .title{
+    margin-bottom: 0;
+  }
+
   .icon{
-    font-size: 15px;
+    font-size: 20px;
   }
 }
