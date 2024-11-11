@@ -4,7 +4,6 @@ import flatpickr from "flatpickr"
 // Connects to data-controller="flatpickr"
 export default class extends Controller {
   connect() {
-    console.log("test")
     flatpickr(".time-picker", {
       enableTime: true,
       noCalendar: true,

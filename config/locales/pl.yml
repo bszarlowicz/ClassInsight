@@ -81,15 +81,26 @@ pl:
     teacher: Nauczyciel
     student: Uczeń
 
+  days:
+    monday: "Poniedziałek"
+    tuesday: "Wtorek"
+    wednesday: "Środa"
+    thursday: "Czwartek"
+    friday: "Piątek"
+    saturday: "Sobota"
+    sunday: "Niedziela"
+
+
+
   date:
     abbr_day_names:
-    - Nie
     - Pon
     - Wto
     - Śro
     - Czw
     - Pią
     - Sob
+    - Nie
     abbr_month_names:
     -
     - sty
