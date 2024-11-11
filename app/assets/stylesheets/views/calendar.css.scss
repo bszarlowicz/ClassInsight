@@ -51,6 +51,7 @@
 
 .tui-full-calendar-timegrid-hourmarker-time{
   color: $orange-5-color !important;
+  padding-right: 8px !important;
 }
 
 .tui-full-calendar-dayname.tui-full-calendar-today{
@@ -122,4 +123,10 @@
     align-items: center;
     gap: 30px;
   }
+}
+
+.tui-full-calendar-time-schedule{
+}
+
+.tui-full-calendar-time-schedule-content {
 }
