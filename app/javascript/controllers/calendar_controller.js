@@ -64,7 +64,9 @@ export default class extends Controller {
           category: 'time',
           start: date,
           end: end,
-          isReadOnly: true
+          isReadOnly: true,
+          bgColor: lesson.color,
+          borderColor: this.darkenRgbaColor(lesson.color)
         };
       });
     });
@@ -105,6 +107,21 @@ export default class extends Controller {
 
   capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  darkenRgbaColor(rgba, amount = 0.1) {
+    let rgbaValues = rgba.match(/^rgba\((\d+), (\d+), (\d+), ([0-9.]+)\)$/);
+  
+    let r = parseInt(rgbaValues[1], 10);
+    let g = parseInt(rgbaValues[2], 10);
+    let b = parseInt(rgbaValues[3], 10);
+    let a = parseFloat(rgbaValues[4]);
+  
+    r = Math.floor(r * (1 - amount));
+    g = Math.floor(g * (1 - amount));
+    b = Math.floor(b * (1 - amount));
+
+    return `rgba(${r}, ${g}, ${b}, ${a})`;
   }
 
   disconnect() {
