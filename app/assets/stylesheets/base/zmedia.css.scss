@@ -18,10 +18,6 @@
         border-top-left-radius: 12px;
         border-bottom-left-radius: 12px;
     }
-
-    form.main-form{
-      width: 100%;
-    }
 }
 
 @media only screen and (max-width: 950px) {
@@ -40,5 +36,10 @@
       gap: 30px;
     }
   }
+}
 
+@media only screen and (max-width: 1085px) {
+  form.main-form{
+    width: 100%;
+  }
 }

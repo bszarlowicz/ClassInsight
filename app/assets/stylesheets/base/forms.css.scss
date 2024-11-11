@@ -33,6 +33,12 @@ form.main-form{
     font-size: 15px;
   }
 
+  select {
+    option:first-child {
+      color: #767676 !important;
+    }
+  }
+
   input:focus, select:focus{
     border-color: $orange-4-color;
     outline: none !important;
@@ -51,7 +57,8 @@ form.main-form{
     border: 1px solid $orange-2-color;
     width: max-content;
     font-size: 14px;
-  
+    margin-top: 30px;
+    
     &:hover{
       background-color: $orange-3-color;
       color: $orange-0-color;
@@ -103,6 +110,7 @@ form.main-form{
 
 .day-selector{
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
@@ -130,5 +138,23 @@ form.main-form{
 
   .day-button.selected{
     background-color: $orange-5-color;
+  }
+}
+
+.color_picker{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.custom-input-label{
+  font-size: 13px;
+  padding-left: 5px;
+  padding-top: 2px;
+  color: $text-grey;
+  margin-bottom: 3px;
+
+  abbr[title]{
+    display: none !important;
   }
 }

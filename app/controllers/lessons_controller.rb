@@ -2,6 +2,7 @@ class LessonsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_lesson, only: %i[ show edit update destroy ]
   before_action :set_week_days, only: %i[ new edit update create ]
+  before_action :set_lesson_hour, only: %i[ new edit ]
   before_action :set_user
 
   # GET /lessons or /lessons.json
@@ -22,6 +23,7 @@ class LessonsController < ApplicationController
 
   # GET /lessons/1/edit
   def edit
+    @selected_hour = @lesson.hour.present? ? @lesson.hour.strftime("%H:%M") : ""
   end
 
   # POST /lessons or /lessons.json
@@ -63,6 +65,10 @@ class LessonsController < ApplicationController
   end
 
   private
+    def set_lesson_hour
+      @lesson_hour = @lesson&.hour.present? ? @lesson.hour.strftime("%H:%M") : nil
+    end
+    
     def set_user
       @user = User.find(params[:user_id])
     end
@@ -77,6 +83,6 @@ class LessonsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lesson_params
-      params.require(:lesson).permit(:hour, :year, :color, days_of_week: [])
+      params.require(:lesson).permit(:hour, :year, :color, :duration, days_of_week: [])
     end
 end

@@ -55,7 +55,7 @@ export default class extends Controller {
         date.setHours(hours, minutes, 0, 0);
 
         const end = new Date(date);
-        end.setHours(date.getHours() + 1);
+        end.setMinutes(date.getMinutes() + lesson.duration);
 
         return {
           id: `lesson-${lesson.id}-${dateString}`,
