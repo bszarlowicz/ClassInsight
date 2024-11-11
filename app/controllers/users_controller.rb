@@ -20,9 +20,9 @@ class UsersController < ApplicationController
   
     # GET /users/1/edit
     def edit
-        @resource = @user
-        @resource_name = :user
-        @devise_mapping = Devise.mappings[:user]
+      @resource = @user
+      @resource_name = :user
+      @devise_mapping = Devise.mappings[:user]
     end
   
     # POST /users or /users.json

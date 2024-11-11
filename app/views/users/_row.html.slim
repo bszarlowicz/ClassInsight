@@ -1,7 +1,7 @@
 tr.table-row
   td.table-item = el.name
-  td.table-item = el.created_at.strftime("%d.%m.%Y")
-  td.table-item = el.updated_at.strftime("%d.%m.%Y")
+  td.table-item = el.email
+  td.table-item = el.phone
 
   -if current_user.is?("admin")
     td.table-items-action
