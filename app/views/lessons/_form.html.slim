@@ -3,17 +3,24 @@
   .form-alert.m-1 = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .custom-input
-    .custom-input-label
+    #lesson-hour.custom-input-label data-lesson-hour="#{@lesson_hour if @lesson_hour.present?}"
       = Lesson.human_attribute_name(:hour)
-    = f.datetime_field :hour, class: "time-picker", placeholder: t(:choose_hour)
-  = f.input :year, collection: Lesson.school_year_for_select, input_html: {placeholder: t(:school_year_example) }, allow_blank: false
+    = f.datetime_field :hour, class: "time-picker", placeholder: t(:choose_hour), value: @lesson_hour
+  = f.input :duration, collection: Lesson.duration_time_for_select
+  = f.input :year, collection: Lesson.school_year_for_select
+  .custom-input-label
+    = Lesson.human_attribute_name(:days_of_week)
   .day-selector data-controller="checkbox"
     - @week_days.each_with_index do |day, index|
       label.day-button data-checkbox-target="dayButton"
         = check_box_tag "lesson[days_of_week][]", index, @lesson.days_of_week&.include?(index), class: "day-checkbox", data: { action: "checkbox#toggle" }
         span = day
+  - if f.object.errors[:days_of_week].any?
+    .error.mx-1 = f.object.errors.messages_for(:days_of_week).first
+  .custom-input-label
+    = Lesson.human_attribute_name(:color)
   .color_picker data-controller="color-picker"
     #color-picker-container data-lesson-color="#{@lesson.color if @lesson.present?}"
     = f.hidden_field :color, id: "color-value"
-    
+  
   = f.button :submit, class: "submit-button"

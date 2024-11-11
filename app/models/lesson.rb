@@ -9,6 +9,8 @@ class Lesson < ApplicationRecord
 
   validates :hour, presence: true
   validates :year, presence: true
+  validates :duration, presence: true
+  validate :check_days_of_week
 
   def set_arrays
     self.days_of_week ||= []
@@ -63,6 +65,18 @@ class Lesson < ApplicationRecord
     ]
   end
 
+  def self.duration_time_for_select
+    [
+      ["30 minut", 30],
+      ["45 minut", 45],
+      ["1 godzina", 60],
+      ["1 godzina 15 minut", 75],
+      ["1 godzina 30 minut", 90], 
+      ["1 godzina 45 minut", 105], 
+      ["2 godziny", 120], 
+    ]
+  end
+
   def display_school_year
     "#{self.year}/#{self.year+1}"
   end
@@ -73,6 +87,16 @@ class Lesson < ApplicationRecord
       I18n.t("days.#{day_symbol}")
     end
   end
+
+  def display_lesson_end_time
+    hours = self.duration / 60
+    minutes = self.duration % 60
+    (self.hour + (hours * 1.hour) + (minutes * 1.minute)).strftime("%H:%M")
+  end
+
+  def check_days_of_week
+    errors.add(:days_of_week, message: I18n.t(:empty_days_of_week)) if self.days_of_week.empty?
+  end 
 
   private
     def get_symbols_of_week_days

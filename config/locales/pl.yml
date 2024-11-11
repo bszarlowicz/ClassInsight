@@ -33,9 +33,11 @@ pl:
         name: "Imię i nazwisko"
         phone: "Telefon"
       lesson:
-        hour: Godzina zajęć
+        hour: Godzina rozpoczęcia
         year: Rok szkolny
         days_of_week: Dni tygodnia
+        duration: Czas trwania zajęć
+        color: Kolor kafelka
  
 
   bool_yes: Tak
@@ -68,9 +70,12 @@ pl:
   previous_week: Poprzedni tydzień
   next_week: Następny tydzień
   choose_hour: Wybierz godzinę
-  school_year_example: Np. 2024/2025
+  school_year_example: np. 2024/2025
   add_new_lesson: Dodaj nowe zajęcia
   edit_lesson: Edycja zajęć
+  lesson_duration_example: np. 1 godzina
+  empty_days_of_week: Musisz wybrać minimalnie jeden dzień tygodnia
+  lesson_end_time: Godzian zakończenia
   
   activities:
     reservation_created: Dokonał rezerwacji
@@ -198,9 +203,9 @@ pl:
     select:
       prompt: Proszę wybrać
     submit:
-      create: Utwórz %{model}
-      submit: Zapisz %{model}
-      update: Aktualizuj %{model}
+      create: Utwórz
+      submit: Zapisz
+      update: Aktualizuj
   number:
     currency:
       format:
