@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    // this.autoHideFlash();
+    this.autoHideFlash();
   }
 
   hideFlash(e) {
@@ -14,11 +14,11 @@ export default class extends Controller {
     }.bind(this.element));
   }
 
-  // autoHideFlash() {
-  //   if (!this.element.classList.contains('without-auto-close')) {
-  //     setTimeout(() => {
-  //       this.hideFlash(new Event('auto-hide'));
-  //     }, 3700);
-  //   }
-  // }
+  autoHideFlash() {
+    if (!this.element.classList.contains('without-auto-close')) {
+      setTimeout(() => {
+        this.hideFlash(new Event('auto-hide'));
+      }, 3700);
+    }
+  }
 }
