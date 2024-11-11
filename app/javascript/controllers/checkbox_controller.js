@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = ["dayButton"]
 
   toggle(event) {
-    console.log("test")
     const checkbox = event.target
     const dayButton = checkbox.closest(".day-button")
 

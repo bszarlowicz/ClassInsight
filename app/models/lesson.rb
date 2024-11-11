@@ -16,13 +16,13 @@ class Lesson < ApplicationRecord
   end
 
   DAYS_OF_WEEK = { 
-    0 => :sunday, 
-    1 => :monday, 
-    2 => :tuesday, 
-    3 => :wednesday, 
-    4 => :thursday, 
-    5 => :friday, 
-    6 => :saturday 
+    0 => :monday,
+    1 => :tuesday, 
+    2 => :wednesday, 
+    3 => :thursday, 
+    4 => :friday, 
+    5 => :saturday,
+    6 => :sunday, 
   }
   
   def set_hour_time_zone
@@ -68,7 +68,10 @@ class Lesson < ApplicationRecord
   end
 
   def display_days_of_week
-    self.days_of_week.map { |day| I18n.t('date.day_names')[day] }
+    self.days_of_week.map do |day|
+      day_symbol = DAYS_OF_WEEK[day]
+      I18n.t("days.#{day_symbol}")
+    end
   end
 
   private
