@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_lesson, only: %i[ show edit update destroy ]
-  before_action :set_week_days, only: %i[ new edit update ]
+  before_action :set_week_days, only: %i[ new edit update create ]
   before_action :set_user
 
   # GET /lessons or /lessons.json
