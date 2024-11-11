@@ -3,7 +3,7 @@ tr.table-row
   td.table-item = el.display_school_year
   td.table-item
     .day-items
-      - el.get_days_of_week.each do |day|
+      - el.display_days_of_week.each do |day|
         .day-item = day
   td.table-items-action
     = button_to user_lesson_path(@user, el), method: :delete, class: "round-delete-button" do

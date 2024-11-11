@@ -8,7 +8,6 @@ import TuiTimePicker from "tui-time-picker";
 export default class extends Controller {
   static targets = ["currentMonth"];
   connect() {
-    console.log('calendar here!')
     this.displayCalendar();
   }
 
@@ -42,20 +41,35 @@ export default class extends Controller {
       }
     });
     this.updateMonthDisplay();
+    this.loadEvents();
+  }
 
+  loadEvents() {
     const lessons = JSON.parse(document.getElementById('calendar').getAttribute('data-lessons'));
+    const schedules = lessons.flatMap(lesson => {
+      const startTime = new Date(lesson.hour);
+      const [hours, minutes] = [startTime.getUTCHours(), startTime.getUTCMinutes()];
 
-    console.log(lessons)
-  }
+      return lesson.occurrences.map(dateString => {
+        const date = new Date(dateString);
+        date.setHours(hours, minutes, 0, 0);
 
-  prev() {
-    this.calendar.prev();
-    this.updateMonthDisplay();
-  }
+        const end = new Date(date);
+        end.setHours(date.getHours() + 1);
 
-  next() {
-    this.calendar.next();
-    this.updateMonthDisplay();
+        return {
+          id: `lesson-${lesson.id}-${dateString}`,
+          calendarId: '1',
+          title: 'Lesson',
+          category: 'time',
+          start: date,
+          end: end,
+          isReadOnly: true
+        };
+      });
+    });
+
+    this.calendar.createSchedules(schedules);
   }
 
   updateMonthDisplay() {
@@ -77,6 +91,16 @@ export default class extends Controller {
       displayText = `${startMonth} ${startYear} / ${endMonth} ${endYear}`;
     }
     this.currentMonthTarget.textContent = displayText;
+  }
+
+  prev() {
+    this.calendar.prev();
+    this.updateMonthDisplay();
+  }
+
+  next() {
+    this.calendar.next();
+    this.updateMonthDisplay();
   }
 
   capitalizeFirstLetter(string) {

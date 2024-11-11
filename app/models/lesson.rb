@@ -2,7 +2,8 @@ class Lesson < ApplicationRecord
   belongs_to :user
   
   after_initialize :set_arrays
-  after_save :set_all_occurrences
+  before_save :set_all_occurrences
+  before_save :set_hour_time_zone
   before_validation :convert_days_of_week
 
 
@@ -14,12 +15,31 @@ class Lesson < ApplicationRecord
     self.occurrences ||= []
   end
 
+  DAYS_OF_WEEK = { 
+    0 => :sunday, 
+    1 => :monday, 
+    2 => :tuesday, 
+    3 => :wednesday, 
+    4 => :thursday, 
+    5 => :friday, 
+    6 => :saturday 
+  }
+  
+  def set_hour_time_zone
+    self.hour = Time.zone.parse(self.hour.to_s)
+  end
+
   def set_all_occurrences
-    schedule = IceCube::Schedule.new(Time.zone.local(self.year, 8, 31, 23, 59, 59))
-    schedule.add_recurrence_rule IceCube::Rule.weekly.day(:friday).until(Time.zone.local(self.year+1, 6, 30, 12, 00, 00))
-    schedule.all_occurrences.each do |occurence|
-      self.occurrences << occurence
+    school_start_date = Time.zone.local(self.year, 9, 1, 12, 00, 00)
+    school_end_date = Time.zone.local(self.year+1, 6, 30, 12, 00, 00)
+    occurrence_days = get_symbols_of_week_days
+    schedule = IceCube::Schedule.new(school_start_date)
+
+    occurrence_days.each do |day|
+      schedule.add_recurrence_rule IceCube::Rule.weekly.day(day).until(school_end_date)
     end
+
+    self.occurrences = schedule.all_occurrences.map { |occurrence| occurrence.to_date }
   end
 
   def add_day(day)
@@ -47,11 +67,15 @@ class Lesson < ApplicationRecord
     "#{self.year}/#{self.year+1}"
   end
 
-  def get_days_of_week
+  def display_days_of_week
     self.days_of_week.map { |day| I18n.t('date.day_names')[day] }
   end
 
   private
+    def get_symbols_of_week_days
+      self.days_of_week.map { |day| DAYS_OF_WEEK[day] }
+    end
+
     def self.ransackable_attributes(auth_object = nil)
       super & %w(
         hour
