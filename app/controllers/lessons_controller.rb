@@ -31,6 +31,7 @@ class LessonsController < ApplicationController
   # POST /lessons or /lessons.json
   def create
     @lesson = @user.lessons.new(lesson_params)
+    @form_class = "main-form"
     respond_to do |format|
       if @lesson.save
         format.html { redirect_to user_schedule_path(current_user), notice: flash_message(:create, Lesson) }
