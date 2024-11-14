@@ -55,9 +55,19 @@ form.modal-form{
     justify-content: space-between;
     border-top: 1px solid #eff0f4;
   }
+
+  .user-avatar-preview{
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
-#lessonFormModal .modal-content {
+#lessonFormModal .modal-content, #profileFormModal .modal-content {
   border: none;
   border-radius: 23px;
 }
