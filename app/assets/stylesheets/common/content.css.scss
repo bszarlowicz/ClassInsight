@@ -91,16 +91,19 @@
       margin-right: 20px;
       border-top-left-radius: 14px;
       border-top-right-radius: 14px;
+      overflow-y: hidden;
     }
   }
 }
 
 .user-avatar{
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background-color: #eff0f4;
   border-radius: 50%;
   padding: 5px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .page-title{

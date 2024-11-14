@@ -52,7 +52,7 @@ class UsersController < ApplicationController
           if current_user.is?("admin") && !self_update
             format.html { redirect_to users_path, notice: flash_message(:update, User) }
           else
-            format.html { redirect_to user_path(@user), notice: flash_message(:update, User) }
+            format.html { redirect_to users_path, notice: flash_message(:update, User) }
           end
         else
           format.html { render :edit, status: :unprocessable_entity }
