@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_lesson, only: %i[ show edit update destroy ]
-  before_action :set_week_days, only: %i[ new edit update create ]
+  before_action :set_week_days, only: %i[ index new edit update create ]
   before_action :set_lesson_hour, only: %i[ new edit ]
   before_action :set_user
 
@@ -10,6 +10,7 @@ class LessonsController < ApplicationController
     @search_url = user_lessons_path
     @search = @user.lessons.ransack(params[:q])
     @lessons = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
+    @form_class = "modal-form"
   end
 
   # GET /lessons/1 or /lessons/1.json
@@ -24,15 +25,15 @@ class LessonsController < ApplicationController
   # GET /lessons/1/edit
   def edit
     @selected_hour = @lesson.hour.present? ? @lesson.hour.strftime("%H:%M") : ""
+    @form_class = "main-form"
   end
 
   # POST /lessons or /lessons.json
   def create
     @lesson = @user.lessons.new(lesson_params)
-
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to user_schedule_path(current_user), notice: "Lesson was successfully created." }
+        format.html { redirect_to user_schedule_path(current_user), notice: flash_message(:create, Lesson) }
         format.json { render :show, status: :created, location: @lesson }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -45,7 +46,7 @@ class LessonsController < ApplicationController
   def update
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to user_lessons_path(@user), notice: "Lesson was successfully updated." }
+        format.html { redirect_to user_lessons_path(@user), notice: flash_message(:update, Lesson) }
         format.json { render :show, status: :ok, location: @lesson }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -59,7 +60,7 @@ class LessonsController < ApplicationController
     @lesson.destroy!
 
     respond_to do |format|
-      format.html { redirect_to user_lessons_path(@user), notice: "Lesson was successfully destroyed." }
+      format.html { redirect_to user_lessons_path(@user), notice: flash_message(:destroy, Lesson) }
       format.json { head :no_content }
     end
   end

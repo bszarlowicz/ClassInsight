@@ -93,43 +93,6 @@ form.main-form{
   }
 }
 
-.day-checkbox{
-  display: none;
-}
-
-.day-selector{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-  .day-button{
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    background-color: $orange-1-color;
-    height: 42px;
-    width: 42px;
-    border-radius: 50%;
-    border: 1px solid $orange-5-color;
-    cursor: pointer;
-
-    &:hover{
-      background-color: $orange-3-color;
-    }
-
-    span{
-      height: min-content;
-      margin: auto 0;
-      color: white;
-    }
-  }
-
-  .day-button.selected{
-    background-color: $orange-5-color;
-  }
-}
-
 .color_picker{
   display: flex;
   justify-content: center;

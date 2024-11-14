@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import Iro from '@jaames/iro';
 
 export default class extends Controller {
+
   connect() {
     const lessonColor = document.getElementById("color-picker-container").getAttribute("data-lesson-color") || "rgba(255, 141, 33, 0.6)";
     this.colorPicker = new Iro.ColorPicker("#color-picker-container", {
@@ -27,5 +28,15 @@ export default class extends Controller {
 
   setColorValue(rgba) {
     this.element.querySelector("#color-value").value = rgba;
+  }
+
+  disconnect() {
+    if (this.colorPicker) {
+      this.colorPicker = null;
+      const colorPickerContainer = document.getElementById("color-picker-container");
+      if (colorPickerContainer) {
+        colorPickerContainer.innerHTML = '';
+      }
+    }
   }
 }

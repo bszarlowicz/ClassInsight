@@ -1,4 +1,4 @@
-= simple_form_for([@user, @lesson], data: {controller: "flatpickr"}, html: { class: "modal-form" }) do |f|
+= simple_form_for([@user, lesson], data: {controller: "flatpickr"}, html: { class: @form_class }) do |f|
   .form-alert.m-1 = f.error_notification
   .form-alert.m-1 = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
@@ -13,14 +13,14 @@
   .day-selector data-controller="checkbox"
     - @week_days.each_with_index do |day, index|
       label.day-button data-checkbox-target="dayButton"
-        = check_box_tag "lesson[days_of_week][]", index, @lesson.days_of_week&.include?(index), class: "day-checkbox", data: { action: "checkbox#toggle" }
+        = check_box_tag "lesson[days_of_week][]", index, lesson.days_of_week&.include?(index), class: "day-checkbox", data: { action: "checkbox#toggle" }
         span = day
   - if f.object.errors[:days_of_week].any?
     .error.mx-1 = f.object.errors.messages_for(:days_of_week).first
   .custom-input-label
     = Lesson.human_attribute_name(:color)
   .color_picker data-controller="color-picker"
-    #color-picker-container data-lesson-color="#{@lesson.color if @lesson.present?}"
+    #color-picker-container data-lesson-color="#{lesson.color if lesson.present?}"
     = f.hidden_field :color, id: "color-value"
   .action-buttons
     = f.button :submit, class: "submit-button mt-2"
