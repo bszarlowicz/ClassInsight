@@ -1,4 +1,4 @@
-= simple_form_for([@user, lesson], data: {controller: "flatpickr"}, html: { class: @form_class }) do |f|
+= simple_form_for([@user, lesson], data: {controller: "flatpickr"}, html: { class: @form_class, id: "lesson_form" }) do |f|
   .form-alert.m-1 = f.error_notification
   .form-alert.m-1 = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
@@ -7,6 +7,8 @@
       = Lesson.human_attribute_name(:hour)
     = f.datetime_field :hour, class: "time-picker", placeholder: t(:choose_hour), value: @lesson_hour
   = f.input :duration, collection: Lesson.duration_time_for_select
+  - if f.object.errors[:duration].any?
+  .error = f.object.errors[:duration].first
   = f.input :year, collection: Lesson.school_year_for_select
   .custom-input-label
     = Lesson.human_attribute_name(:days_of_week)

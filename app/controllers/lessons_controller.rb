@@ -37,8 +37,10 @@ class LessonsController < ApplicationController
         format.html { redirect_to user_schedule_path(current_user), notice: flash_message(:create, Lesson) }
         format.json { render :show, status: :created, location: @lesson }
       else
-        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @lesson.errors, status: :unprocessable_entity }
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace('lesson_form', partial: 'lessons/form', locals: { lesson: @lesson })
+        end
       end
     end
   end
