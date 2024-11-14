@@ -13,7 +13,7 @@
   .day-selector data-controller="checkbox"
     - @week_days.each_with_index do |day, index|
       label.day-button data-checkbox-target="dayButton"
-        = check_box_tag "lesson[days_of_week][]", index, lesson.days_of_week&.include?(index), class: "day-checkbox", data: { action: "checkbox#toggle" }
+        = check_box_tag "lesson[days_of_week][]", index, lesson.days_of_week&.include?(index), id: "lesson_day_#{index}", class: "day-checkbox", data: { action: "checkbox#toggle" }
         span = day
   - if f.object.errors[:days_of_week].any?
     .error.mx-1 = f.object.errors.messages_for(:days_of_week).first
