@@ -18,7 +18,7 @@ export default class extends Controller {
     if (!this.element.classList.contains('without-auto-close')) {
       setTimeout(() => {
         this.hideFlash(new Event('auto-hide'));
-      }, 3700);
+      }, 2000);
     }
   }
 }

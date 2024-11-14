@@ -57,34 +57,50 @@ form.modal-form{
   }
 }
 
-#modal{
-  .lesson-modal {
-    position: fixed;
-    z-index: 1;
-    padding: 2em;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    overflow: auto;
-    background-color: white;
-    border-radius: 26px;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2), 0 5px 10px 0 rgba(0,0,0,0.19);
-  }
+#lessonFormModal .modal-content {
+  border: none;
+  border-radius: 23px;
 }
 
-.lesson-modal{
-  .main-page-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.day-checkbox{
+  display: none;
+}
 
-  .close-icon{
-    text-decoration: none;
-    color: #d4d4d6;
+.day-selector{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  .day-button{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-color: white;
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    border: 1px solid $orange-5-color;
+    cursor: pointer;
 
     &:hover{
-      color: #a2a2a2;
+      background-color: $orange-3-color;
+      span{
+        color: white;
+      }
+    }
+
+    span{
+      height: min-content;
+      margin: auto 0;
+      color: $orange-3-color;
+    }
+  }
+
+  .day-button.selected{
+    background-color: $orange-4-color;
+    span{
+      color: white;
     }
   }
 }

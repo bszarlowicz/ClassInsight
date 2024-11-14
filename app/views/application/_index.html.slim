@@ -8,9 +8,14 @@
           = render "filters"
     .col-md-4.end
       -if defined?(new_button_text)
-        = link_to new_path, class: "main-button", title: new_button_text
-          = new_button_text
-          = fa_icon("plus-circle")
+        -if defined?(modal_form_lesson)
+          = button_tag t(:add_lesson), class: "main-button", title: t(:add_lesson), data: { bs_toggle: "modal", bs_target: "#lessonFormModal" } do
+            = new_button_text
+            = fa_icon("plus-circle")
+        -else
+          = link_to new_path, class: "main-button", title: new_button_text
+            = new_button_text
+            = fa_icon("plus-circle")
 
   .table-content
     = render "table", list: list
