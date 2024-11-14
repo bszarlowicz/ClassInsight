@@ -1,0 +1,90 @@
+@import "base/colors.css.scss";
+
+form.modal-form{
+  width: 100%;
+
+  .input, .custom-input{
+    background-color: $main-site-background-color;
+    margin-bottom: 10px;
+    border-radius: 9px;
+    padding: 3px;
+    padding-top: 0;
+
+    label, .custom-input-label{
+      font-size: 13px;
+      padding-left: 5px;
+      padding-top: 2px;
+      color: $text-grey;
+
+      abbr[title]{
+        display: none !important;
+      }
+    }
+  }
+
+  input, select{
+    border: 1px solid white;
+    border-radius: 6px;
+    background-color: white;
+    padding: 5px;
+    margin: 10px 0;
+    width: 100%;
+    margin: 0;
+    font-size: 15px;
+  }
+
+  select {
+    option:first-child {
+      color: #767676 !important;
+    }
+  }
+
+  input:focus, select:focus{
+    border-color: $orange-4-color;
+    outline: none !important;
+  }
+
+  .form-alert{
+    font-size: 12px;
+    color: red;
+  }
+
+  .action-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #eff0f4;
+  }
+}
+
+#modal{
+  .lesson-modal {
+    position: fixed;
+    z-index: 1;
+    padding: 2em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+    background-color: white;
+    border-radius: 26px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2), 0 5px 10px 0 rgba(0,0,0,0.19);
+  }
+}
+
+.lesson-modal{
+  .main-page-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .close-icon{
+    text-decoration: none;
+    color: #d4d4d6;
+
+    &:hover{
+      color: #a2a2a2;
+    }
+  }
+}
