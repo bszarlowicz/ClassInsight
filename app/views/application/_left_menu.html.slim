@@ -17,6 +17,6 @@
           .action-buttons
             = current_user.name
             = link_to edit_user_path(current_user), class: "edit-icon" do
-              = fa_icon("pencil-square-o")
+              = fa_icon("cog")
           = button_to "Wyloguj", destroy_user_session_path, method: :delete, class: "logout-button-transparent"
       

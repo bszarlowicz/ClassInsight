@@ -8,7 +8,7 @@
   text-decoration: none;
   color: $orange-4-color;
   background-color: $orange-0-color;
-  padding: 8px;
+  padding: 5px 8px;
   border-radius: 8px;
   border: 1px solid $orange-2-color;
   width: max-content;
@@ -71,5 +71,44 @@
 
   &:hover{
     color: $red-danger-dark;
+  }
+}
+
+input.btn.submit-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: $orange-4-color;
+  background-color: $orange-0-color;
+  padding: 5px 8px;
+  border-radius: 8px;
+  border: 1px solid $orange-2-color;
+  font-size: 14px;
+  margin-top: 30px;
+  width: min-content;
+  
+  &:hover{
+    background-color: $orange-3-color;
+    color: $orange-0-color;
+  }
+}
+
+.set-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  padding: 2px 5px;
+  border-radius: 12px;
+  color: $orange-4-color;
+  border: 1px solid $orange-3-color;
+  background-color: $orange-0-color;
+  font-size: 12px;
+  &:hover{
+    background-color: $orange-3-color;
+    color: $orange-0-color;
   }
 }

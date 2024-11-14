@@ -1,6 +1,20 @@
 = simple_form_for(resource, as: @resource_name, url: url, html: { class: "main-form" }) do |f|
   = render "devise/shared/error_messages", resource: resource
 
+  .avatar-input.mt-2 data-controller="file-input"
+    .display-none
+      = f.input :avatar, input_html: {id: 'avatarInput', data:{action: "change->file-input#previewImage"}}, label: false
+    .avatar-input-preview.mb-2
+      - if f.object.avatar.attached? && f.object.valid?
+        = image_tag f.object.avatar, id: 'avatarPreview', class: 'user-avatar-preview'
+      -else
+        = image_tag asset_url("default_user_avatar.png"), id: 'avatarPreview', class: 'user-avatar-preview'
+      button type="button" class="set-button" data-action="file-input#triggerFileInput"
+        = t(:set_avatar)
+        = fa_icon('id-badge')
+      - if f.object.errors[:avatar].any?
+        .error.mx-1 = f.object.errors.messages_for(:avatar).first
+
   = f.input :name, autofocus: true, input_html: { placeholder: User.human_attribute_name(:name) }
   = f.input :email, input_html: { placeholder: User.human_attribute_name(:email) }
   = f.input :password, input_html: { placeholder: User.human_attribute_name(:password) }

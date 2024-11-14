@@ -20,7 +20,7 @@ export default class extends Controller {
       scheduleView: ['time'],
       week:{
         hourStart: 7,
-        hourEnd: 22,
+        hourEnd: 23,
         narrowWeekend: true,
         startDayOfWeek: 1,
       },

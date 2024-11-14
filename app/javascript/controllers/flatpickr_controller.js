@@ -11,7 +11,7 @@ export default class extends Controller {
       dateFormat: "H:i",
       time_24hr: true,
       minTime: "07:00",
-      maxTime: "22:00",
+      maxTime: "21:00",
       defaultDate: lessonHour
     });
   }
