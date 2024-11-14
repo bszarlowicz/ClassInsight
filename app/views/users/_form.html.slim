@@ -1,4 +1,4 @@
-= simple_form_for(resource, as: @resource_name, url: url, html: { class: "main-form" }) do |f|
+= simple_form_for(resource, as: @resource_name, url: url, html: { class: form_class }) do |f|
   = render "devise/shared/error_messages", resource: resource
 
   .avatar-input.mt-2 data-controller="file-input"
