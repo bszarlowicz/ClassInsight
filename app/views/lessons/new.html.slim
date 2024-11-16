@@ -1,6 +1,8 @@
 = turbo_frame_tag "modal" do
-  .modal-form-card
-    h3.page-title = t(:new_lesson)
+  .modal-overlay data-controller="modals" data-action="click->modals#closeByOverlay"
+    .modal-form-card
+      .modal-form-header
+        h4.page-title.mb-0 = t(:new_lesson)
+        = link_to fa_icon('times'), "#", class: "close-link", data: { controller: "modals", action: "modals#close" }
 
-    = render "form", lesson: @lesson
-    = link_to "X", "#", data: { controller: "modals", action: "modals#close" }
+      = render "form", lesson: @lesson
