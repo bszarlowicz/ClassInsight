@@ -1,18 +1,1 @@
-.calendar data-controller="calendar"
-  .schedule-action
-    h3.table-title
-      = t(:calendar)
-    .action-buttons
-      = link_to new_user_lesson_path(@user), class: "main-button", title: t(:add_lesson), data: {turbo_frame: "modal"} do
-        = t(:add_lesson)
-        = fa_icon("plus-circle")
-  .schedule-navigation
-    .month
-      span data-calendar-target="currentMonth"
-    .navigation
-      .round-action-button data-action="click->calendar#prev"
-        = fa_icon("angle-left")
-      .round-action-button data-action="click->calendar#next"
-        = fa_icon("angle-right")
-  .schedule
-    #calendar data-lessons="#{@lessons.to_json}"
+= render 'calendar', lessons: @lessons.to_json

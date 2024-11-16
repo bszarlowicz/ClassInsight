@@ -2,6 +2,7 @@
 
 form.modal-form{
   width: 100%;
+  min-width: 380px;
 
   .input, .custom-input{
     background-color: $main-site-background-color;

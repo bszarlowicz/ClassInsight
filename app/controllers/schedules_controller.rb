@@ -4,7 +4,6 @@ class SchedulesController < ApplicationController
 
   def index
     @lessons = @user.lessons
-    @form_class = "modal-form"
   end
 
   private

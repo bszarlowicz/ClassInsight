@@ -1,9 +1,0 @@
-#profileFormModal.modal.fade[tabindex="-1" aria-labelledby="profileFormModalLabel" aria-hidden="true"]
-  .modal-dialog.modal-dialog-centered
-    .modal-content
-      .modal-header
-        h1#profileFormModalLabel.modal-title.fs-5
-          = t(:user_edit)
-        button.btn-close[type="button" data-bs-dismiss="modal" aria-label="Close"]
-      .modal-body
-         = render "users/form", resource: current_user, url: user_path(current_user), form_class: "modal-form"

@@ -1,4 +1,4 @@
-= simple_form_for(resource, as: @resource_name, url: url, html: { class: form_class }) do |f|
+= simple_form_for(resource, as: @resource_name, url: url, html: { class: "modal-form" }) do |f|
   = render "devise/shared/error_messages", resource: resource
 
   .avatar-input.mt-2 data-controller="file-input"
@@ -21,4 +21,4 @@
   = f.input :password_confirmation, as: :password, input_html: {placeholder: User.human_attribute_name(:password_confirmation) }
   = f.input :phone, input_html: { placeholder: User.human_attribute_name(:phone) }
 
-  = f.button :submit, class: "submit-button"
+  = f.button :submit, class: "submit-button", data: { turbo: false }
