@@ -1,3 +1,6 @@
-h3.page-title = t(:edit_lesson)
+= turbo_frame_tag "modal" do
+  .modal-form-card
+    h3.page-title = t(:edit_lesson)
 
-= render "form", lesson: @lesson
+    = render "form", lesson: @lesson
+    = link_to "X", "#", data: { controller: "modals", action: "modals#close" }

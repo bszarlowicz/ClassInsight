@@ -1,9 +1,0 @@
-#lessonFormModal.modal.fade[tabindex="-1" aria-labelledby="lessonFormModalLabel" aria-hidden="true"]
-  .modal-dialog.modal-dialog-centered
-    .modal-content
-      .modal-header
-        h1#lessonFormModalLabel.modal-title.fs-5
-          = t(:add_new_lesson)
-        button.btn-close[type="button" data-bs-dismiss="modal" aria-label="Close"]
-      .modal-body
-         = render "lessons/form", lesson: lesson

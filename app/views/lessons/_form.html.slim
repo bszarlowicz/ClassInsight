@@ -25,4 +25,4 @@
     #color-picker-container data-lesson-color="#{lesson.color if lesson.present?}"
     = f.hidden_field :color, id: "color-value"
   .action-buttons
-    = f.button :submit, class: "submit-button mt-2"
+    = f.button :submit, class: "submit-button mt-2", data: { turbo: false }
