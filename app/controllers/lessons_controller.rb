@@ -29,11 +29,21 @@ class LessonsController < ApplicationController
   # POST /lessons or /lessons.json
   def create
     @lesson = @user.lessons.new(lesson_params)
+    @search_url = user_lessons_path
+    @search = @user.lessons.ransack(params[:q])
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to user_schedule_path(current_user), notice: flash_message(:create, Lesson) }
+        @lessons = @user.lessons
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.replace('lesson-calendar', partial: 'schedules/calendar', locals: { lessons: @lessons.to_json }),
+            turbo_stream.replace('lesson-turbo-table', partial: 'lessons/table_turbo', locals: { list: @lessons }),
+            turbo_stream.replace('modal', partial: 'lessons/empty_modal')
+          ]
+        end
         format.json { render :show, status: :created, location: @lesson }
       else
+        format.html { render :new, status: :unprocessable_entity  }
         format.json { render json: @lesson.errors, status: :unprocessable_entity }
       end
     end
@@ -41,9 +51,17 @@ class LessonsController < ApplicationController
 
   # PATCH/PUT /lessons/1 or /lessons/1.json
   def update
+    @search_url = user_lessons_path
+    @search = @user.lessons.ransack(params[:q])
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to user_lessons_path(@user), notice: flash_message(:update, Lesson) }
+        @lessons = @user.lessons
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.replace('lesson-turbo-table', partial: 'lessons/table_turbo', locals: { list: @lessons }),
+            turbo_stream.replace('modal', partial: 'lessons/empty_modal')
+          ]
+        end
         format.json { render :show, status: :ok, location: @lesson }
       else
         format.html { render :edit, status: :unprocessable_entity }

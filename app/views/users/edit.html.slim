@@ -1,5 +1,7 @@
-.main-page-header
-  h3.title = t(:user_edit)
-  .icon = fa_icon("pencil-square")
-
-= render "form", resource: @user, url: user_path(@user), form_class: "main-form"
+= turbo_frame_tag "modal" do
+  .modal-overlay data-controller="modals" data-action="click->modals#closeByOverlay"
+    .modal-form-card
+      .modal-form-header
+        h4.page-title.mb-0 = t(:user_edit)
+        = link_to fa_icon('times'), "#", class: "close-link", data: { controller: "modals", action: "modals#close" }
+      = render "form", resource: @user, url: user_path(@user)

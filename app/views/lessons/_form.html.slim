@@ -1,4 +1,4 @@
-= simple_form_for([@user, lesson], data: {controller: "flatpickr"}, html: { class: "modal-form", id: "lesson_form" }) do |f|
+= simple_form_for([@user, lesson], data: {controller: "flatpickr"}, html: { class: "modal-form" }) do |f|
   .form-alert.m-1 = f.error_notification
   .form-alert.m-1 = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
@@ -25,4 +25,4 @@
     #color-picker-container data-lesson-color="#{lesson.color if lesson.present?}"
     = f.hidden_field :color, id: "color-value"
   .action-buttons
-    = f.button :submit, class: "submit-button mt-2", data: { turbo: false }
+    = f.button :submit, class: "submit-button mt-2", data: { turbo: true }
