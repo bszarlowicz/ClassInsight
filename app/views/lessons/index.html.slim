@@ -1,3 +1,1 @@
-= render 'index', title: Lesson.model_name.human(count: 2), list: @lessons, new_button_text: "Dodaj", new_path: new_user_lesson_path, filters: !(defined?(disable_filters) && disable_filters), modal_form_lesson: true
-
-= render "modal_form", lesson: @user.lessons.new
+= render 'index', title: Lesson.model_name.human(count: 2), list: @lessons, new_button_text: "Dodaj", new_path: new_user_lesson_path, filters: !(defined?(disable_filters) && disable_filters), modal_form: true

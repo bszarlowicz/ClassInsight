@@ -3,7 +3,7 @@
     h3.table-title
       = t(:calendar)
     .action-buttons
-      = button_tag t(:add_lesson), class: "main-button", title: t(:add_lesson), data: { bs_toggle: "modal", bs_target: "#lessonFormModal" } do
+      = link_to new_user_lesson_path(@user), class: "main-button", title: t(:add_lesson), data: {turbo_frame: "modal"} do
         = t(:add_lesson)
         = fa_icon("plus-circle")
   .schedule-navigation
@@ -12,9 +12,7 @@
     .navigation
       .round-action-button data-action="click->calendar#prev"
         = fa_icon("angle-left")
-      .round-action-button data-action="click->calendar#next" 
+      .round-action-button data-action="click->calendar#next"
         = fa_icon("angle-right")
   .schedule
     #calendar data-lessons="#{@lessons.to_json}"
-
-= render "lessons/modal_form", lesson: @user.lessons.new
