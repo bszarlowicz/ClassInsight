@@ -21,4 +21,4 @@
   = f.input :password_confirmation, as: :password, input_html: {placeholder: User.human_attribute_name(:password_confirmation) }
   = f.input :phone, input_html: { placeholder: User.human_attribute_name(:phone) }
 
-  = f.button :submit, class: "submit-button", data: { turbo: false }
+  = f.button :submit, class: "submit-button", data: { turbo: true }

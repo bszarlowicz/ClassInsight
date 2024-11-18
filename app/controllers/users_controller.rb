@@ -44,16 +44,12 @@ class UsersController < ApplicationController
     # PATCH/PUT /users/1 or /users/1.json
     def update
       self_update = current_user == @user
-  
+      @username = user_params[:name]
       respond_to do |format|
         if user_params[:password].present? ? @user.update(user_params) : @user.update_without_password(user_params)
           sign_in(@user, bypass: true) if self_update
           flash[:notice] = "Użytkownik został zaktualizowany."
-          if current_user.is?("admin") && !self_update
-            format.html { redirect_to users_path, notice: flash_message(:update, User) }
-          else
-            format.html { redirect_to users_path, notice: flash_message(:update, User) }
-          end
+          format.turbo_stream
         else
           format.html { render :edit, status: :unprocessable_entity }
         end

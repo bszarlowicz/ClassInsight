@@ -7,9 +7,7 @@
       = Lesson.human_attribute_name(:hour)
     = f.datetime_field :hour, class: "time-picker", placeholder: t(:choose_hour), value: @lesson_hour
   = f.input :duration, collection: Lesson.duration_time_for_select
-  - if f.object.errors[:duration].any?
-  .error = f.object.errors[:duration].first
-  = f.input :year, collection: Lesson.school_year_for_select
+  = f.input :year, collection: Lesson.school_year_for_select, include_blank: false
   .custom-input-label
     = Lesson.human_attribute_name(:days_of_week)
   .day-selector data-controller="checkbox"

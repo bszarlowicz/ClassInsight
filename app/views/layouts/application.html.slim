@@ -19,7 +19,7 @@ html
     - if show_left_menu?
       .content
         .content-group
-          = render "left_menu"
+          = render "left_menu", user: current_user
           .right-content
             = yield
     -else

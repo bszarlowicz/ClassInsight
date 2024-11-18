@@ -12,10 +12,10 @@
           = render "student_left_links"
     .bottom
       .avatar-with-name
-        = image_tag url_for(current_user.avatar), class: "user-avatar" if current_user.avatar.present?
+        = render "users/turbo/avatar_turbo", avatar: current_user&.avatar
         .name
           .action-buttons
-            = current_user.name
+            = render "users/turbo/username_turbo", username: current_user.name
             = link_to edit_user_path(current_user), class: "edit-icon", title: t(:add_lesson), data: {turbo_frame: "modal"} do
               = fa_icon("cog")
           = button_to "Wyloguj", destroy_user_session_path, method: :delete, class: "logout-button-transparent"
