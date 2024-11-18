@@ -1,0 +1,4 @@
+<%= turbo_stream.replace 'lesson-calendar', partial: 'schedules/calendar_turbo', locals: { lessons: @lessons.to_json } %>
+<%= turbo_stream.replace 'lesson-turbo-table', partial: 'lessons/turbo/table_turbo', locals: { list: @lessons } %>
+<%= turbo_stream.replace 'flash_message', partial: 'application/flash' %>
+<%= turbo_stream.replace 'modal', partial: 'shared/empty_modal' %>

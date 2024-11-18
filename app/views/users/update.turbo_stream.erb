@@ -1,0 +1,4 @@
+<%= turbo_stream.replace('username-left-menu', partial: 'users/turbo/username_turbo', locals: { username: @username }) %>
+<%= turbo_stream.replace('avatar-left-menu', partial: 'users/turbo/avatar_turbo', locals: { avatar: current_user.avatar }) %>
+<%= turbo_stream.replace("flash_message", partial: "application/flash") %>
+<%= turbo_stream.replace('modal', partial: 'shared/empty_modal') %>

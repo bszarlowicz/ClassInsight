@@ -1,4 +1,4 @@
-turbo-frame id="flash_message" 
+= turbo_frame_tag "flash_message" do
     - if flash[:notice] || flash[:success]
         .notice data-controller="flash"
             = flash[:notice] || flash[:success]
