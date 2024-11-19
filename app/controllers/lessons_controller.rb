@@ -34,9 +34,10 @@ class LessonsController < ApplicationController
     respond_to do |format|
       if @lesson.save
         @lessons = @user.lessons
-        flash[:notice] = "Zajęcia zostały utworzone"
+        flash[:notice] = flash_message(:create, Lesson)
         format.turbo_stream
         format.json { render :show, status: :created, location: @lesson }
+        flash.discard
       else
         format.html { render :new, status: :unprocessable_entity  }
         format.json { render json: @lesson.errors, status: :unprocessable_entity }
@@ -51,9 +52,10 @@ class LessonsController < ApplicationController
     respond_to do |format|
       if @lesson.update(lesson_params)
         @lessons = @user.lessons
-        flash[:notice] = "Zajęcia zostały zaktualizowane"
+        flash[:notice] = flash_message(:update, Lesson)
         format.turbo_stream
         format.json { render :show, status: :ok, location: @lesson }
+        flash.discard
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @lesson.errors, status: :unprocessable_entity }
@@ -64,10 +66,11 @@ class LessonsController < ApplicationController
   # DELETE /lessons/1 or /lessons/1.json
   def destroy
     @lesson.destroy!
-
     respond_to do |format|
-      format.html { redirect_to user_lessons_path(@user), notice: flash_message(:destroy, Lesson) }
+      flash[:notice] = flash_message(:destroy, Lesson)
+      format.html { redirect_to user_lessons_path(@user) }
       format.json { head :no_content }
+      flash.discard
     end
   end
 

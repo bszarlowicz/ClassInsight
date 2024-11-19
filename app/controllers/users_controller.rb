@@ -50,6 +50,7 @@ class UsersController < ApplicationController
           sign_in(@user, bypass: true) if self_update
           flash[:notice] = "Użytkownik został zaktualizowany."
           format.turbo_stream
+          flash.discard
         else
           format.html { render :edit, status: :unprocessable_entity }
         end

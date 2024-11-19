@@ -12,6 +12,7 @@ export default class extends Controller {
     $(this.element).bind('webkitAnimationEnd', function(){
       $(this).remove();
     }.bind(this.element));
+    $(this.element).innerHTML = "";
   }
 
   autoHideFlash() {
