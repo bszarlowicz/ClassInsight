@@ -1,11 +1,24 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
     before_action :set_user, only: %i[show edit update destroy ]
+    
   
     # GET /users or /users.json
     def index
+      @search_url = users_path
       @user = current_user
-      @search = User.ransack(params[:q])
+      
+      if @user.is_a?(Teacher)
+        @title = t(:students)
+        @search = @user.students.ransack(params[:q])
+      elsif @user.is_a?(Student)
+        @title = t(:teachers)
+        @search = @user.teachers.ransack(params[:q])
+      elsif @user.is?("admin")
+        @title = User.model_name.human(count: 2)
+        @search = User.ransack(params[:q])
+      end
+
       @users = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
     end
   
@@ -16,6 +29,7 @@ class UsersController < ApplicationController
   
     # GET /users/new
     def new
+      @user = User.new
     end
   
     # GET /users/1/edit
@@ -28,10 +42,16 @@ class UsersController < ApplicationController
     # POST /users or /users.json
     def create
       @user = User.new(user_params)
-  
+
+      password = Devise.friendly_token[0, 20]
+      @user.password = password
+      @user.password_confirmation = password
+      @user.type = "Student"
+
       respond_to do |format|
         if @user.save
-          sign_in(current_user, bypass: true)
+          @user.update(temporary_password: password)
+          # sign_in(current_user, bypass: true)
           format.html { redirect_to users_path, notice: flash_message(:create, User) }
         else
           format.html {
@@ -58,8 +78,8 @@ class UsersController < ApplicationController
     end
   
     def destroy
-        @user.destroy
-        redirect_to users_url, notice: 'User was successfully destroyed.'
+      @user.destroy
+      redirect_to users_url, notice: 'User was successfully destroyed.'
     end
   
     private
@@ -68,7 +88,7 @@ class UsersController < ApplicationController
       end
   
       def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation, :phone, :role_mask, :avatar)
+        params.require(:user).permit(User.permitted_params)
       end
 end
   

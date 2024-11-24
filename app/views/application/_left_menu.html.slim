@@ -6,7 +6,7 @@
       .main-links
         - if current_user.is? :admin
           = render "admin_left_links"
-        - elsif current_user.is? :teacher
+        - elsif current_user.is_a?(Teacher)
           = render "teacher_left_links"
         -else
           = render "student_left_links"

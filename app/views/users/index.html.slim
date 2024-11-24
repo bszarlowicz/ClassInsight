@@ -1,1 +1,1 @@
-= render 'index', title: User.model_name.human(count: 2), list: @users, new_button_text: "Dodaj", new_path: new_user_path, filters: !(defined?(disable_filters) && disable_filters)
+= render "users/turbo/table_turbo", list: @users
