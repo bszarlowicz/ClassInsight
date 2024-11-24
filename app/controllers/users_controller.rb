@@ -7,18 +7,8 @@ class UsersController < ApplicationController
     def index
       @search_url = users_path
       @user = current_user
-      
-      if @user.is_a?(Teacher)
-        @title = t(:students)
-        @search = @user.students.ransack(params[:q])
-      elsif @user.is_a?(Student)
-        @title = t(:teachers)
-        @search = @user.teachers.ransack(params[:q])
-      elsif @user.is?("admin")
-        @title = User.model_name.human(count: 2)
-        @search = User.ransack(params[:q])
-      end
-
+      @title = User.model_name.human(count: 2)
+      @search = User.ransack(params[:q])
       @users = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
     end
   

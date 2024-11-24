@@ -1,4 +1,4 @@
-= simple_form_for(resource, url: create_student_teacher_path(current_user), html: { class: "modal-form" }) do |f|
+= simple_form_for(resource, as: @resource_name, url: url, html: { class: "modal-form" }) do |f|
   = render "devise/shared/error_messages", resource: resource
 
   = f.input :name, autofocus: true, input_html: { placeholder: User.human_attribute_name(:name) }
