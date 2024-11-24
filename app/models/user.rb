@@ -6,6 +6,7 @@ class User < ApplicationRecord
   before_save :normalize_phone
   after_create :auto_set_role
   after_create :set_default_avatar
+  before_create :set_default_type
 
   validates :name, presence: true
   validates :password, length: {minimum: 8}, format: {with: /\A(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,40}\z/, message: :invalid_password_format}, if: :password_validation?
@@ -19,8 +20,7 @@ class User < ApplicationRecord
 
   ROLES = {
     "A" => "admin",
-    "T" => "teacher",
-    "S" => "student"
+    "U" => "user"
   }
 
   def roles
@@ -31,7 +31,7 @@ class User < ApplicationRecord
   end
 
   def auto_set_role
-    self.update_column(:role_mask, "S") unless self.role_mask.present?
+    self.update_column(:role_mask, "U") unless self.role_mask.present?
   end
 
   def is?(role)
@@ -60,7 +60,28 @@ class User < ApplicationRecord
     end
   end
 
+  def self.permitted_params
+    # TO DO
+    # if type == "Teacher"
+    #   default_params + Teacher.extra_params
+    # elsif type == "Student"
+    #   default_params + Student.extra_params
+    # else
+    #   default_params
+    # end
+    default_params
+  end
+
+  def self.default_params
+    [:name, :email, :password, :password_confirmation, :phone, :role_mask, :avatar]
+  end
+
   private
+
+    def set_default_type
+      self.type ||= 'Teacher'
+    end
+
     def set_default_avatar
       unless avatar.attached?
         image_path = Rails.root.join("app/assets/images/default_user_avatar.png")
