@@ -6,11 +6,9 @@ Rails.application.routes.draw do
     get 'schedule', to: 'schedules#index'
   end
 
-  resources :teachers, only: [] do
-    member do
-      post 'create_student'
-    end
-  end
+  # resources :teachers, only: [] do
+  # end
+  resources :students, only: [:index, :new, :create, :edit, :update]
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

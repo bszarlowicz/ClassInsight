@@ -24,6 +24,12 @@ pl:
       lesson:
         one: "Lekcja"
         other: "Zajęcia"
+      student:
+        one: "Uczeń"
+        other: "Uczniowie"
+      teacher:
+        one: "Nauczyciel"
+        other: "Nauczyciele"
 
     attributes:
       user:

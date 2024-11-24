@@ -1,0 +1,3 @@
+= turbo_frame_tag "students-turbo-table" do
+  = render 'index', title: @title, list: list, new_button_text: "Dodaj", new_path: new_student_path, filters: !(defined?(disable_filters) && disable_filters), modal_form: true
+  
