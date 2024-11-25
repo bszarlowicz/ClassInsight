@@ -3,7 +3,10 @@ class SchedulesController < ApplicationController
   before_action :set_week_days, only: %i[ index ]
 
   def index
-    @lessons = @user.lessons
+    @lessons = @user.lessons.map do |lesson|
+      student = Student.find(lesson.student_id)
+      lesson.attributes.merge(student_name: student.name)
+    end
   end
 
   private

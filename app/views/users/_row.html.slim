@@ -1,5 +1,8 @@
 tr.table-row
-  td.table-item = el.name
+  td.table-item 
+    .many-elements
+      = image_tag url_for(el.avatar), class: "user-avatar-small" if el.avatar.present?
+      = el.name
   td.table-item = el.email
   td.table-item = el.phone
 

@@ -21,7 +21,15 @@
           border-radius: 8px;
         }
       }
+
+      .many-elements{
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        gap: 5px;
+      }
     }
+
 
     thead{
       border-bottom: 2px solid #eff0f4;
