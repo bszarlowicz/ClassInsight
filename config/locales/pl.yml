@@ -44,6 +44,7 @@ pl:
         days_of_week: Dni tygodnia
         duration: Czas trwania zajęć
         color: Kolor kafelka
+        student: Uczeń
  
 
   bool_yes: Tak
@@ -86,6 +87,7 @@ pl:
   new_student: Dodaj nowego ucznia
   set_avatar: Zmień avatar
   new_lesson: Nowe zajęcia
+  hour: Godzina
   
   activities:
     reservation_created: Dokonał rezerwacji

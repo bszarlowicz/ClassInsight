@@ -1,6 +1,9 @@
 tr.table-row
-  td.table-item = el.hour.strftime("%H:%M")
-  td.table-item = el.display_lesson_end_time
+  td.table-item style="border-left: 3px solid #{el.color}; "
+    .many-elements
+      = image_tag url_for(el.student.avatar), class: "user-avatar-small" if el.student.avatar.present?
+      = el.student.name
+  td.table-item = "#{el.hour.strftime("%H:%M")} - #{el.display_lesson_end_time}"
   td.table-item
     .day-items
       - el.display_days_of_week.each do |day|

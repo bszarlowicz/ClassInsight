@@ -37,6 +37,9 @@ export default class extends Controller {
             var hour = time.hour;
             var minutes = time.minutes < 10 ? '0' + time.minutes : time.minutes;
             return hour + ':' + minutes;
+        },
+        time: function(schedule) {
+          return schedule.title;
         }
       }
     });
@@ -46,6 +49,7 @@ export default class extends Controller {
 
   loadEvents() {
     const lessons = JSON.parse(document.getElementById('calendar').getAttribute('data-lessons'));
+    console.log(lessons)
     const schedules = lessons.flatMap(lesson => {
       const startTime = new Date(lesson.hour);
       const [hours, minutes] = [startTime.getUTCHours(), startTime.getUTCMinutes()];
@@ -57,16 +61,25 @@ export default class extends Controller {
         const end = new Date(date);
         end.setMinutes(date.getMinutes() + lesson.duration);
 
+        const formattedStartHour = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
+        const formattedStartMinute = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+      
+        const formattedEndHour = end.getHours() < 10 ? `0${end.getHours()}` : end.getHours();
+        const formattedEndMinute = end.getMinutes() < 10 ? `0${end.getMinutes()}` : end.getMinutes();
+      
+        const lesson_title = `${lesson.student_name}<br>${formattedStartHour}:${formattedStartMinute} - ${formattedEndHour}:${formattedEndMinute}`;
+
         return {
           id: `lesson-${lesson.id}-${dateString}`,
           calendarId: '1',
-          title: 'Lesson',
+          title: lesson_title,
           category: 'time',
           start: date,
           end: end,
           isReadOnly: true,
           bgColor: lesson.color,
-          borderColor: this.darkenRgbaColor(lesson.color)
+          borderColor: this.darkenRgbaColor(lesson.color),
+          color: "#333",
         };
       });
     });
