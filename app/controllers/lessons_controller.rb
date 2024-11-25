@@ -16,6 +16,7 @@ class LessonsController < ApplicationController
   def show
   end
 
+  
   # GET /lessons/new
   def new
     @lesson = @user.lessons.new
@@ -34,6 +35,10 @@ class LessonsController < ApplicationController
     respond_to do |format|
       if @lesson.save
         @lessons = @user.lessons
+        @lessons_to_json = @user.lessons.map do |lesson|
+          student = Student.find(lesson.student_id)
+          lesson.attributes.merge(student_name: student.name)
+        end
         flash[:notice] = flash_message(:create, Lesson)
         format.turbo_stream
         format.json { render :show, status: :created, location: @lesson }
