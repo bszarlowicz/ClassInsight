@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_20_182352) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_25_114446) do
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -45,11 +45,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_20_182352) do
     t.datetime "updated_at", null: false
     t.json "days_of_week"
     t.integer "year"
-    t.bigint "user_id"
     t.json "occurrences"
     t.string "color"
     t.integer "duration"
-    t.index ["user_id"], name: "index_lessons_on_user_id"
+    t.bigint "teacher_id", null: false
+    t.bigint "student_id", null: false
+    t.index ["student_id"], name: "index_lessons_on_student_id"
+    t.index ["teacher_id"], name: "index_lessons_on_teacher_id"
   end
 
   create_table "student_teachers", charset: "utf8mb3", force: :cascade do |t|
@@ -92,7 +94,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_20_182352) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "lessons", "users"
+  add_foreign_key "lessons", "users", column: "student_id"
+  add_foreign_key "lessons", "users", column: "teacher_id"
   add_foreign_key "student_teachers", "users", column: "student_id"
   add_foreign_key "student_teachers", "users", column: "teacher_id"
 end

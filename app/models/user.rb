@@ -13,7 +13,6 @@ class User < ApplicationRecord
   validates :phone, phone: true, allow_blank: true
   validate :acceptable_image
 
-  has_many :lessons, dependent: :destroy
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_limit: [70, 70]
   end
