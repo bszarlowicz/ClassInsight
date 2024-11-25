@@ -18,25 +18,28 @@ class StudentsController < ApplicationController
   def create
     @search_url = students_path
     @title = Student.model_name.human(count: 2)
-
+  
     @students = @teacher.students
     @search = @students.ransack(params[:q])
-
-    @student = Student.new(student_params)
-    password = generate_random_password(12)
-    @student.password = password
-    @student.password_confirmation = password
-
+  
+    @student = find_or_initialize_student(params[:student])
+  
     respond_to do |format|
-      if @student.save
+      if @student.persisted?
         @teacher.students << @student
-        UserMailer.temporary_password(@student, password).deliver_now
         flash[:notice] = flash_message(:create, User)
         format.turbo_stream
         flash.discard
       else
-        format.html { redirect_to new_user_path, status: :unprocessable_entity}
-        format.json { render json: @student.errors, status: :unprocessable_entity }
+        if @student.save
+          @teacher.students << @student
+          send_temporary_password_email(@student)
+          flash[:notice] = flash_message(:create, User)
+          format.turbo_stream
+          flash.discard
+        else
+          format.html { render :new, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -58,5 +61,26 @@ class StudentsController < ApplicationController
 
     def student_params
       params.require(:student).permit(User.permitted_params)
+    end
+
+    def find_or_initialize_student(params)
+      email = params[:email]
+      search_for_existing_student(email) || build_new_student
+    end
+    
+    def search_for_existing_student(email)
+      Student.find_by(email: email)
+    end
+    
+    def build_new_student
+      student = Student.new(student_params)
+      password = generate_random_password(12)
+      student.password = password
+      student.password_confirmation = password
+      student
+    end
+    
+    def send_temporary_password_email(student)
+      UserMailer.temporary_password(student, student.password).deliver_now
     end
 end
