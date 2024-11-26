@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   before_action :authenticate_user!
-  # before_action :set_student, only: %i[show edit update destroy]
-  before_action :set_teacher, only: %i[index new create]
+  before_action :set_student, only: %i[show]
+  before_action :set_teacher, only: %i[show index new create]
 
   def index
     @search_url = students_path
@@ -9,6 +9,10 @@ class StudentsController < ApplicationController
 
     @search = @teacher.students.ransack(params[:q])
     @students = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
+  end
+
+  def show
+    @events = @student.lessons.where(teacher_id: @teacher.id)
   end
 
   def new

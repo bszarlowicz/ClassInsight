@@ -1,1 +1,12 @@
-= render "users/row", el: el
+tr.table-row
+  td.table-item 
+    .many-elements
+      = image_tag url_for(el.avatar), class: "user-avatar-small" if el.avatar.present?
+      = el.name
+  td.table-item = el.email
+  td.table-item = el.phone
+
+  td.table-items-action
+    = link_to el, class: "round-action-button", data: {turbo: false} do
+      = fa_icon("angle-right")
+            

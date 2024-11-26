@@ -1,0 +1,97 @@
+@import "base/colors.css.scss";
+
+.student-header{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.student-avatar{
+  background-color: #ffa65246;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  padding: 5px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.student-title{
+  width: max-content;
+  background-color: #ffa65246;
+  color: #ffa652;
+  padding: 8px 15px;
+  border-radius: 8px;
+}
+
+.student-first-section, .student-second-section{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  .card-title{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2px;
+    .text{
+      font-size: 11px;
+      background-color: #ffa65246;
+      color: #ffa652;
+      padding: 2px 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}
+
+.student-first-section{
+  width: 100%;
+  margin-top: 60px;
+  .events, .history{
+    background-color: white;
+    border-radius: 8px;
+    height: 250px;
+  }
+  .events{
+    overflow-y: scroll;
+    width: calc((100% - 20px) * 2 / 3);
+  }
+  
+  .history{
+    overflow-y: scroll;
+    width: calc((100% - 20px) / 3);
+  }
+}
+
+.student-second-section{
+  width: 100%;
+  margin-top: 20px;
+  .attachments-teacher, .attachmetns-student, .chat{
+    background-color: white;
+    border-radius: 8px;
+    height: 280px;
+    width: calc((100% - 40px) / 3);
+  }
+
+  .attachments{
+    display: flex;
+    width: calc((100% - 20px) * 2 / 3);
+    align-items: center;
+    gap: 20px;
+    .attachments-teacher{
+      overflow-y: scroll;
+      width: 100%;
+    }
+  
+    .attachmetns-student{
+      overflow-y: scroll;
+      width: 100%;
+    }
+  }
+
+  .chat{
+    overflow-y: scroll;
+    flex: 1;
+  }
+
+}
