@@ -88,6 +88,11 @@ pl:
   set_avatar: Zmień avatar
   new_lesson: Nowe zajęcia
   hour: Godzina
+  student_lessons: Zajęcia ucznia
+  lesson_history: Planowane tematy zajęć
+  teacher_attachments: Załączniki nauczyciela
+  student_attachments: Załączniki ucznia
+  chat: Chat
   
   activities:
     reservation_created: Dokonał rezerwacji

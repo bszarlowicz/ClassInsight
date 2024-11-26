@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   # resources :teachers, only: [] do
   # end
-  resources :students, only: [:index, :new, :create, :edit, :update]
+  resources :students, only: [:index, :show, :new, :create, :edit, :update]
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

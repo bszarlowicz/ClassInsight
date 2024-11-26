@@ -1,0 +1,23 @@
+
+= render @student
+
+.student-first-section
+  .events
+    .card-title
+      .text = t(:student_lessons)
+    = render "students/student_info/events", list: @events
+  .history
+    .card-title
+      .text = t(:lesson_history)
+    = render "students/student_info/history"
+.student-second-section
+  .attachments
+    .attachments-teacher
+      .card-title
+        .text = t(:teacher_attachments)
+    .attachmetns-student
+      .card-title
+        .text = t(:student_attachments)
+  .chat
+    .card-title
+        .text = t(:chat)
