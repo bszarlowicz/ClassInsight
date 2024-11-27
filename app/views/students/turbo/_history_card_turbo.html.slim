@@ -1,0 +1,15 @@
+= turbo_frame_tag "student-lessons-history-turbo" do
+  .card-title
+    .text = t(:lesson_history)
+  - list.each do |e|
+    .topic-element class="#{'inactive-element' if e.date.to_date < Date.today } #{'next-topic' if e.date.to_date == next_topic} #{'future-topic' if e.date.to_date > next_topic}"
+      .topic-date
+        -if current_user.is_a?(Teacher) 
+          .action-button
+            = button_to user_lesson_topic_path(@student, e.lesson, e), method: :delete, class: "round-delete-button", data: {turbo: false} do
+              = fa_icon("trash")
+        .text
+          = e.date
+      .topic-title
+        = e.title
+

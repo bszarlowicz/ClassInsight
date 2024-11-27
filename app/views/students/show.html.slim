@@ -6,10 +6,7 @@
     .card-title
       .text = t(:student_lessons)
     = render "students/student_info/events", list: @events
-  .history
-    .card-title
-      .text = t(:lesson_history)
-    = render "students/student_info/history"
+  = render "students/turbo/history_card_turbo", list: @topics, next_topic: @next_topic_date
 .student-second-section
   .attachments
     .attachments-teacher

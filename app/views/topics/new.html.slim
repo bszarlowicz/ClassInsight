@@ -1,0 +1,14 @@
+= turbo_frame_tag "modal" do
+  .modal-overlay data-controller="modals" data-action="click->modals#closeByOverlay"
+    .modal-form-card
+      .modal-form-header
+        h4.page-title.mb-0 = t(:plan_topic)
+        .many-elements
+          = image_tag url_for(@student.avatar), class: "user-avatar-small" if @student.avatar.present?
+          = @student.name
+        = link_to fa_icon('times'), "#", class: "close-link", data: { controller: "modals", action: "modals#close" }
+      .many-elements.mb-3
+        = "#{@lesson.display_days_of_week.join(", ")} #{@lesson.hour.strftime("%H:%M")}"
+
+
+      = render "form", student: @student, lesson: @lesson, topic: @topic

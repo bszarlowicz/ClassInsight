@@ -18,9 +18,8 @@
 
 .student-title{
   width: max-content;
-  background-color: #ffa65246;
   color: #ffa652;
-  padding: 8px 15px;
+  padding: 3px;
   border-radius: 8px;
 }
 
@@ -47,7 +46,7 @@
 .student-first-section{
   width: 100%;
   margin-top: 60px;
-  .events, .history{
+  .events, #student-lessons-history-turbo{
     background-color: white;
     border-radius: 8px;
     height: 250px;
@@ -57,9 +56,47 @@
     width: calc((100% - 20px) * 2 / 3);
   }
   
-  .history{
+  #student-lessons-history-turbo{
     overflow-y: scroll;
     width: calc((100% - 20px) / 3);
+    .topic-element{
+      display: flex;
+      width: 100%;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #f2f3f6;
+      border-left: 3px solid white;
+
+      .topic-date{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 30%;
+
+        .text{
+          font-size: 12px;
+        }
+      }
+
+      .topic-title{
+        width: 70%;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .inactive-element{
+    border-left: 3px solid #b0b0b08c !important;
+    opacity: 0.5;
+  }
+
+  .next-topic{
+    border-left: 3px solid $green-1-color !important;
+    background-color: #c3debe65;
+  }
+
+  .future-topic{
+    border-left: 3px solid $orange-2-color !important;
   }
 }
 

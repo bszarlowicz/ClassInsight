@@ -13,6 +13,8 @@ class StudentsController < ApplicationController
 
   def show
     @events = @student.lessons.where(teacher_id: @teacher.id)
+    @topics = @student.lessons.where(teacher_id: @teacher.id).includes(:topics).flat_map(&:topics).sort_by(&:date).reverse
+    @next_topic_date = @topics.select { |topic| topic.date > Date.today }.sort_by(&:date).first.date if @topics.present?
   end
 
   def new

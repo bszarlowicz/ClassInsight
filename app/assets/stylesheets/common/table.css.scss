@@ -8,6 +8,10 @@
       padding: 10px 12px;
     }
 
+    th.end{
+      text-align: end;
+    }
+
     td.table-item{
       .day-items{
         display: flex;
@@ -20,13 +24,6 @@
           padding: 3px 6px;
           border-radius: 8px;
         }
-      }
-
-      .many-elements{
-        display: flex;
-        justify-items: center;
-        align-items: center;
-        gap: 5px;
       }
     }
 
