@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'users#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :users do
-    resources :lessons
+    resources :lessons do
+      resources :topics, only: [:new, :create, :destroy]
+    end
     get 'schedule', to: 'schedules#index'
   end
 

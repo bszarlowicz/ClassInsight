@@ -30,6 +30,9 @@ pl:
       teacher:
         one: "Nauczyciel"
         other: "Nauczyciele"
+      topic:
+        one: "Temat zajęć"
+        other: "Tematy zajęć"
 
     attributes:
       user:
@@ -45,6 +48,10 @@ pl:
         duration: Czas trwania zajęć
         color: Kolor kafelka
         student: Uczeń
+      topic:
+        title: "Tytuł"
+        date: "Data planowanego tematu"
+        lesson: "Zajęcia"
  
 
   bool_yes: Tak
@@ -93,6 +100,7 @@ pl:
   teacher_attachments: Załączniki nauczyciela
   student_attachments: Załączniki ucznia
   chat: Chat
+  plan_topic: Zaplanuj temat
   
   activities:
     reservation_created: Dokonał rezerwacji

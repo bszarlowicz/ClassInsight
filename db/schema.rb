@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_25_114446) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_26_210931) do
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -64,6 +64,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_25_114446) do
     t.index ["teacher_id"], name: "index_student_teachers_on_teacher_id"
   end
 
+  create_table "topics", charset: "utf8mb3", force: :cascade do |t|
+    t.string "title"
+    t.date "date"
+    t.bigint "lesson_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_topics_on_lesson_id"
+  end
+
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -98,4 +107,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_25_114446) do
   add_foreign_key "lessons", "users", column: "teacher_id"
   add_foreign_key "student_teachers", "users", column: "student_id"
   add_foreign_key "student_teachers", "users", column: "teacher_id"
+  add_foreign_key "topics", "lessons"
 end
