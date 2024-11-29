@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
   before_action :set_lesson, only: %i[ show edit update destroy ]
   before_action :set_week_days, only: %i[ index new edit update create ]
   before_action :set_lesson_hour, only: %i[ new edit ]
-  before_action :set_user
+  before_action :set_user, expect: %i[ add_attachments ]
 
   # GET /lessons or /lessons.json
   def index
@@ -55,9 +55,21 @@ class LessonsController < ApplicationController
   def update
     @search_url = user_lessons_path
     @search = @user.lessons.ransack(params[:q])
+
     respond_to do |format|
       if @lesson.update(lesson_params)
         @lessons = @user.lessons
+
+        events = @user.lessons.where(teacher_id: @lesson.teacher.id, student_id: @lesson.student.id)
+        teacher_attachments = events.includes(:teacher_files_attachments).flat_map do |lesson|
+          lesson.teacher_files_attachments.map(&:blob)
+        end
+        student_attachments = events.includes(:student_files_attachments).flat_map do |lesson|
+          lesson.student_files_attachments.map(&:blob)
+        end
+        @teacher_attachments = teacher_attachments.sort_by(&:created_at).reverse
+        @student_attachments = student_attachments.sort_by(&:created_at).reverse
+
         flash[:notice] = flash_message(:update, Lesson)
         format.turbo_stream
         format.json { render :show, status: :ok, location: @lesson }
@@ -80,6 +92,10 @@ class LessonsController < ApplicationController
     end
   end
 
+  def add_attachments
+    @lesson = Lesson.find(params[:lesson_id])
+  end
+
   private
     def set_lesson_hour
       @lesson_hour = @lesson&.hour.present? ? @lesson.hour.strftime("%H:%M") : nil
@@ -99,6 +115,6 @@ class LessonsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lesson_params
-      params.require(:lesson).permit(:hour, :year, :color, :duration, :student_id, days_of_week: [])
+      params.require(:lesson).permit(:hour, :year, :color, :duration, :student_id, days_of_week: [], teacher_files: [], student_files: [])
     end
 end

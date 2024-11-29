@@ -101,6 +101,7 @@ pl:
   student_attachments: Załączniki ucznia
   chat: Chat
   plan_topic: Zaplanuj temat
+  add_attachments: Dodaj załącznik
   
   activities:
     reservation_created: Dokonał rezerwacji

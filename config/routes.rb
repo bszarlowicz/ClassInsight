@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :users do
     resources :lessons do
+      get :add_attachments
       resources :topics, only: [:new, :create, :destroy]
     end
     get 'schedule', to: 'schedules#index'

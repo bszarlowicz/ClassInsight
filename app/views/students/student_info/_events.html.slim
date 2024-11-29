@@ -6,7 +6,8 @@
           th = t(:hour)
           th = Lesson.human_attribute_name(:days_of_week)
           th = Lesson.human_attribute_name(:year)
-          th.end = t(:plan_topic)
+          / th.end = t(:add_attachments)
+          / th.end = t(:plan_topic)
       tbody#list
         - list.each do |el|
           tr.table-row
@@ -19,3 +20,5 @@
             td.table-items-action
               = link_to new_user_lesson_topic_path(@student, el), class: "round-action-button", data: {turbo_frame: "modal"} do
                 = fa_icon("plus")
+              = link_to user_lesson_add_attachments_path(@user, el), class: "round-action-button", data: {turbo_frame: "modal"} do
+                = fa_icon("paperclip")
