@@ -92,6 +92,22 @@ class LessonsController < ApplicationController
     end
   end
 
+  def remove_attachment
+    @lesson = Lesson.find(params[:id])
+    @attachment = ActiveStorage::Attachment.find(params[:file_id])
+    @attachment.purge_later
+
+    events = current_user.lessons.where(teacher_id: @lesson.teacher.id, student_id: @lesson.student.id)
+    teacher_attachments = events.includes(:teacher_files_attachments).flat_map do |lesson|
+      lesson.teacher_files_attachments.map(&:blob)
+    end
+    @teacher_attachments = teacher_attachments.sort_by(&:created_at).reverse
+    respond_to do |format|
+      format.turbo_stream
+    end
+    # redirect_back(fallback_location: request.referer)
+  end
+
   def add_attachments
     @lesson = Lesson.find(params[:lesson_id])
   end

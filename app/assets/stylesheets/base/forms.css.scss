@@ -116,3 +116,25 @@ form.main-form{
   align-items: center;
   gap: 8px;
 }
+
+.attachment-list{
+  padding: 10px;
+  max-height: 400px;
+  overflow-y: scroll;
+  border: 2px dashed #eff0f4;
+  border-radius: 8px;
+}
+
+.attachment-element{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a{
+    color: $orange-4-color;
+
+    &:hover{
+      color: $orange-5-color;
+    }
+  }
+}

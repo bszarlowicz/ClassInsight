@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :lessons do
       get :add_attachments
+      member do
+        delete :remove_attachment
+      end
       resources :topics, only: [:new, :create, :destroy]
     end
     get 'schedule', to: 'schedules#index'
