@@ -2,6 +2,8 @@ class Lesson < ApplicationRecord
   belongs_to :teacher, class_name: 'Teacher', foreign_key: 'teacher_id'
   belongs_to :student, class_name: 'Student', foreign_key: 'student_id'
   has_many :topics, dependent: :destroy
+  has_many_attached :teacher_files
+  has_many_attached :student_files
   
   after_initialize :set_arrays
   before_save :set_all_occurrences

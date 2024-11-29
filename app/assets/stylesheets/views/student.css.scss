@@ -103,7 +103,7 @@
 .student-second-section{
   width: 100%;
   margin-top: 20px;
-  .attachments-teacher, .attachmetns-student, .chat{
+  #teacher-attachments-turbo, #student-attachments-turbo, .chat{
     background-color: white;
     border-radius: 8px;
     height: 280px;
@@ -115,12 +115,12 @@
     width: calc((100% - 20px) * 2 / 3);
     align-items: center;
     gap: 20px;
-    .attachments-teacher{
+    #teacher-attachments-turbo{
       overflow-y: scroll;
       width: 100%;
     }
   
-    .attachmetns-student{
+    #student-attachments-turbo{
       overflow-y: scroll;
       width: 100%;
     }

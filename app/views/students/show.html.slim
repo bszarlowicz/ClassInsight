@@ -9,12 +9,8 @@
   = render "students/turbo/history_card_turbo", list: @topics, next_topic: @next_topic_date
 .student-second-section
   .attachments
-    .attachments-teacher
-      .card-title
-        .text = t(:teacher_attachments)
-    .attachmetns-student
-      .card-title
-        .text = t(:student_attachments)
+    = render "students/turbo/teacher_attachments_card_turbo", files: @teacher_attachments
+    = render "students/turbo/student_attachments_card_turbo", files: @student_attachments
   .chat
     .card-title
         .text = t(:chat)

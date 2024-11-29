@@ -12,9 +12,18 @@ class StudentsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @events = @student.lessons.where(teacher_id: @teacher.id)
     @topics = @student.lessons.where(teacher_id: @teacher.id).includes(:topics).flat_map(&:topics).sort_by(&:date).reverse
     @next_topic_date = @topics.select { |topic| topic.date > Date.today }.sort_by(&:date).first.date if @topics.present?
+    teacher_attachments = @events.includes(:teacher_files_attachments).flat_map do |lesson|
+      lesson.teacher_files_attachments.map(&:blob)
+    end
+    student_attachments = @events.includes(:student_files_attachments).flat_map do |lesson|
+      lesson.student_files_attachments.map(&:blob)
+    end
+    @teacher_attachments = teacher_attachments.sort_by(&:created_at).reverse
+    @student_attachments = student_attachments.sort_by(&:created_at).reverse
   end
 
   def new
