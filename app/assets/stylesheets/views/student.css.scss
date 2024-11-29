@@ -108,6 +108,48 @@
     border-radius: 8px;
     height: 280px;
     width: calc((100% - 40px) / 3);
+
+    .file-bg{
+      background-color: #eff0f4ab;
+      padding: 10px 12px;
+      margin: 5px;
+      border-radius: 8px;
+      .file-cont{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        .file{
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          overflow-y: hidden;
+          .icon{
+            background-color: #bcbcbca3;
+            color: white;
+            padding: 5px 9px;
+            border-radius: 6px;
+          }
+          a{
+            font-size: 14px;
+            color: $orange-2-color;
+            text-wrap: wrap;
+          }
+        }
+      }
+
+      .file-date{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        .date{
+          font-size: 10px;
+          color: #858585;
+        }
+        span.hour{
+          color: $orange-5-color;
+        }
+      }
+    }
   }
 
   .attachments{

@@ -48,6 +48,8 @@ pl:
         duration: Czas trwania zajęć
         color: Kolor kafelka
         student: Uczeń
+        teacher_files: Załączniki - nauczyciel
+        student_files: Załączniki - uczeń
       topic:
         title: "Tytuł"
         date: "Data planowanego tematu"
@@ -102,6 +104,7 @@ pl:
   chat: Chat
   plan_topic: Zaplanuj temat
   add_attachments: Dodaj załącznik
+  current_attachments: Załączone pliki
   
   activities:
     reservation_created: Dokonał rezerwacji
