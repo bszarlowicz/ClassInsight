@@ -1,0 +1,3 @@
+.student-header
+  = image_tag url_for(@teacher.avatar), class: "student-avatar" if @student.avatar.present?
+  h3.student-title.mb-0 = @student.name

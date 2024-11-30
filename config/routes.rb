@@ -12,9 +12,8 @@ Rails.application.routes.draw do
     get 'schedule', to: 'schedules#index'
   end
 
-  # resources :teachers, only: [] do
-  # end
   resources :students, only: [:index, :show, :new, :create, :edit, :update]
+  resources :teachers, only: [:index, :show]
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

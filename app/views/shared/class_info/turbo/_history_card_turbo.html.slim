@@ -2,9 +2,9 @@
   .card-title
     .text = t(:lesson_history)
   - list.each do |e|
-    .topic-element class="#{'inactive-element' if e.date.to_date < Date.today } #{'next-topic' if e.date.to_date == next_topic} #{'future-topic' if e.date.to_date > next_topic}"
+    .topic-element class="#{'inactive-element' if e.date.to_date < Date.today } #{'next-topic' if next_topic && e.date.to_date == next_topic} #{'future-topic' if next_topic && e.date.to_date > next_topic}"
       .topic-date
-        -if current_user.is_a?(Teacher) 
+        - if can?(:manage, Topic) 
           .action-button
             = button_to user_lesson_topic_path(@student, e.lesson, e), method: :delete, class: "round-delete-button", data: {turbo: false} do
               = fa_icon("trash")
@@ -12,4 +12,3 @@
           = e.date
       .topic-title
         = e.title
-

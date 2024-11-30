@@ -1,3 +1,4 @@
 <%= turbo_stream.replace 'flash_message', partial: 'application/flash' %>
 <%= turbo_stream.replace 'modal', partial: 'lessons/turbo/attachment_modal', locals: { list: @lesson } %>
-<%= turbo_stream.replace('teacher-attachments-turbo', partial: 'students/turbo/teacher_attachments_card_turbo', locals: { files: @teacher_attachments }) %>
+<%= turbo_stream.replace('teacher-attachments-turbo', partial: 'shared/class_info/turbo/teacher_attachments_card_turbo', locals: { files: @teacher_attachments }) %>
+<%= turbo_stream.replace('student-attachments-turbo', partial: 'shared/class_info/turbo/student_attachments_card_turbo', locals: { files: @student_attachments }) %>
