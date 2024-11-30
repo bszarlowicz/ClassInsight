@@ -12,5 +12,5 @@
         .date
           span.hour = file.created_at.strftime("%H:%M")
           | &nbsp;
-          = file.created_at.to_date
+          = file.created_at.strftime("%d-%m-%Y")
       

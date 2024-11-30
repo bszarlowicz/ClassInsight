@@ -106,6 +106,7 @@ pl:
   add_attachments: Dodaj załącznik
   current_attachments: Załączone pliki
   teacher: Nauczyciel
+  next_lesson: Następna lekcja
   
   activities:
     reservation_created: Dokonał rezerwacji

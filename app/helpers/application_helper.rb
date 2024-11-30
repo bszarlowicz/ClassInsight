@@ -1,4 +1,15 @@
 module ApplicationHelper
+
+  DAYS_OF_WEEK = { 
+    0 => :monday,
+    1 => :tuesday, 
+    2 => :wednesday, 
+    3 => :thursday, 
+    4 => :friday, 
+    5 => :saturday,
+    6 => :sunday, 
+  }
+
   def not_standard_url(url)
     url ? {url: url} : {}
   end
@@ -26,5 +37,15 @@ module ApplicationHelper
     end
     
     return icon
+  end
+
+  def get_next_lesson_data(events)
+    nearest_lesson = events.min_by do |lesson|
+      future_dates = lesson.occurrences.map { |date| Date.parse(date) }.select { |d| d >= Date.today }
+      future_dates.min || nil
+    end
+    nearest_date = nearest_lesson&.occurrences&.map { |date| Date.parse(date) }&.select { |d| d >= Date.today }&.min
+    day_of_week = nearest_date.present? ? I18n.t("days.#{DAYS_OF_WEEK[nearest_date&.wday-1]}") : nil
+    [nearest_lesson&.hour&.strftime("%H:%M"), nearest_date&.strftime("%d-%m-%Y"), day_of_week]
   end
 end
