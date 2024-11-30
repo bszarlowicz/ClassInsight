@@ -4,9 +4,10 @@
       h3.table-title
         = t(:calendar)
       .action-buttons
-        = link_to new_user_lesson_path(@user), class: "main-button", title: t(:add_lesson), data: {turbo_frame: "modal"} do
-          = t(:add_lesson)
-          = fa_icon("plus-circle")
+        - if can?(:create, Lesson)
+          = link_to new_user_lesson_path(@user), class: "main-button", title: t(:add_lesson), data: {turbo_frame: "modal"} do
+            = t(:add_lesson)
+            = fa_icon("plus-circle")
     .schedule-navigation
       .month
         span data-calendar-target="currentMonth"

@@ -2,8 +2,13 @@
 
 .student-header{
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
   align-items: center;
+  .name-group{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
 }
 
 .student-avatar{
@@ -21,6 +26,26 @@
   color: #ffa652;
   padding: 3px;
   border-radius: 8px;
+}
+
+.next-lesson-group{
+  .next-lesson-data{
+    color: #767676;
+    .title{
+      color: #212529 !important;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .date{
+      text-align: end;
+      font-size: 14px;
+    }
+    .hour{
+      text-align: end;
+      font-size: 13px;
+    }
+  }
 }
 
 .student-first-section, .student-second-section{

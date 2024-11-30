@@ -1,3 +1,15 @@
 .student-header
-  = image_tag url_for(@teacher.avatar), class: "student-avatar" if @student.avatar.present?
-  h3.student-title.mb-0 = @student.name
+  .name-group
+    = image_tag url_for(@teacher.avatar), class: "student-avatar" if @teacher.avatar.present?
+    h3.student-title.mb-0 = @teacher.name
+  .next-lesson-group
+    - if @events.present? && get_next_lesson_data(@events).present?
+      - result = get_next_lesson_data(@events)
+      .next-lesson-data
+        .title
+          = fa_icon("clock-o")
+          = t(:next_lesson)
+        .date
+          = result[1]
+        .hour
+          = "#{result[0]}, #{result[2]}"
