@@ -1,0 +1,16 @@
+= turbo_frame_tag "student-attachments-turbo" do
+  .card-title
+    .text = t(:student_attachments)
+  - files.each do |file|
+    .file-bg
+      .file-cont
+        .file
+          .icon
+            = fa_icon(print_file_icon(file.id))
+          = link_to file.filename, rails_blob_path(file, disposition: "attachment")
+      .file-date
+        .date
+          span.hour = file.created_at.strftime("%H:%M")
+          | &nbsp;
+          = file.created_at.to_date
+      

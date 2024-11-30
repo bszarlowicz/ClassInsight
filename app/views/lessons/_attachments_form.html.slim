@@ -13,9 +13,15 @@
             = file.filename
             = link_to fa_icon("times"), remove_attachment_user_lesson_path(current_user.id, f.object.id, file_id: file.id), data: { turbo_method: :delete }
   -elsif current_user.is_a?(Student)
-    - f.object.student_files.each do |file|
-      = f.hidden_field :student_files, multiple: true, value: file.signed_id, class: "files-button"
-    = f.input :student_files, input_html: { multiple: true }
+    = f.input :student_files, input_html: { multiple: true, class: "files-button" }
+    - if !f.object.student_files.empty?
+      h6.page-title.mb-2 = t(:current_attachments)
+      .attachment-list
+        - f.object.student_files.each do |file|
+          = f.hidden_field :student_files, multiple: true, value: file.signed_id
+          .attachment-element
+            = file.filename
+            = link_to fa_icon("times"), remove_attachment_user_lesson_path(current_user.id, f.object.id, file_id: file.id), data: { turbo_method: :delete }
   
   .action-buttons
     = f.button :submit, class: "submit-button mt-2", data: { turbo: true }

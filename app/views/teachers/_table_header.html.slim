@@ -1,1 +1,4 @@
-= render "users/table_header"
+tr.table-header
+  th = t(:teacher)
+  th = User.human_attribute_name(:email)
+  th = User.human_attribute_name(:phone)

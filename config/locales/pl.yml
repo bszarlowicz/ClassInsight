@@ -105,6 +105,7 @@ pl:
   plan_topic: Zaplanuj temat
   add_attachments: Dodaj załącznik
   current_attachments: Załączone pliki
+  teacher: Nauczyciel
   
   activities:
     reservation_created: Dokonał rezerwacji
