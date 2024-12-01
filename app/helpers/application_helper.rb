@@ -48,4 +48,9 @@ module ApplicationHelper
     day_of_week = nearest_date.present? ? I18n.t("days.#{DAYS_OF_WEEK[nearest_date&.wday-1]}") : nil
     [nearest_lesson&.hour&.strftime("%H:%M"), nearest_date&.strftime("%d-%m-%Y"), day_of_week]
   end
+
+  def print_user_initials(name)
+    name_parts = name.split
+    name_parts[0][0] + name_parts[1][0]
+  end
 end

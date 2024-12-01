@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
     @teacher_attachments = teacher_attachments.sort_by(&:created_at).reverse
     @student_attachments = student_attachments.sort_by(&:created_at).reverse
     @conversation = Conversation.find_by(teacher_id: @teacher.id, student_id: @student.id)
-    @messages = Message.where(conversation_id: @conversation.id)
+    @messages = Message.where(conversation_id: @conversation&.id)
   end
 
   def new

@@ -1,6 +1,3 @@
-.row
-  .col-12
-    = simple_form_for([@conversation, Message.new], data: {action: "turbo:submit-end->messages#resetForm", messages_target: "input_form"}) do |f|
-      .input-group.input-group-lg
-        = f.input :body, label: false, input_html: {placeholder: "Wpisz wiadomość", class: "form"}
-        = f.submit "Wyślij"
+= simple_form_for([@conversation, Message.new], data: {action: "turbo:submit-end->messages#resetForm", messages_target: "input_form"}, html: { class: "chat-input" }) do |f|
+    = f.input :body, label: false, input_html: {placeholder: "Wpisz wiadomość", class: "message-input"}, wrapper_html: { class: "message-input-cont" }
+    = f.submit ">", class: "chat-submit-button"

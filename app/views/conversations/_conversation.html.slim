@@ -1,6 +1,9 @@
 div id="#{dom_id conversation}" data-controller="messages"
   = turbo_stream_from dom_id(conversation)
-  / h6 = conversation.title
+  - recipient = current_user.is_a?(Student) ? conversation.teacher : conversation.student
+  .recipient
+    = image_tag url_for(recipient.avatar), class: "user-avatar-small" if recipient.avatar.present?
+    = recipient.name
   #messages data-messages-target="container" data-current-user-id="#{current_user.id}"
     - @messages&.each do |message|
       = render "messages/message", message: message
