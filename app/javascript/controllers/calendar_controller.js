@@ -49,6 +49,8 @@ export default class extends Controller {
 
   loadEvents() {
     const lessons = JSON.parse(document.getElementById('calendar').getAttribute('data-lessons'));
+    const resource = document.getElementById('calendar').getAttribute('data-resource');
+    console.log(resource);
     const schedules = lessons.flatMap(lesson => {
       const startTime = new Date(lesson.hour);
       const [hours, minutes] = [startTime.getUTCHours(), startTime.getUTCMinutes()];
@@ -65,8 +67,14 @@ export default class extends Controller {
       
         const formattedEndHour = end.getHours() < 10 ? `0${end.getHours()}` : end.getHours();
         const formattedEndMinute = end.getMinutes() < 10 ? `0${end.getMinutes()}` : end.getMinutes();
-      
-        const lesson_title = `${lesson.student_name}<br>${formattedStartHour}:${formattedStartMinute} - ${formattedEndHour}:${formattedEndMinute}`;
+        
+        let lesson_title;
+
+        if (resource == "T"){
+          lesson_title = `${lesson.student_name}<br>${formattedStartHour}:${formattedStartMinute} - ${formattedEndHour}:${formattedEndMinute}`;
+        } else{
+          lesson_title = `${lesson.teacher_name}<br>${formattedStartHour}:${formattedStartMinute} - ${formattedEndHour}:${formattedEndMinute}`;
+        }
 
         return {
           id: `lesson-${lesson.id}-${dateString}`,
