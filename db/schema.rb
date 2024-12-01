@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_26_210931) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_01_124525) do
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_210931) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "conversations", charset: "utf8mb3", force: :cascade do |t|
+    t.string "title"
+    t.bigint "student_id", null: false
+    t.bigint "teacher_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_conversations_on_student_id"
+    t.index ["teacher_id"], name: "index_conversations_on_teacher_id"
+  end
+
   create_table "lessons", charset: "utf8mb3", force: :cascade do |t|
     t.time "hour"
     t.datetime "created_at", null: false
@@ -52,6 +62,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_210931) do
     t.bigint "student_id", null: false
     t.index ["student_id"], name: "index_lessons_on_student_id"
     t.index ["teacher_id"], name: "index_lessons_on_teacher_id"
+  end
+
+  create_table "messages", charset: "utf8mb3", force: :cascade do |t|
+    t.string "body"
+    t.bigint "user_id", null: false
+    t.bigint "conversation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "student_teachers", charset: "utf8mb3", force: :cascade do |t|
@@ -103,8 +123,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_210931) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "conversations", "users", column: "student_id"
+  add_foreign_key "conversations", "users", column: "teacher_id"
   add_foreign_key "lessons", "users", column: "student_id"
   add_foreign_key "lessons", "users", column: "teacher_id"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "student_teachers", "users", column: "student_id"
   add_foreign_key "student_teachers", "users", column: "teacher_id"
   add_foreign_key "topics", "lessons"

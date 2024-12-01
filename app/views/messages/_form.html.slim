@@ -1,0 +1,6 @@
+.row
+  .col-12
+    = simple_form_for([@conversation, Message.new], data: {action: "turbo:submit-end->messages#resetForm", messages_target: "input_form"}) do |f|
+      .input-group.input-group-lg
+        = f.input :body, label: false, input_html: {placeholder: "Wpisz wiadomość", class: "form"}
+        = f.submit "Wyślij"

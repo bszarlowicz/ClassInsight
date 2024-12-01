@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     get 'schedule', to: 'schedules#index'
   end
 
+  resources :conversations do
+    resources :messages
+  end
   resources :students, only: [:index, :show, :new, :create, :edit, :update]
   resources :teachers, only: [:index, :show]
 

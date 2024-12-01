@@ -11,5 +11,4 @@
     = render "shared/class_info/turbo/teacher_attachments_card_turbo", files: @teacher_attachments
     = render "shared/class_info/turbo/student_attachments_card_turbo", files: @student_attachments
   .chat
-    .card-title
-        .text = t(:chat)
+    = render "shared/class_info/turbo/chat_card_turbo", conversation: @conversation

@@ -24,6 +24,8 @@ class StudentsController < ApplicationController
     end
     @teacher_attachments = teacher_attachments.sort_by(&:created_at).reverse
     @student_attachments = student_attachments.sort_by(&:created_at).reverse
+    @conversation = Conversation.find_by(teacher_id: @teacher.id, student_id: @student.id)
+    @messages = Message.where(conversation_id: @conversation.id)
   end
 
   def new
@@ -42,12 +44,14 @@ class StudentsController < ApplicationController
     respond_to do |format|
       if @student.persisted?
         @teacher.students << @student
+        create_conversation(@teacher, @student)
         flash[:notice] = flash_message(:create, User)
         format.turbo_stream
         flash.discard
       else
         if @student.save
           @teacher.students << @student
+          create_conversation(@teacher, @student)
           send_temporary_password_email(@student)
           flash[:notice] = flash_message(:create, User)
           format.turbo_stream
@@ -76,6 +80,12 @@ class StudentsController < ApplicationController
 
     def student_params
       params.require(:student).permit(User.permitted_params)
+    end
+
+    def create_conversation(teacher, student)
+      Conversation.find_or_create_by(student: student, teacher: teacher) do |conversation|
+        conversation.title = "Chat #{student.name} #{teacher.name}"
+      end
     end
 
     def find_or_initialize_student(params)
