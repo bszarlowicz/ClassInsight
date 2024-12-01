@@ -70,7 +70,7 @@
 
 .student-first-section{
   width: 100%;
-  margin-top: 60px;
+  margin-top: 20px;
   .events, #student-lessons-history-turbo{
     background-color: white;
     border-radius: 8px;
@@ -131,7 +131,7 @@
   #teacher-attachments-turbo, #student-attachments-turbo, .chat{
     background-color: white;
     border-radius: 8px;
-    height: 280px;
+    height: 300px;
     width: calc((100% - 40px) / 3);
 
     .file-bg{

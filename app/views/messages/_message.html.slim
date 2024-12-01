@@ -1,3 +1,5 @@
 = turbo_frame_tag(dom_id(message)) do
   .message data-user-id="#{message.user.id}"
-    = "#{message.user.name}: #{message.body}"
+    .message-container
+      .message-text
+        = "#{message.body}"
