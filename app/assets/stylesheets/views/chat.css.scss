@@ -1,0 +1,19 @@
+@import "base/colors.css.scss";
+
+#messages{
+  height: 200px;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-left: 10px;
+
+  .message-item-left{
+    width: 100%;
+    text-align: left;
+  }
+
+  .message-item-right{
+    width: 100%;
+    text-align: right;
+  }
+}

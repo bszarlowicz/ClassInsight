@@ -49,7 +49,6 @@ export default class extends Controller {
 
   loadEvents() {
     const lessons = JSON.parse(document.getElementById('calendar').getAttribute('data-lessons'));
-    console.log(lessons)
     const schedules = lessons.flatMap(lesson => {
       const startTime = new Date(lesson.hour);
       const [hours, minutes] = [startTime.getUTCHours(), startTime.getUTCMinutes()];
