@@ -3,9 +3,11 @@ class MessagesController < ApplicationController
   before_action :set_current_user, only: %i[ create ]
 
   def create
-    @message = current_user.messages.build(message_params)
-    @message.conversation_id = params[:conversation_id]
-    @message.save
+    if params[:message][:body].present?
+      @message = current_user.messages.build(message_params)
+      @message.conversation_id = params[:conversation_id]
+      @message.save
+    end
   end
 
   private

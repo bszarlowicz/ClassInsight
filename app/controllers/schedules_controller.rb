@@ -5,7 +5,8 @@ class SchedulesController < ApplicationController
   def index
     @lessons = @user.lessons.map do |lesson|
       student = Student.find(lesson.student_id)
-      lesson.attributes.merge(student_name: student.name)
+      teacher = Teacher.find(lesson.teacher_id)
+      lesson.attributes.merge(student_name: student.name, teacher_name: teacher.name)
     end
   end
 

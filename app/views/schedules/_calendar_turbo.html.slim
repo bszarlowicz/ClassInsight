@@ -17,4 +17,5 @@
         .round-action-button data-action="click->calendar#next"
           = fa_icon("angle-right")
     .schedule
-      #calendar data-lessons="#{lessons}"
+      - resource = current_user.is_a?(Teacher) ? "T" : "S"
+      #calendar data-lessons="#{lessons}" data-resource="#{resource}"
