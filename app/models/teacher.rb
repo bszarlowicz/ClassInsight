@@ -4,6 +4,7 @@ class Teacher < User
   has_many :students, through: :student_teachers
   has_many :lessons, foreign_key: 'teacher_id', dependent: :destroy
   has_many :conversations, foreign_key: 'teacher_id', dependent: :destroy
+  has_many :reports, foreign_key: 'teacher_id', dependent: :destroy
 
   def self.extra_params
     []
