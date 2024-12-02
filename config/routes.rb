@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
+
+  resources :reports
+  
   resources :students, only: [:index, :show, :new, :create, :edit, :update]
   resources :teachers, only: [:index, :show]
 

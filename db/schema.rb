@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_01_124525) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_01_224104) do
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -74,6 +74,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_124525) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "reports", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "teacher_id", null: false
+    t.bigint "student_id", null: false
+    t.string "main_school_subject"
+    t.integer "level"
+    t.integer "grade"
+    t.integer "school_rank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_reports_on_student_id"
+    t.index ["teacher_id"], name: "index_reports_on_teacher_id"
+  end
+
   create_table "student_teachers", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "student_id", null: false
     t.bigint "teacher_id", null: false
@@ -115,6 +128,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_124525) do
     t.string "role_mask"
     t.boolean "disabled", default: false
     t.string "type"
+    t.string "school_name"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -129,6 +143,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_124525) do
   add_foreign_key "lessons", "users", column: "teacher_id"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
+  add_foreign_key "reports", "users", column: "student_id"
+  add_foreign_key "reports", "users", column: "teacher_id"
   add_foreign_key "student_teachers", "users", column: "student_id"
   add_foreign_key "student_teachers", "users", column: "teacher_id"
   add_foreign_key "topics", "lessons"

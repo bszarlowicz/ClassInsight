@@ -61,8 +61,7 @@ class User < ApplicationRecord
   end
 
   def self.permitted_params
-    # TO DO
-    # if type == "Teacher"
+    # if self.type == "Teacher"
     #   default_params + Teacher.extra_params
     # elsif type == "Student"
     #   default_params + Student.extra_params

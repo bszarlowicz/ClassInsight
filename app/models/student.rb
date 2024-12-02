@@ -4,10 +4,16 @@ class Student < User
   has_many :teachers, through: :student_teachers
   has_many :lessons, foreign_key: 'student_id', dependent: :destroy
   has_many :conversations, foreign_key: 'student_id', dependent: :destroy
+  has_many :reports, foreign_key: 'student_id', dependent: :destroy
   
 
   def self.extra_params
-    []
+    [:school_name]
+  end
+
+  def check_report_present(teacher_id)
+    report = Report.find_by(student_id: self.id, teacher_id: teacher_id)
+    report.present? ? report : nil
   end
 
   private

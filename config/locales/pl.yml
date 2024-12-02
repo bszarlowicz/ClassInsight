@@ -33,6 +33,9 @@ pl:
       topic:
         one: "Temat zajęć"
         other: "Tematy zajęć"
+      report:
+        one: "Raport"
+        other: "Raporty"
 
     attributes:
       user:
@@ -54,6 +57,11 @@ pl:
         title: "Tytuł"
         date: "Data planowanego tematu"
         lesson: "Zajęcia"
+      report:
+        main_school_subject: Prowadzony przedmiot
+        level: Poziom
+        grade: Klasa
+        school_rank: Rodzaj szkoły
  
 
   bool_yes: Tak
@@ -107,7 +115,11 @@ pl:
   current_attachments: Załączone pliki
   teacher: Nauczyciel
   next_lesson: Następna lekcja
-  
+  add_more_student_info: Dodatkowe dane
+  add_additional_info: Dodaj dodatkowe informacje
+  edit_additional_info: Edytuj dodatkowe informacje
+  edit_data: Edytuj dane
+
   activities:
     reservation_created: Dokonał rezerwacji
     client_added: Zarejestrował się nowy klient
@@ -134,6 +146,36 @@ pl:
     friday: "Piątek"
     saturday: "Sobota"
     sunday: "Niedziela"
+
+  levels:
+    basic: "Podstawowy"
+    advanced: "Rozszerzony"
+
+  school_ranks:
+    primary: "Szkoła podstawowa"
+    high: "Liceum"
+    university: "Uniwersytet"
+
+  main_school_subjects:
+    biology: "Biologia"
+    math: "Matematyka"
+    foreign_language: "Język obcy"
+    history: "Historia"
+    geography: "Geografia"
+    chemistry: "Chemia"
+    physics: "Fizyka"
+    polish_language: "Język polski"
+    computer_science: "Informatyka"
+    
+  grades:
+    first: "Pierwsza klasa"
+    second: "Druga klasa"
+    third: "Trzecia klasa"
+    fourth: "Czwarta klasa"
+    fifth: "Piąta klasa"
+    sixth: "Szósta klasa"
+    seventh: "Siódma klasa"
+    eighth: "Ósma klasa"
 
 
 

@@ -1,3 +1,4 @@
+- report = el.check_report_present(current_user.id)
 tr.table-row
   td.table-item 
     .many-elements
@@ -7,6 +8,12 @@ tr.table-row
   td.table-item = el.phone
 
   td.table-items-action
+    -if report.present?
+      = link_to edit_report_path(report, student_id: el.id), class: "round-action-button", title: t(:edit_additional_info), data: {turbo_frame: "modal"} do
+        = fa_icon("address-card-o")
+    - else
+      = link_to new_report_path(student_id: el.id), class: "round-action-button", title: t(:add_additional_info), data: {turbo_frame: "modal"} do
+        = fa_icon("address-card-o")
     = link_to el, class: "round-action-button", data: {turbo: false} do
       = fa_icon("angle-right")
-            
+      

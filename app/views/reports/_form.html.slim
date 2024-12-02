@@ -1,0 +1,13 @@
+= simple_form_for(@report, html: { class: "modal-form" }) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  = f.input :main_school_subject, collection: Report.main_school_subject_for_select
+  = f.input :level, collection: Report.levels_for_select
+  = f.input :school_rank, collection: Report.school_rank_for_select
+  = f.input :grade, collection: Report.grades_for_select
+
+  = f.hidden_field :teacher_id, value: current_user.id
+  = f.hidden_field :student_id, value: @student.id
+
+  = f.button :submit, class: "submit-button mt-2", data: { turbo: true }
