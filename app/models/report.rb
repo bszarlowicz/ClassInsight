@@ -48,10 +48,6 @@ class Report < ApplicationRecord
     I18n.t(GRADES[self.grade], scope: :grades)
   end
 
-  def print_main_school_subject
-    I18n.t(MAIN_SCHOOL_SUBJECTS[self.main_school_subject], scope: :main_school_subjects)
-  end
-
   def self.levels_for_select
     LEVEL.map { |key, value| [I18n.t(value, scope: :levels), key] }
   end

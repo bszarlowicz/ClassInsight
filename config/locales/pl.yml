@@ -148,8 +148,8 @@ pl:
     sunday: "Niedziela"
 
   levels:
-    basic: "Podstawowy"
-    advanced: "Rozszerzony"
+    basic: "Podstawa"
+    advanced: "Rozszerzenie"
 
   school_ranks:
     primary: "Szkoła podstawowa"

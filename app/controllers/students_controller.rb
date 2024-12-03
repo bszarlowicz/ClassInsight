@@ -26,6 +26,8 @@ class StudentsController < ApplicationController
     @student_attachments = student_attachments.sort_by(&:created_at).reverse
     @conversation = Conversation.find_by(teacher_id: @teacher.id, student_id: @student.id)
     @messages = Message.where(conversation_id: @conversation&.id)
+    @report = Report.find_by(teacher_id: @user.id, student_id: @student)
+    @report_info = [ @report.main_school_subject&.upcase, @report.print_level&.upcase, @report.print_grade&.upcase, @report.print_school_rank&.upcase].compact.join(", ")
   end
 
   def new

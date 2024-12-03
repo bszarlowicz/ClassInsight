@@ -1,7 +1,10 @@
 .student-header
   .name-group
     = image_tag url_for(@student.avatar), class: "student-avatar" if @student.avatar.present?
-    h3.student-title.mb-0 = @student.name
+    .student-group
+      h3.student-title.mb-0 = @student.name
+      - if @report.present?
+        .report-data = @report_info
   .next-lesson-group
     - if @events.present? && get_next_lesson_data(@events).present?
       - result = get_next_lesson_data(@events)

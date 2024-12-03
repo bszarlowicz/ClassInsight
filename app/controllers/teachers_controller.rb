@@ -27,7 +27,8 @@ class TeachersController < ApplicationController
     @student_attachments = student_attachments.sort_by(&:created_at).reverse
     @conversation = Conversation.find_by(teacher_id: @teacher.id, student_id: @student.id)
     @messages = Message.where(conversation_id: @conversation.id)
-    
+    @report = Report.find_by(student_id: @user.id, teacher_id: @teacher)
+    @report_info = @report.main_school_subject&.upcase
   end
 
 
