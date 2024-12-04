@@ -119,6 +119,7 @@ pl:
   add_additional_info: Dodaj dodatkowe informacje
   edit_additional_info: Edytuj dodatkowe informacje
   edit_data: Edytuj dane
+  dashboard: Pulpit
 
   activities:
     reservation_created: Dokonał rezerwacji

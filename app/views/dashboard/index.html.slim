@@ -1,0 +1,6 @@
+.dashboard
+  .date-header
+    .date
+      = Time.zone.now.strftime("%d.%m.%Y")
+      .date-weekday
+        = (I18n.t("date.day_names")[Date.today.day-1]).upcase

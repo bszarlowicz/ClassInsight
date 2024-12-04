@@ -1,0 +1,23 @@
+@import "base/colors.css.scss";
+
+.dashboard{
+  .date-header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    .date{
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 18px;
+      color: #212529;
+
+      .date-weekday{
+        font-size: 10px;
+        text-align: center;
+        color: #767676;
+      }
+    }
+  }
+}
