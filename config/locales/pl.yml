@@ -120,6 +120,8 @@ pl:
   edit_additional_info: Edytuj dodatkowe informacje
   edit_data: Edytuj dane
   dashboard: Pulpit
+  today_lessons: Dzisiejsze zajęcia
+  month_calendar: Widok miesięczny
 
   activities:
     reservation_created: Dokonał rezerwacji

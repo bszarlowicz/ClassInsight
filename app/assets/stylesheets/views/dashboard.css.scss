@@ -4,8 +4,8 @@
   .date-header{
     display: flex;
     width: 100%;
-    justify-content: center;
-
+    justify-content: space-between;
+    margin-bottom: 10px;
     .date{
       display: flex;
       flex-direction: column;
@@ -19,5 +19,60 @@
         color: #767676;
       }
     }
+  }
+
+  .dashboard-content{
+    display: flex;
+    gap: 15px;
+
+    .card-title{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 5px;
+      .text{
+        font-size: 11px;
+        background-color: #ffa65246;
+        color: #ffa652;
+        padding: 2px 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
+
+    .today-lessons{
+      background-color: white;
+      border-radius: 8px;
+      height: 600px;
+      width: 33%;
+  
+      .lesson-block{
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        margin: 5px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+  
+        .hour, .user{
+          color: #212529;
+        }
+  
+        &:hover{
+          border-left-width: 4px !important;
+        }
+      }
+    }
+  
+    .month-calendar-card{
+      background-color: white;
+      border-radius: 8px;
+      width: 33%;
+      height: 600px;
+    }
+  }
+
+  a{
+    text-decoration: none !important;
   }
 }

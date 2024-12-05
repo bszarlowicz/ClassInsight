@@ -1,6 +1,43 @@
 .dashboard
   .date-header
+    h3.table-title
+      = "Witaj #{current_user.name.split(' ')[0]}!"
     .date
       = Time.zone.now.strftime("%d.%m.%Y")
       .date-weekday
         = (I18n.t("date.day_names")[Date.today.day-1]).upcase
+  .dashboard-content
+    .today-lessons
+      .card-title
+        .text
+          = t(:today_lessons)
+      - @today_lessons.each do |lesson|
+        = link_to get_lesson_user_url(@user, lesson) do
+          .lesson-block style="background-color: #{lesson.color.present? ? lesson.color : '' }; border-left: 3px solid #{darken_rgba_color(lesson.color)}"
+            .hour
+              = "#{lesson.hour.strftime("%H:%M")} - #{(lesson.hour + lesson.duration.minutes).strftime("%H:%M")}"
+            .user
+              .many-elements
+                - if @user.is_a?(Teacher)
+                  = image_tag url_for(lesson.student.avatar), class: "user-avatar-small" if lesson.student.avatar.present?
+                  = lesson.student.name
+                - if @user.is_a?(Student)
+                  = image_tag url_for(lesson.teacher.avatar), class: "user-avatar-small" if lesson.teacher.avatar.present?
+                  = lesson.teacher.name
+    .month-calendar-card
+      .card-title
+        .text
+          = t(:month_calendar)
+      .calendar data-controller="month-calendar"
+        .month-schedule-navigation
+          .month
+            span data-month-calendar-target="currentMonth"
+          .navigation
+            .round-action-button data-action="click->month-calendar#prev"
+              = fa_icon("angle-left")
+            .round-action-button data-action="click->month-calendar#next"
+              = fa_icon("angle-right")
+        .schedule
+          - resource = current_user.is_a?(Teacher) ? "T" : "S"
+          #calendar data-lessons="#{@lessons.to_json}" data-resource="#{resource}"
+      

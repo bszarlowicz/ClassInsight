@@ -1,0 +1,77 @@
+@import "base/colors.css.scss";
+
+.month-calendar-card{
+
+  .month-schedule-navigation{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+    .month{
+      display: flex;
+      justify-content: center;
+    }
+
+    .navigation{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  .tui-full-calendar-layout{
+    background-color: transparent !important;
+    width: 100% !important;
+  }
+
+  .tui-full-calendar-weekday-schedule{
+    width: min-content !important;
+    background-color: $orange-5-color !important;
+    border-radius: 50% !important;
+    color: white !important;
+    border: none !important;
+    width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    font-size: 11px !important;
+  }
+
+  .tui-full-calendar-weekday-schedule-title{
+    padding: 0 !important;
+  }
+
+  .tui-full-calendar-today{
+    background-color: $orange-0-color !important;
+  }
+
+  .tui-full-calendar-weekday-grid-date-decorator{
+    background-color: transparent !important;
+    color: #212529 !important;
+    margin: 0 !important;
+  }
+
+  .tui-full-calendar-weekday-grid-header{
+    width: min-content !important;
+  }
+
+  .tui-full-calendar-month-week-item{
+    height: 75px !important;
+  }
+
+  .tui-full-calendar-near-month-day{
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .tui-full-calendar-holiday-sun{
+    color: #091057 !important;
+
+    .tui-full-calendar-weekday-grid-date{
+      color: #091057 !important;
+    }
+  }
+}
