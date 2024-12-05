@@ -14,6 +14,7 @@ class User < ApplicationRecord
   validate :acceptable_image
 
   has_many :messages, dependent: :destroy
+  has_many :notes, dependent: :destroy
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_limit: [70, 70]
   end

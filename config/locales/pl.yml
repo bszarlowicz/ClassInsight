@@ -36,6 +36,9 @@ pl:
       report:
         one: "Raport"
         other: "Raporty"
+      note:
+        one: "Notatka"
+        other: "Notatki"
 
     attributes:
       user:
@@ -62,6 +65,9 @@ pl:
         level: Poziom
         grade: Klasa
         school_rank: Rodzaj szkoły
+      note:
+        title: Tytuł
+        content: Treść
  
 
   bool_yes: Tak
@@ -123,6 +129,8 @@ pl:
   today_lessons: Dzisiejsze zajęcia
   month_calendar: Widok miesięczny
   my_notes: Moje notatki
+  add_note: Dodaj notatkę
+  edit_note: Edytuj notatkę
 
   activities:
     reservation_created: Dokonał rezerwacji

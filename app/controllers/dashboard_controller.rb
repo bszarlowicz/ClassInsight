@@ -14,6 +14,8 @@ class DashboardController < ApplicationController
       teacher = Teacher.find(lesson.teacher_id)
       lesson.attributes.merge(student_name: student.name, teacher_name: teacher.name)
     end
+
+    @notes = @user.notes
   end
   
 end

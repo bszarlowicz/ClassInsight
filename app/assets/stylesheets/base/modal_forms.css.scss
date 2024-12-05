@@ -23,6 +23,13 @@ form.modal-form{
     }
   }
 
+  textarea{
+    margin-top: 2px !important;
+    width: 100% !important;
+    border: none;
+    border-radius: 9px;
+  }
+
   input, select{
     border: 1px solid white;
     border-radius: 6px;

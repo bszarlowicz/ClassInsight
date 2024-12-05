@@ -43,6 +43,10 @@
     .user-notes
       .card-title
         .text
-          = t(:my_notes)
-
+          .group
+            = t(:my_notes)
+            .add-note
+              = link_to new_user_note_path(@user), data: {turbo_frame: "modal"} do
+                = fa_icon("plus")
+      = render 'dashboard/turbo/notes_turbo', notes: @notes
       
