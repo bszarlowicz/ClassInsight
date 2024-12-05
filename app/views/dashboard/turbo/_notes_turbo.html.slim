@@ -1,0 +1,16 @@
+= turbo_frame_tag "user-notes-turbo" do
+  - notes.each do |note|
+    .note
+      .note-header
+        .note-title
+          = note.title
+        .note-action-buttons
+          = link_to edit_user_note_path(@user, note), class: "note-action", data: {turbo_frame: "modal"} do
+            = fa_icon("pencil")
+          = button_to user_note_path(@user, note), method: :delete, class: "note-action", data: {turbo: false } do
+            = fa_icon("trash")
+      .note-content
+        = note.content
+      .note-date
+        = note.created_at.strftime("%H:%M %d-%m-%Y")
+    .note-line

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'dashboard#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :users do
+    resources :notes
     resources :lessons do
       get :add_attachments
       member do
@@ -17,7 +18,6 @@ Rails.application.routes.draw do
   end
 
   resources :reports
-  
   resources :students, only: [:index, :show, :new, :create, :edit, :update]
   resources :teachers, only: [:index, :show]
 

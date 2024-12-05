@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_01_224104) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_05_003358) do
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -72,6 +72,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_224104) do
     t.datetime "updated_at", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notes", charset: "utf8mb3", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "reports", charset: "utf8mb3", force: :cascade do |t|
@@ -143,6 +152,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_224104) do
   add_foreign_key "lessons", "users", column: "teacher_id"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
+  add_foreign_key "notes", "users"
   add_foreign_key "reports", "users", column: "student_id"
   add_foreign_key "reports", "users", column: "teacher_id"
   add_foreign_key "student_teachers", "users", column: "student_id"

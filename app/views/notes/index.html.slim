@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Notes
+
+#notes
+  - @notes.each do |note|
+    == render note
+    p
+      = link_to "Show this note", note
+
+= link_to "New note", new_note_path

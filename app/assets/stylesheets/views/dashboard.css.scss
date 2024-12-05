@@ -36,6 +36,16 @@
         padding: 2px 5px;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
+
+        .group{
+          display: flex;
+          gap: 5px;
+
+          a{
+            color: $orange-5-color;
+            text-decoration: none;
+          }
+        }
       }
     }
 
@@ -79,6 +89,65 @@
       width: 33%;
       height: 600px;
       overflow-y: scroll;
+
+      .note{
+        background-color: #eff0f4ab;
+        margin: 5px;
+        padding: 4px;
+        border-radius: 5px;
+
+        .note-header{
+          display: flex;
+          justify-content: space-between;
+
+          .note-title{
+            color: #767676;
+            font-size: 14px;
+            font-weight: normal;
+          }
+
+          .note-action-buttons{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            .note-action{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: #9e9e9e;
+              border: none;
+              background-color: #d5d5d58b;
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              font-size: 12px;
+              a{
+                text-decoration: none;
+              }
+            }
+          }
+        }
+
+        .note-content{
+          padding: 4px;
+          color: #767676c8;
+          font-size: 12px;
+          font-weight: light;
+        }
+
+        .note-date{
+          font-size: 10px;
+          text-align: end;
+          color: #767676;
+        }
+      }
+
+      .note-line{
+        width: 100%;
+        height: 1px;
+        border-top: 1px dashed #e4e1e1;
+      }
     }
   }
 
