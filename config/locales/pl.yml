@@ -122,6 +122,7 @@ pl:
   dashboard: Pulpit
   today_lessons: Dzisiejsze zajęcia
   month_calendar: Widok miesięczny
+  my_notes: Moje notatki
 
   activities:
     reservation_created: Dokonał rezerwacji
