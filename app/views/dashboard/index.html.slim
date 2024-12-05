@@ -40,4 +40,9 @@
         .schedule
           - resource = current_user.is_a?(Teacher) ? "T" : "S"
           #calendar data-lessons="#{@lessons.to_json}" data-resource="#{resource}"
+    .user-notes
+      .card-title
+        .text
+          = t(:my_notes)
+
       

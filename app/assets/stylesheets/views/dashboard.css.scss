@@ -44,7 +44,8 @@
       border-radius: 8px;
       height: 600px;
       width: 33%;
-  
+      overflow-y: scroll;
+
       .lesson-block{
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
@@ -53,7 +54,7 @@
         display: flex;
         flex-direction: column;
         gap: 5px;
-  
+        
         .hour, .user{
           color: #212529;
         }
@@ -69,6 +70,15 @@
       border-radius: 8px;
       width: 33%;
       height: 600px;
+      overflow-y: scroll;
+    }
+
+    .user-notes{
+      background-color: white;
+      border-radius: 8px;
+      width: 33%;
+      height: 600px;
+      overflow-y: scroll;
     }
   }
 
