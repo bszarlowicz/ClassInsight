@@ -2,6 +2,13 @@ class Report < ApplicationRecord
   belongs_to :teacher, class_name: 'Teacher', foreign_key: 'teacher_id'
   belongs_to :student, class_name: 'Student', foreign_key: 'student_id'
 
+
+  # validates :parent_email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: "must be a valid email address" }
+  validates :main_school_subject, presence: true
+  validates :level, presence: true
+  validates :grade, presence: true
+  validates :school_rank, presence: true
+
   LEVEL = { 
     0 => :basic,
     1 => :advanced, 

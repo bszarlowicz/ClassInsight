@@ -65,6 +65,7 @@ pl:
         level: Poziom
         grade: Klasa
         school_rank: Rodzaj szkoły
+        parent_email: Email rodzica
       note:
         title: Tytuł
         content: Treść
