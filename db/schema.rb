@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_05_003358) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_10_111942) do
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -92,6 +92,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_003358) do
     t.integer "school_rank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "parent_email"
     t.index ["student_id"], name: "index_reports_on_student_id"
     t.index ["teacher_id"], name: "index_reports_on_teacher_id"
   end

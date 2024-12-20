@@ -5,7 +5,7 @@
     .date
       = Time.zone.now.strftime("%d.%m.%Y")
       .date-weekday
-        = (I18n.t("date.day_names")[Date.today.day-1]).upcase
+        = (I18n.t("date.day_names")[Date.today.day-1])&.upcase
   .dashboard-content
     .today-lessons
       .card-title

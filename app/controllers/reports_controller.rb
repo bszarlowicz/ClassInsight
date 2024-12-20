@@ -12,6 +12,7 @@ class ReportsController < ApplicationController
 
   def create
     @teacher = current_user
+    @student = Student.find(params[:report][:student_id])
 
     @search_url = students_path
     @title = Student.model_name.human(count: 2)
@@ -36,6 +37,7 @@ class ReportsController < ApplicationController
 
   def update
     @teacher = current_user
+    @student = Student.find(params[:report][:student_id])
 
     @search_url = students_path
     @title = Student.model_name.human(count: 2)
