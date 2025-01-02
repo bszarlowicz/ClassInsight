@@ -1,4 +1,3 @@
-
 pl:
   activerecord:
     errors:
@@ -13,10 +12,17 @@ pl:
               blank: "Imię i nazwisko nie może być puste"
             password:
               blank: "Podaj hasło"
-              too_short: Hasło jest za krótkie (przynajmniej 8 znaków)
+              too_short: "Hasło jest za krótkie (przynajmniej 8 znaków)"
               invalid_format: "Hasło musi zawierać przynajmniej 1 cyfrę, 1 dużą literę i 1 znak specjalny"
             password_confirmation:
               confirmation: "Podane hasła nie są identyczne"
+        lesson:
+          attributes:
+            student:
+              required: "Wybór ucznia jest wymagany"
+            duration:
+              blank: "Czas trwania zajęć nie może być pusty"
+
     models:
       user:
         one: "Użytkownik"
