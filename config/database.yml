@@ -5,7 +5,7 @@ development:
   database: classInsight_development
   pool: 5
   username: root
-  password: root
+  password: Polokola1!
 
 test:
   adapter: mysql2
@@ -14,7 +14,7 @@ test:
   database: classInsight_test
   pool: 5
   username: root
-  password: root
+  password: Polokola1!
 
 production:
   adapter: mysql2
@@ -23,4 +23,4 @@ production:
   database: classInsight_production
   pool: 5
   username: root
-  password: root
+  password: Polokola1!
