@@ -22,4 +22,13 @@ Rails.application.routes.draw do
   resources :teachers, only: [:index, :show]
 
   get "up" => "rails/health#show", as: :rails_health_check
+
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: [:show] do
+        resources :lessons, only: [:show]
+      end
+    end
+  end
+  
 end
