@@ -21,7 +21,7 @@ class NotesController < ApplicationController
     @note = @user.notes.new(note_params)
     respond_to do |format|
       if @note.save
-        @notes = @user.notes
+        @notes = @user.notes.order(created_at: :desc)
         flash[:notice] = flash_message(:create, Note)
         format.turbo_stream
         format.json { render :show, status: :created, location: @note }
@@ -37,7 +37,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
-        @notes = @user.notes
+        @notes = @user.notes.order(created_at: :desc)
         flash[:notice] = flash_message(:update, Note)
         format.turbo_stream
         format.json { render :show, status: :created, location: @note }

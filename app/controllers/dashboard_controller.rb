@@ -15,7 +15,7 @@ class DashboardController < ApplicationController
       lesson.attributes.merge(student_name: student.name, teacher_name: teacher.name)
     end
 
-    @notes = @user.notes
+    @notes = @user.notes.order(created_at: :desc)
   end
   
 end
