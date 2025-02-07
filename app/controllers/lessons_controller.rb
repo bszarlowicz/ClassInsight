@@ -1,6 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_lesson, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
   before_action :set_week_days, only: %i[ index new edit update create ]
   before_action :set_lesson_hour, only: %i[ new edit ]
   before_action :set_user, expect: %i[ add_attachments ]
@@ -128,10 +127,6 @@ class LessonsController < ApplicationController
 
     def set_week_days
       @week_days = ["PON", "WTO", "ŚRO", "CZW", "PIĄ", "SOB", "NIE"]
-    end
-
-    def set_lesson
-      @lesson = Lesson.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

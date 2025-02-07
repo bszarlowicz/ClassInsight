@@ -1,6 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_student, only: %i[show]
+  load_and_authorize_resource
   before_action :set_teacher, only: %i[show index new create]
 
   def index
@@ -72,10 +71,6 @@ class StudentsController < ApplicationController
   end
 
   private
-    def set_student
-      @student = Student.find(params[:id])
-    end
-
     def set_teacher
       @teacher = current_user
     end

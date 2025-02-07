@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user
   before_action :set_week_days, only: %i[ index ]
 

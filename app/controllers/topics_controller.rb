@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: %i[ destroy ]
+  load_and_authorize_resource
   before_action :set_student, only: %i[ new  create destroy ]
   before_action :set_lesson, only: %i[ new create destroy ]
 
@@ -38,10 +38,7 @@ class TopicsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_topic
-      @topic = Topic.find(params[:id])
-    end
-
+    
     def set_student
       @student = Student.find(params[:user_id])
     end

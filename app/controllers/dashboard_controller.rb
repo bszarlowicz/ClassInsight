@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   before_action :authenticate_user!
-
+  
   def index
     @user = current_user
     @today_lessons = @user.lessons.select do |lesson|
