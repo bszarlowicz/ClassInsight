@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_user!
   before_action :set_user, only: %i[ new create edit update destroy ]
-  before_action :set_note, only: %i[ show edit update destroy ]
 
   # GET /notes/1 or /notes/1.json
   def show
@@ -61,11 +61,7 @@ class NotesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_note
-      @note = Note.find(params[:id])
-    end
-
+    # Use callbacks to share common setup or constraints between actions
     def set_user
       @user = current_user
     end

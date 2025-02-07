@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[edit update destroy ]
+  load_and_authorize_resource
 
   def new
     @student = Student.find(params[:student_id])
@@ -68,10 +68,6 @@ class ReportsController < ApplicationController
   end
 
   private
-    def set_report
-      @report = Report.find(params[:id])
-    end
-
     def report_params
       params.require(:report).permit(:teacher_id, :student_id, :main_school_subject, :level, :grade, :school_rank)
     end

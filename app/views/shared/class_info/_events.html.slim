@@ -18,8 +18,9 @@
                   .day-item = day
             td.table-item = el.display_school_year
             td.table-items-action
-              - if can?(:manage, Topic)
+              - if can?(:create, Topic)
                 = link_to new_user_lesson_topic_path(@student, el), class: "round-action-button", data: {turbo_frame: "modal"} do
                   = fa_icon("plus")
-              = link_to user_lesson_add_attachments_path(@user, el), class: "round-action-button", data: {turbo_frame: "modal"} do
-                = fa_icon("paperclip")
+              -if can?(:add_attachments, Lesson)
+                = link_to user_lesson_add_attachments_path(@user, el), class: "round-action-button", data: {turbo_frame: "modal"} do
+                  = fa_icon("paperclip")

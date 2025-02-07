@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :authenticate_user!
+  authorize_resource
   before_action :set_current_user, only: %i[ create ]
 
   def create
