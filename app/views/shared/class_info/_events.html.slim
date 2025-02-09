@@ -24,3 +24,7 @@
               -if can?(:add_attachments, Lesson)
                 = link_to user_lesson_add_attachments_path(@user, el), class: "round-action-button", data: {turbo_frame: "modal"} do
                   = fa_icon("paperclip")
+        - unless list.present?
+          .no-data-info
+            = t(:data_on_vacation)
+            = fa_icon("paper-plane-o")

@@ -99,6 +99,10 @@
     overflow-y: scroll;
     width: calc((100% - 20px) * 2 / 3);
   }
+
+  .events:has(.no-data-info){
+    position: relative;
+  }
   
   #student-lessons-history-turbo{
     overflow-y: scroll;
@@ -127,6 +131,10 @@
         font-size: 14px;
       }
     }
+  }
+
+  #student-lessons-history-turbo:has(.no-data-info){
+    position: relative;
   }
 
   .inactive-element{
@@ -209,6 +217,14 @@
     #student-attachments-turbo{
       overflow-y: scroll;
       width: 100%;
+    }
+
+    #teacher-attachments-turbo:has(.no-data-info){
+      position: relative;
+    }
+
+    #student-attachments-turbo:has(.no-data-info){
+      position: relative;
     }
   }
 

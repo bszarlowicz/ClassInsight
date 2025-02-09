@@ -12,3 +12,7 @@
           = e.date
       .topic-title
         = e.title
+  - unless list.present?
+    .no-data-info
+      = t(:data_on_vacation)
+      = fa_icon("paper-plane-o")

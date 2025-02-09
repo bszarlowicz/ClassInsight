@@ -74,6 +74,10 @@
         }
       }
     }
+
+    .today-lessons:has(.no-data-info){
+      position: relative;
+    }
   
     .month-calendar-card{
       background-color: white;
@@ -149,6 +153,11 @@
         border-top: 1px dashed #e4e1e1;
       }
     }
+
+    .user-notes:has(.no-data-info){
+      position: relative;
+    }
+
   }
 
   a{
