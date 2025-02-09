@@ -45,7 +45,8 @@ module ApplicationHelper
       future_dates.min || nil
     end
     nearest_date = nearest_lesson&.occurrences&.map { |date| Date.parse(date) }&.select { |d| d >= Date.today }&.min
-    day_of_week = nearest_date.present? ? I18n.t("days.#{DAYS_OF_WEEK[nearest_date&.wday-1]}") : nil
+    day_number = nearest_date&.wday-1
+    day_of_week = nearest_date.present? ? I18n.t("days.#{DAYS_OF_WEEK[day_number < 0 ? 6 : day_number]}") : nil
     [nearest_lesson&.hour&.strftime("%H:%M"), nearest_date&.strftime("%d-%m-%Y"), day_of_week]
   end
 
