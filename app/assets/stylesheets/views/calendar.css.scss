@@ -125,8 +125,8 @@
   }
 }
 
-.tui-full-calendar-time-schedule{
-}
-
-.tui-full-calendar-time-schedule-content {
+.tui-full-calendar-time-schedule-content.tui-full-calendar-time-schedule-content-time{
+  &:hover{
+    border-left-width: 4px;
+  }
 }
