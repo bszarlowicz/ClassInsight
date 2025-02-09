@@ -140,6 +140,7 @@ pl:
   edit_note: Edytuj notatkę
   fill_student_data: Uzupełnij dodatkowe informacje o uczniu!
   no_info: Brak dodatkowych informacji
+  data_on_vacation: Zawartość jest na urlopie
 
   activities:
     reservation_created: Dokonał rezerwacji

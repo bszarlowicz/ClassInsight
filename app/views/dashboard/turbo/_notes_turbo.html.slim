@@ -14,3 +14,8 @@
       .note-date
         = note.created_at.strftime("%H:%M %d-%m-%Y")
     .note-line
+
+  - unless @notes.present?
+    .no-data-info
+      = t(:data_on_vacation)
+      = fa_icon("paper-plane-o")

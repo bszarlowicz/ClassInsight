@@ -13,3 +13,7 @@
           span.hour = file.created_at.strftime("%H:%M")
           | &nbsp;
           = file.created_at.strftime("%d-%m-%Y")
+  - unless files.present?
+    .no-data-info
+      = t(:data_on_vacation)
+      = fa_icon("paper-plane-o")

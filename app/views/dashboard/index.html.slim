@@ -24,6 +24,10 @@
                 - if @user.is_a?(Student)
                   = image_tag url_for(lesson.teacher.avatar), class: "user-avatar-small" if lesson.teacher.avatar.present?
                   = lesson.teacher.name
+      - unless @today_lessons.present?
+        .no-data-info
+          = t(:data_on_vacation)
+          = fa_icon("paper-plane-o")
     .month-calendar-card
       .card-title
         .text
