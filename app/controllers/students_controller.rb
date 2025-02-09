@@ -26,7 +26,7 @@ class StudentsController < ApplicationController
     @conversation = Conversation.find_by(teacher_id: @teacher.id, student_id: @student.id)
     @messages = Message.where(conversation_id: @conversation&.id)
     @report = Report.find_by(teacher_id: @user.id, student_id: @student)
-    @report_info = [ @report.main_school_subject&.upcase, @report.print_level&.upcase, @report.print_grade&.upcase, @report.print_school_rank&.upcase].compact.join(", ")
+    @report_info = [ @report&.main_school_subject&.upcase, @report&.print_level&.upcase, @report&.print_grade&.upcase, @report&.print_school_rank&.upcase].compact.join(", ")
   end
 
   def new
@@ -37,8 +37,8 @@ class StudentsController < ApplicationController
     @search_url = students_path
     @title = Student.model_name.human(count: 2)
   
-    @students = @teacher.students
-    @search = @students.ransack(params[:q])
+    @search = @teacher.students.ransack(params[:q])
+    @students = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
   
     @student = find_or_initialize_student(params[:student])
   

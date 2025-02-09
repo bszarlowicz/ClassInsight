@@ -4,6 +4,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  #student-report-info-turbo{
+    .name-group{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      .report-info-cont{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+    }
+  }
   .name-group{
     display: flex;
     gap: 10px;

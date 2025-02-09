@@ -16,10 +16,11 @@ class ReportsController < ApplicationController
 
     @search_url = students_path
     @title = Student.model_name.human(count: 2)
-    @students = @teacher.students
-    @search = @students.ransack(params[:q])
+    @search = @teacher.students.ransack(params[:q])
+    @students = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
 
     @report = Report.new(report_params)
+    @report_info = [ @report&.main_school_subject&.upcase, @report&.print_level&.upcase, @report&.print_grade&.upcase, @report&.print_school_rank&.upcase].compact.join(", ")
 
     respond_to do |format|
       if @report.save
@@ -41,11 +42,12 @@ class ReportsController < ApplicationController
 
     @search_url = students_path
     @title = Student.model_name.human(count: 2)
-    @students = @teacher.students
-    @search = @students.ransack(params[:q])
+    @search = @teacher.students.ransack(params[:q])
+    @students = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
 
     respond_to do |format|
       if @report.update(report_params)
+        @report_info = [ @report&.main_school_subject&.upcase, @report&.print_level&.upcase, @report&.print_grade&.upcase, @report&.print_school_rank&.upcase].compact.join(", ")
         flash[:notice] = flash_message(:update, Report)
         format.turbo_stream
         format.json { render :show, status: :created, location: @report }
