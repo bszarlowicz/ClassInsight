@@ -1,3 +1,4 @@
 <%= turbo_stream.replace 'students-turbo-table', partial: 'students/turbo/table_turbo', locals: { list: @students } %>
+<%= turbo_stream.replace 'student-report-info-turbo', partial: 'students/turbo/student_report_turbo', locals: { report: @report, report_info: @report_info } %>
 <%= turbo_stream.replace 'flash_message', partial: 'application/flash' %>
 <%= turbo_stream.replace 'modal', partial: 'shared/empty_modal' %>

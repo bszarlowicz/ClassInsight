@@ -138,6 +138,8 @@ pl:
   my_notes: Moje notatki
   add_note: Dodaj notatkę
   edit_note: Edytuj notatkę
+  fill_student_data: Uzupełnij dodatkowe informacje o uczniu!
+  no_info: Brak dodatkowych informacji
 
   activities:
     reservation_created: Dokonał rezerwacji

@@ -45,6 +45,13 @@ export default class extends Controller {
     });
     this.updateMonthDisplay();
     this.loadEvents();
+    this.calendar.on('clickSchedule', (event) => {
+      const path = event.schedule.raw?.path;
+      if (path) {
+        window.location.href = `/${path}`;
+      }
+    });
+    
   }
 
   loadEvents() {
@@ -69,11 +76,14 @@ export default class extends Controller {
         const formattedEndMinute = end.getMinutes() < 10 ? `0${end.getMinutes()}` : end.getMinutes();
         
         let lesson_title;
+        let lesson_panel_path;
 
         if (resource == "T"){
           lesson_title = `${lesson.student_name}<br>${formattedStartHour}:${formattedStartMinute} - ${formattedEndHour}:${formattedEndMinute}`;
+          lesson_panel_path = "students/" + lesson.student_id 
         } else{
           lesson_title = `${lesson.teacher_name}<br>${formattedStartHour}:${formattedStartMinute} - ${formattedEndHour}:${formattedEndMinute}`;
+          lesson_panel_path = "teachers/" + lesson.teacher_id 
         }
 
         return {
@@ -87,6 +97,7 @@ export default class extends Controller {
           bgColor: lesson.color,
           borderColor: this.darkenRgbaColor(lesson.color),
           color: "#333",
+          raw: { path: lesson_panel_path}
         };
       });
     });

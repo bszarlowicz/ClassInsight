@@ -113,3 +113,12 @@ input.btn.submit-button{
     color: $orange-0-color;
   }
 }
+
+.simple-button{
+  color: $orange-3-color;
+  font-size: 14px;
+
+  &:hover{
+    color: $orange-5-color;
+  }
+}

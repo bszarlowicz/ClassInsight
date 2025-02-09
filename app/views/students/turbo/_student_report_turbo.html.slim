@@ -1,0 +1,14 @@
+= turbo_frame_tag "student-report-info-turbo" do
+  .name-group
+    = image_tag url_for(@student.avatar), class: "student-avatar" if @student.avatar.present?
+    .student-group
+      h3.student-title.mb-0 = @student.name
+      - if report.present?
+        .report-info-cont
+          .report-data = report_info
+          = link_to edit_report_path(report, student_id: @student.id), class: "simple-button pb-1", title: t(:edit_additional_info), data: {turbo_frame: "modal"} do
+            = fa_icon("pencil")
+      - else
+        .report-data
+          = link_to new_report_path(student_id: @student.id), class: "warning-text", title: t(:add_additional_info), data: {turbo_frame: "modal"} do
+            = t(:fill_student_data).upcase

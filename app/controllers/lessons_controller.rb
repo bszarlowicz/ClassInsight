@@ -32,9 +32,10 @@ class LessonsController < ApplicationController
     @lesson = @user.lessons.new(lesson_params)
     @search_url = user_lessons_path
     @search = @user.lessons.ransack(params[:q])
+
     respond_to do |format|
       if @lesson.save
-        @lessons = @user.lessons
+        @lessons = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
         @lessons_to_json = @user.lessons.map do |lesson|
           student = Student.find(lesson.student_id)
           lesson.attributes.merge(student_name: student.name)
@@ -57,7 +58,7 @@ class LessonsController < ApplicationController
 
     respond_to do |format|
       if @lesson.update(lesson_params)
-        @lessons = @user.lessons
+        @lessons = @search.result(distinct: true).order(created_at: :desc).page(params[:page])
 
         events = @user.lessons.where(teacher_id: @lesson.teacher.id, student_id: @lesson.student.id)
         teacher_attachments = events.includes(:teacher_files_attachments).flat_map do |lesson|

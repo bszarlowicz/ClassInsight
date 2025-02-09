@@ -3,8 +3,6 @@
     = image_tag url_for(@teacher.avatar), class: "student-avatar" if @teacher.avatar.present?
     .student-group
       h3.student-title.mb-0 = @teacher.name
-      - if @report.present?
-        .report-data = @report_info
   .next-lesson-group
     - if @events.present? && get_next_lesson_data(@events).present?
       - result = get_next_lesson_data(@events)

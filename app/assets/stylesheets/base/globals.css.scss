@@ -16,6 +16,11 @@ body{
   display: none;
 }
 
+.warning-text{
+  color: $red-danger-main !important;
+  text-decoration: underline !important;
+}
+
 .main-page-header{
   display: flex;
   align-items: center;
