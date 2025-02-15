@@ -89,3 +89,4 @@ gem 'phonelib'
 gem 'ice_cube', '~> 0.17.0'
 gem "simple_calendar"
 gem 'rails-erd'
+gem 'dotenv-rails'
