@@ -89,6 +89,11 @@ class User < ApplicationRecord
       end
     end
 
+    def self.test
+      image_path = Rails.root.join("public/default_user_avatar.png")
+      Rails.logger.info "#{image_path}"
+    end
+
     def password_validation?
       self.password
     end
