@@ -48,7 +48,6 @@ Rails.application.configure do
   # config.action_cable.url = "wss://example.com/cable"
   # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
 
-  "https://mentora-app.pl"
   config.action_cable.allowed_request_origins = ["https://mentora-app.pl", /http:\/\/mentora.*/ ]
 
   # Assume all access to the app is happening through a SSL-terminating reverse proxy.
