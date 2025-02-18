@@ -84,7 +84,7 @@ class User < ApplicationRecord
 
     def set_default_avatar
       unless avatar.attached?
-        image_path = Rails.root.join("app/assets/images/default_user_avatar.png")
+        image_path = Rails.root.join("public/default_user_avatar.png")
         avatar.attach(io: File.open(image_path), filename: 'default_user_avatar.png', content_type: 'image/png')
       end
     end
