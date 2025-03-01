@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'no-reply@example.com'
+  default from: 'no-reply@mentora-app.pl'
 
   def temporary_password(user, temp_password)
     @user = user
