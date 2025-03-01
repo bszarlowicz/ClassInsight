@@ -21,6 +21,7 @@ Rails.application.configure do
     :authentication => ENV["AUTHENTICATION"],
     :openssl_verify_mode => 'none',
     :tls => true,
+    :ssl_version => 'TLSv1_2'
   }
 
   # Eager load code on boot. This eager loads most of Rails and
