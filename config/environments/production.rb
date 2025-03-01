@@ -7,21 +7,19 @@ Rails.application.configure do
   config.enable_reloading = false
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { protocol: 'https', :host => ENV["SERVER_ADDRESS"] }
+  config.action_mailer.default_url_options = { protocol: 'https', host: ENV["SERVER_ADDRESS"] }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true,
-    :ssl => true,
-    :address => ENV["ADDRESS"],
-    :port => 587,
-    :domain => ENV["DOMAIN"],
-    :user_name => ENV["USER_NAME"],
-    :password => ENV["PASSWORD"],
-    :authentication => ENV["AUTHENTICATION"],
-    :openssl_verify_mode => 'none',
-    :tls => true,
-    :ssl_version => 'TLSv1_2'
+    address:              ENV["ADDRESS"],        # should be 'smtp.gmail.com'
+    port:                 587,
+    domain:               ENV["DOMAIN"],         # e.g., 'mentora-app.pl'
+    user_name:            ENV["USER_NAME"],      # your Gmail address
+    password:             ENV["PASSWORD"],       # your Gmail app password
+    authentication:       ENV["AUTHENTICATION"],
+    enable_starttls_auto: true,
+    openssl_verify_mode:  'none',
+    ssl_version:          :TLSv1_2
   }
 
   # Eager load code on boot. This eager loads most of Rails and
