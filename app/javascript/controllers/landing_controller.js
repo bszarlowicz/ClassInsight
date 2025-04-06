@@ -7,6 +7,7 @@ export default class extends Controller {
     const balls = [];
 
     const container = this.element;
+    container.querySelectorAll(".ball").forEach(ball => ball.remove());
     const containerWidth = container.offsetWidth;
     const containerHeight = container.offsetHeight;
 
