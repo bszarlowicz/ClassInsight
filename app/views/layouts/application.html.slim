@@ -5,6 +5,7 @@ html
     meta name='viewport' content='width=device-width, initial-scale=1'
     = csrf_meta_tags
     = csp_meta_tag
+    link rel="icon" type="image/png" href=" #{asset_path 'favicon.png'}"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     link[rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css"]
     link[rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css"]

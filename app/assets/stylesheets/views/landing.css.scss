@@ -1,8 +1,13 @@
 @import "base/colors.css.scss";
 
 .landing{
+  background-color: white !important;
   min-height: 100vh;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   nav{
     font-size: 14px;
     display: flex;
@@ -54,6 +59,8 @@
     align-items: center;
     font-size: 64px;
     line-height: 75px;
+    position: relative;
+    z-index: 10;
 
     .motto-color-one{
       color: $orange-3-color;
@@ -81,6 +88,54 @@
         border-radius: 5px;
         font-size: 15px;
       }
+    }
+  }
+
+  .preview-section{
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 780px;
+    height: 450px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    .preview-header{
+      display: flex; 
+      align-items: center;
+      min-height: 36px;
+      max-height: 36px;
+      width: 100%;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      border-bottom: 1px solid #e6e6e6;
+      padding-left: 20px;
+      gap: 10px;
+      .action-dot-red, .action-dot-green, .action-dot-yellow{
+        aspect-ratio: 1 / 1;
+        border-radius: 100%;
+        width: 10px;
+        height: 10px;
+      }
+
+      .action-dot-green{
+        background-color: #34c759;
+      }
+
+      .action-dot-red{
+        background-color: #ff3b30;
+      }
+
+      .action-dot-yellow{
+        background-color: #fc0;
+      }
+    }
+
+    .preview_image{
+      width: 100%;
+      height: 100%;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
     }
   }
 }
