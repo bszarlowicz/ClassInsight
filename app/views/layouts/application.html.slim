@@ -13,6 +13,15 @@ html
     = javascript_importmap_tags
 
   body
+    .mobile-info
+      .info
+        = image_tag asset_url("mentora_lighthouse.svg"), class: "logo"
+      .info
+        = t(:mobile_temp_info)
+      .info
+        = t(:sorry_for_the_inconvenience)
+      .info
+        = t(:mentora_team)
     = turbo_frame_tag "modal"
     - unless controller_name == 'sessions'
       = render 'flash'

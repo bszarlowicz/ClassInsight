@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
   
   def show_left_menu?
-    !(devise_controller? && (controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords"))
+    !(devise_controller? && (controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords") || controller_name == "landing")
   end
 
   def generate_random_password(length = 12)

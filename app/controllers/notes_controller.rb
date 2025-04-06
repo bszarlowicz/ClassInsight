@@ -55,7 +55,7 @@ class NotesController < ApplicationController
     @note.destroy!
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: flash_message(:destroy, Note) }
+      format.html { redirect_to dashboard_path, notice: flash_message(:destroy, Note) }
       format.json { head :no_content }
     end
   end

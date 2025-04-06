@@ -141,6 +141,13 @@ pl:
   fill_student_data: Uzupełnij dodatkowe informacje o uczniu!
   no_info: Brak dodatkowych informacji
   data_on_vacation: Zawartość jest na urlopie
+  about: O nas
+  FAQ: FAQs
+  contact: Kontakt
+  join_us: Dołącz do nas!
+  mobile_temp_info: Pracujemy nad wdrożeniem wersji mobilnej.
+  sorry_for_the_inconvenience: Przepraszamy za utrudnienia!
+  menotra_team: Zespół Mentora.
 
   activities:
     reservation_created: Dokonał rezerwacji

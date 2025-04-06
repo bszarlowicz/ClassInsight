@@ -1,0 +1,75 @@
+@import "base/colors.css.scss";
+
+.landing{
+  min-height: 100vh;
+  width: 100%;
+  nav{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    .logo{
+      height: 50px;
+    }
+
+    .nav-action{
+      display: flex;
+      gap: 15px;
+      a{
+        color: $orange-4-color;
+        text-decoration: none;
+
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .nav-login{
+      width: 225px;
+      display: flex;
+      justify-content: end;
+      .nav-login-button{
+        text-decoration: none !important;
+        background-color: $orange-4-color;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .motto{
+    padding-top: 100px;
+    display: flex;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+    line-height: 75px;
+
+    .motto-color-one{
+      color: $orange-3-color;
+    } 
+
+    .motto-color-two{
+      color: $orange-5-color;
+    }
+
+    .description{
+      margin-top: 20px;
+      font-size: 16px;
+      max-width: 650px;
+      line-height: 20px;
+      text-align: center;
+      font-weight: 300;
+    }
+  }
+}

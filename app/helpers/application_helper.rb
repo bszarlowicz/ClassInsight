@@ -78,7 +78,7 @@ module ApplicationHelper
     elsif user.is_a?(Student)
       teacher_path(lesson.teacher)
     else
-      root_path
+      dashboard_path
     end
   end
 

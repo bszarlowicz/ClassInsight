@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'dashboard#index'
+  # root 'dashboard#index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :users do
     resources :notes
@@ -31,5 +31,8 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
+  get 'dashboard', to: 'dashboard#index'
+  get 'landing', to: 'landing#index'
+  root 'landing#index'
 end

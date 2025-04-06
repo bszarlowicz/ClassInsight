@@ -1,7 +1,7 @@
 .left-menu
   .left-menu-container
     .top
-      = link_to root_path do
+      = link_to dashboard_path do
         = image_tag asset_url("mentora_logo_inline.svg"), class: "logo"
       .main-links
         - if current_user.is? :admin

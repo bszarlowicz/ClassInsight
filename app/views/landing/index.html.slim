@@ -1,0 +1,22 @@
+.landing
+  nav
+    = image_tag asset_url("mentora_logo_inline.svg"), class: "logo"
+    .nav-action
+      = link_to t(:about), "#"
+      = link_to t(:FAQ), "#"
+      = link_to t(:contact), "#"
+    .nav-login
+      = link_to t(:join_us), dashboard_path, class: "nav-login-button"
+  .motto-container
+    .ball-container data-controller="landing"
+    .motto
+      .one
+        | Porządek w 
+        span.motto-color-one pracy
+      .two
+        | Efektywność w 
+        span.motto-color-two nauce
+      .description
+        | Dzięki aplikacji, która zapewnia łatwą organizację zajęć pozaszkolnych 
+        br
+        | oraz łączy nauczycieli, uczniów i rodziców w jednym miejscu. 

@@ -1,4 +1,4 @@
-= render "left_menu_link", icon: "dashboard", text: t(:dashboard), url: root_path, active: params[:controller] == "dashboard"
+= render "left_menu_link", icon: "dashboard", text: t(:dashboard), url: dashboard_path, active: params[:controller] == "dashboard"
 = render "left_menu_link", icon: "users", text: t(:students), url: students_path, active: params[:controller] == "students"
 = render "left_menu_link", icon: "calendar", text: t(:calendar), url: user_schedule_path(current_user), active: (params[:controller] == "schedules" || (params[:controller] == "lessons" && params[:action] == "new"))
 = render "left_menu_link", icon: "graduation-cap", text: Lesson.model_name.human(count: 2), url: user_lessons_path(current_user), active: (params[:controller] == "lessons" && params[:action] != "new")

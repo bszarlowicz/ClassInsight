@@ -1,5 +1,32 @@
 @import "base/colors.css.scss";
 
+@media only screen and (max-width: 600px) {
+  .mobile-info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $orange-0-color;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $orange-5-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden !important;
+  }
+
+  .landing{
+    overflow: hidden !important;
+  }
+}
+
+
 @media only screen and (max-width: 850px) {
     .login-container{
         width: 90vw;
