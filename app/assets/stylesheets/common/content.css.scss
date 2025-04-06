@@ -125,15 +125,11 @@
   margin-bottom: 30px;
 }
 
-.motto-container {
-  position: relative;
-}
-
 .ball-container {
   position: absolute;
-  top: 0;
+  top: 80px;
   left: 0;
-  width: 100vw;
+  width: 100vw !important;
   height: 50vh;
   overflow: hidden;
 }

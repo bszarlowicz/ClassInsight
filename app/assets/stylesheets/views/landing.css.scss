@@ -9,6 +9,11 @@
   align-items: center;
   flex-direction: column;
   nav{
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     font-size: 14px;
     display: flex;
     align-items: center;
@@ -100,6 +105,7 @@
     background-color: white;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
+    z-index: 500;
     .preview-header{
       display: flex; 
       align-items: center;
