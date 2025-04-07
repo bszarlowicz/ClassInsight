@@ -7,7 +7,10 @@ export default class extends Controller {
       direction: 'ttb',
       height: '10rem',
       wheel: true,
-      releaseWheel: true,
+      waitForTransition: true,
+      wheelMinThreshold: 30,
+      perPage: 1,
+      releaseWheel: false,
       autoplay: true,
     } );
 
