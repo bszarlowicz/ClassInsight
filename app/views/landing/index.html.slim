@@ -22,9 +22,34 @@
         | oraz łączy nauczycieli, uczniów i rodziców w jednym miejscu.
       .motto-action
         = link_to t(:do_it_together), dashboard_path, class: "motto-login-button"
-  .preview-section
-    .preview-header
-      .action-dot-red
-      .action-dot-yellow
-      .action-dot-green
-    = image_tag asset_url("mentora_preview_1.png"), class: "preview_image"
+      .more-button
+        = link_to "#preview", class: "arrow" do
+          = fa_icon("angle-down")
+
+  .preview-container
+    .preview-section#preview
+      .preview-header
+        .action-dot-red
+        .action-dot-yellow
+        .action-dot-green
+      .splide[data-controller="splide"]
+        .splide__track
+          ul.splide__list
+            li.splide__slide
+              = image_tag asset_url("mentora_preview_1.png"), class: "preview_image"
+            li.splide__slide
+              = image_tag asset_url("mentora_preview_5.png"), class: "preview_image"
+            li.splide__slide
+              = image_tag asset_url("mentora_preview_2.png"), class: "preview_image"
+            li.splide__slide
+              = image_tag asset_url("mentora_preview_3.png"), class: "preview_image"
+            li.splide__slide
+              = image_tag asset_url("mentora_preview_7.png"), class: "preview_image"
+            li.splide__slide
+              = image_tag asset_url("mentora_preview_4.png"), class: "preview_image"
+            li.splide__slide
+              = image_tag asset_url("mentora_preview_6.png"), class: "preview_image"
+            li.splide__slide
+              = image_tag asset_url("mentora_preview_8.png"), class: "preview_image"
+            li.splide__slide
+              = image_tag asset_url("mentora_preview_9.png"), class: "preview_image"
