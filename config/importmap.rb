@@ -20,3 +20,5 @@ pin "tui-time-picker", to: "https://ga.jspm.io/npm:tui-time-picker@2.1.6/dist/tu
 pin "@rails/ujs", to: "https://ga.jspm.io/npm:@rails/ujs@7.1.3-4/app/assets/javascripts/rails-ujs.esm.js"
 pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"
 pin "@jaames/iro", to: "https://ga.jspm.io/npm:@jaames/iro@5.5.2/dist/iro.es.js"
+pin "@splidejs/splide", to: "https://ga.jspm.io/npm:@splidejs/splide@4.1.4/dist/js/splide.esm.js"
+pin "@splidejs/splide/css", to: "https://ga.jspm.io/npm:@splidejs/splide@4.1.4/dist/css/splide.min.css"

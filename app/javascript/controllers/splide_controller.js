@@ -1,9 +1,9 @@
 import { Controller } from '@hotwired/stimulus';
-import Splide from '@splidejs/splide';
-
+import { Splide } from '@splidejs/splide';
+ 
 export default class extends Controller {
   connect() {
-    const splide = new Splide( '.splide', {
+    const splide = new Splide('.splide', {
       direction: 'ttb',
       height: '10rem',
       wheel: true,
@@ -12,7 +12,7 @@ export default class extends Controller {
       perPage: 1,
       releaseWheel: false,
       autoplay: true,
-    } );
+    });
 
     splide.mount();
   }
