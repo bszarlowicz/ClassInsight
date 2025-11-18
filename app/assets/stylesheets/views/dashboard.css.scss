@@ -54,7 +54,7 @@
       border-radius: 8px;
       height: 600px;
       width: 33%;
-      overflow-y: scroll;
+      overflow-y: auto;
 
       .lesson-block{
         border-top-right-radius: 5px;
@@ -84,7 +84,7 @@
       border-radius: 8px;
       width: 33%;
       height: 600px;
-      overflow-y: scroll;
+      overflow-y: auto;
     }
 
     .user-notes{
@@ -92,7 +92,7 @@
       border-radius: 8px;
       width: 33%;
       height: 600px;
-      overflow-y: scroll;
+      overflow-y: auto;
 
       .note{
         background-color: #eff0f4ab;

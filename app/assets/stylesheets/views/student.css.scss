@@ -96,7 +96,7 @@
     height: 250px;
   }
   .events{
-    overflow-y: scroll;
+    overflow-y: auto;
     width: calc((100% - 20px) * 2 / 3);
   }
 
@@ -105,7 +105,7 @@
   }
   
   #student-lessons-history-turbo{
-    overflow-y: scroll;
+    overflow-y: auto;
     width: calc((100% - 20px) / 3);
     .topic-element{
       display: flex;
@@ -210,12 +210,12 @@
     align-items: center;
     gap: 20px;
     #teacher-attachments-turbo{
-      overflow-y: scroll;
+      overflow-y: auto;
       width: 100%;
     }
   
     #student-attachments-turbo{
-      overflow-y: scroll;
+      overflow-y: auto;
       width: 100%;
     }
 
@@ -229,7 +229,7 @@
   }
 
   .chat{
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     flex: 1;
   }

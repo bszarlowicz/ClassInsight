@@ -1,5 +1,43 @@
 @import "base/colors.css.scss";
 
+body, html {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $orange-2-color transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 2px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: $orange-2-color;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  
+  &:hover {
+    background: darken($orange-2-color, 5%);
+    background-clip: padding-box;
+  }
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+
+
 .content{
   padding: 20px;
   display: flex;
@@ -91,7 +129,7 @@
       margin-right: 20px;
       border-top-left-radius: 14px;
       border-top-right-radius: 14px;
-      overflow-y: scroll;
+      overflow-y: auto;
     }
 
     .right-content:has(#lesson-calendar) {
@@ -129,9 +167,8 @@
   position: absolute;
   top: 80px;
   left: 0;
-  width: 100vw !important;
+  width: 90vw !important;
   height: 90vh;
-  overflow: hidden;
 }
 
 .ball {

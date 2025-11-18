@@ -120,7 +120,7 @@ form.main-form{
 .attachment-list{
   padding: 10px;
   max-height: 400px;
-  overflow-y: scroll;
+  overflow-y: auto;
   border: 2px dashed #eff0f4;
   border-radius: 8px;
 }
