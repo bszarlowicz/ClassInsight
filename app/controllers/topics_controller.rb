@@ -15,7 +15,7 @@ class TopicsController < ApplicationController
     respond_to do |format|
       if @topic.save
         @topics = @student.lessons.where(teacher_id: current_user.id).includes(:topics).flat_map(&:topics).sort_by(&:date).reverse
-        @next_topic_date = @topics.select { |topic| topic.date > Date.today }.sort_by(&:date).first&.date if @topics.present?
+        @next_topic_date = @topics.select { |topic| topic.date >= Date.today }.sort_by(&:date).first&.date if @topics.present?
         flash[:notice] = flash_message(:create, Topic)
         format.turbo_stream
         format.json { render :show, status: :created, location: @topic }

@@ -1,11 +1,43 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+teacher_one:
+  type: Teacher
+  email: teacher1@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  name: Jan Kowalski
+  phone: "+48123456789"
+  disabled: false
+  confirmed_at: <%= Time.now %>
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+teacher_two:
+  type: Teacher
+  email: teacher2@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  name: Maria Wiśniewska
+  phone: "+48111222333"
+  disabled: false
+  confirmed_at: <%= Time.now %>
+
+student_one:
+  type: Student
+  email: student1@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  name: Anna Nowak
+  phone: "+48987654321"
+  disabled: false
+  confirmed_at: <%= Time.now %>
+
+student_two:
+  type: Student
+  email: student2@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  name: Piotr Kowalczyk
+  phone: "+48555666777"
+  disabled: false
+  confirmed_at: <%= Time.now %>
+
+regular_user:
+  email: user@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  name: Regular User
+  phone: "+48444555666"
+  disabled: false
+  confirmed_at: <%= Time.now %>

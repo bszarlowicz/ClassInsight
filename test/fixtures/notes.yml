@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  content: MyText
-  user: one
+  title: Pierwsza notatka
+  content: Treść pierwszej notatki
+  user: regular_user
 
 two:
-  title: MyString
-  content: MyText
-  user: two
+  title: Druga notatka
+  content: Treść drugiej notatki
+  user: teacher_one

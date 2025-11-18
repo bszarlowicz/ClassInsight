@@ -1,9 +1,19 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  dayOfWeek: MyString
-  hour: 2024-02-18 21:22:00
+  teacher_id: <%= ActiveRecord::FixtureSet.identify(:teacher_one) %>
+  student_id: <%= ActiveRecord::FixtureSet.identify(:student_one) %>
+  hour: 2024-02-18 10:00:00
+  year: 2024
+  duration: 60
+  days_of_week: [0, 2]
+  occurrences: []
+  color: "#FF5733"
 
 two:
-  dayOfWeek: MyString
-  hour: 2024-02-18 21:22:00
+  teacher_id: <%= ActiveRecord::FixtureSet.identify(:teacher_one) %>
+  student_id: <%= ActiveRecord::FixtureSet.identify(:student_two) %>
+  hour: 2024-02-18 14:00:00
+  year: 2024
+  duration: 45
+  days_of_week: [1, 3]
+  occurrences: []
+  color: "#33FF57"
